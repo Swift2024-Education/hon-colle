@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_PRISMA_URL")
+}
+
+model books {
+  book_number      BigInt  @id
+  title            String
+  author           String
+  subtitle         String?
+  publisher        String
+  category_number  String?
+  authorname_short String?
+  volume           String?
+  incoming_date    String?
+  isbn             BigInt?
+  title_kana       String
+  author_kana      String
+}
