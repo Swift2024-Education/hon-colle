@@ -1,33 +1,28 @@
-import Pagination from "../ui/pagenation";
-import Search from "../ui/search";
-import { fetchSearchPages } from "../lib/data";
-import Table from "../ui/table";
+//import Image from "next/image";
+import Link from "next/link";
+import { BookOpenIcon } from "@heroicons/react/24/outline";
 
-export default async function page(props: {
-    searchParams?: Promise<{
-        query?: string;
-        page?: string;
-    }>;
-}) {
-    const searchParams = await props.searchParams;
-    const query = searchParams?.query || '';
-    const currentPage = Number(searchParams?.page) || 1;
-    const totalPages = await fetchSearchPages('query');
-
-    return(
-        <>
-            <div className="bg-gradient-to-b from-white to-stone-300 h-dvh">
-                <h1 className="text-center text-gray-700 text-3xl text-bold p-5">
-                    Search Page
-                </h1>
-                <div className="mt-4 flex items-center justify-between gap-2 md:mt-8 text-gray-700">
-                    <Search placeholder="Search books..." />
-                </div>
-                <Table query={query} currentPage={currentPage} />
-                <div className="mt-5 flex w-full justify-center">
-                    <Pagination totalPages={totalPages} />
-                </div>
-            </div>
-        </>
-    );
+export default function Page() {
+  return (
+    <>
+      <div className="bg-gradient-to-b from-white to-stone-300 h-dvh">
+        <h1 className='text-gray-700 text-5xl p-8 font-bold'>
+          Search Page
+        </h1>
+        <h2 className="text-gray-700 pl-8 p-1 text-xl">
+          Links to Search Books:
+        </h2>
+        <ul className="text-gray-800 pl-8 p-1 text-xl">
+          <li className="flex flex-row grow items-center gap-1 hover:text-blue-600 bg-neutral-400 rounded-md m-1 max-w-56 hover:bg-amber-50">
+            <BookOpenIcon className="w-9"/>
+            <Link href="/search/keywordsearch">Keyword Search</Link>
+          </li>
+          <li className="flex flex-row grow items-center gap-1 hover:text-blue-600 bg-neutral-400 rounded-md m-1 max-w-56 hover:bg-amber-50">
+            <BookOpenIcon className="w-9"/>
+            <Link href="/search/categorysearch">Category Search</Link>
+          </li>
+        </ul>
+      </div>
+    </>
+  );
 }
