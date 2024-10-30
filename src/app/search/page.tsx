@@ -21,6 +21,10 @@ export default function Page() {
             <BookOpenIcon className="w-9"/>
             <Link href="/search/categorysearch">Category Search</Link>
           </li>
+          <li className="flex flex-row grow items-center gap-1 hover:text-blue-600 bg-neutral-400 rounded-md m-1 max-w-56 hover:bg-amber-50">
+            <BookOpenIcon className="w-9"/>
+            <Link href="/search/categorysearch2">Category Search copy</Link>
+          </li>
         </ul>
       </div>
     </>
