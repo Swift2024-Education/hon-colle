@@ -1,7 +1,7 @@
 import Pagination from "@/app/ui/pagenation";
 import Search from "@/app/ui/search";
 import { fetchSearchPages } from "@/app/lib/data";
-import Table from "@/app/ui/table";
+import KeywordTable from "@/app/ui/keywordtable";
 
 export default async function Page(props: {
     searchParams?: Promise<{
@@ -25,7 +25,7 @@ export default async function Page(props: {
                     <Search placeholder="ここに にゅうりょく して けんさく" />
                     {/*検索バーを表示、詳細な中身は/ui/search.tsx*/}
                 </div>
-                <Table query={query} currentPage={currentPage} />
+                <KeywordTable query={query} currentPage={currentPage} />
                 {/*キーワード検索の結果を整形して表示するための関数、中身は/ui/table.tsx*/}
                 <div className="mt-5 flex w-full justify-center">
                     <Pagination totalPages={totalPages} />
