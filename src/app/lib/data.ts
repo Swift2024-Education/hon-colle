@@ -38,6 +38,7 @@ export async function fetchSearchPages(query: string) {
     //検索結果の画面で1ページあたりに表示したい最大数で割った数を返す
 }
 
+
 export async function fetchBooksByQuery(
     //検索ワードを含む本の情報を取得する関数
     query: string,
@@ -82,5 +83,29 @@ export async function fetchBooksByQuery(
         },
         //返却する情報の種類を選択
     })
+    return books;
+}
+
+export async function fetchBooksByCategory(
+    categoryNumber: string,  // 1桁の数字（カテゴリ番号）
+    currentPage: number,
+) {
+    const offset = (currentPage - 1) * ITEMS_PER_PAGE;
+
+    const books = await prisma.books.findMany({
+        skip: offset,
+        take: ITEMS_PER_PAGE,
+        where: {
+            category_number: categoryNumber, // カテゴリ番号が一致するものを取得
+        },
+        select: {
+            book_number: true,
+            title: true,
+            title_kana: true,
+            author_kana: true,
+            isbn: true,
+        },
+    });
+
     return books;
 }
