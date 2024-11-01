@@ -1,8 +1,26 @@
 import Link from "next/link";
 import { BookOpenIcon } from "@heroicons/react/24/outline";
 
+interface Category{
+  label: string;
+  value: string;
+}
+{/*labelが表示名、valueがカテゴリを表す数字*/}
 
-const category: string[] = ['Alice', 'Bob', 'Charlie', 'Alice', 'Bob', 'Charlie', 'Alice', 'Bob', 'Charlie']
+
+const category: Category[] = [
+  { label: 'NARUTO', value: '00' },
+  { label: 'BORUTO', value: '10' },
+  { label: 'BLEACH', value: '20' },
+  { label: '無職転生', value: '30' },
+  { label: '探もし', value: '40' },
+  { label: 'よう実', value: '50' },
+  { label: 'だんまち', value: '60' },
+  { label: '陰実', value: '70' },
+  { label: '転スラ', value: '80' },
+  { label: 'リコリコ', value: '90' },
+];
+{/*各カテゴリー用配列*/}
 
 
 export default function Page() {
@@ -14,16 +32,18 @@ export default function Page() {
 
         {/* Grid Container */}
         <div className="grid grid-cols-4 gap-x-4 gap-y-4 p-4">
-          {/* Individual Category Links */}
 
-          {category.map((category, index) => (
-            <div key={index} className="flex flex-row items-center gap-3 hover:text-blue-600 bg-neutral-200 rounded-md m-1 max-w-full w-full h-48 hover:bg-amber-50">
-              <BookOpenIcon className="w-9" />
-              <Link href="/">{category}</Link>
-            </div>
+
+          {category.map((category) => (
+            <Link href={{ pathname: "./categorysearch/categorysearchresult/", query: { value: category.value, label:category.label } }}>
+              {/*pathとqueryを渡している※"as"は使ってはいけない*/}
+              <div key={category.value} className="flex flex-row items-center gap-3 hover:text-blue-600 bg-neutral-100 rounded-md m-1 max-w-full w-full h-48 hover:bg-amber-50" >
+                {/*キーはvalueを使用*/}
+                <BookOpenIcon className="w-9" />
+                <span className="text-lg font-semibold text-red-500">{category.label}</span>
+              </div>
+            </Link>
           ))}
-
-          {/* Add additional category links as needed */}
         </div>
       </div>
 
