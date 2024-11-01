@@ -35,9 +35,9 @@ export default function Page() {
 
 
           {category.map((category) => (
-            <Link href={{ pathname: "./categorysearch/categorysearchresult/", query: { value: category.value, label:category.label } }}>
+            <Link key={category.label} href={`/categories/${category.value}`}>
               {/*pathとqueryを渡している※"as"は使ってはいけない*/}
-              <div key={category.value} className="flex flex-row items-center gap-3 hover:text-blue-600 bg-neutral-100 rounded-md m-1 max-w-full w-full h-48 hover:bg-amber-50" >
+              <div className="flex flex-row items-center gap-3 hover:text-blue-600 bg-neutral-100 rounded-md m-1 max-w-full w-full h-48 hover:bg-amber-50" >
                 {/*キーはvalueを使用*/}
                 <BookOpenIcon className="w-9" />
                 <span className="text-lg font-semibold text-red-500">{category.label}</span>
