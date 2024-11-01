@@ -9,16 +9,16 @@ interface Category{
 
 
 const category: Category[] = [
-  { label: 'NARUTO', value: '00' },
-  { label: 'BORUTO', value: '10' },
-  { label: 'BLEACH', value: '20' },
-  { label: '無職転生', value: '30' },
-  { label: '探もし', value: '40' },
-  { label: 'よう実', value: '50' },
-  { label: 'だんまち', value: '60' },
-  { label: '陰実', value: '70' },
-  { label: '転スラ', value: '80' },
-  { label: 'リコリコ', value: '90' },
+  { label: 'NARUTO', value: '0' },
+  { label: 'BORUTO', value: '1' },
+  { label: 'BLEACH', value: '2' },
+  { label: '無職転生', value: '3' },
+  { label: '探もし', value: '4' },
+  { label: 'よう実', value: '5' },
+  { label: 'だんまち', value: '6' },
+  { label: '陰実', value: '7' },
+  { label: '転スラ', value: '8' },
+  { label: 'リコリコ', value: '9' },
 ];
 {/*各カテゴリー用配列*/}
 
