@@ -1,4 +1,4 @@
-//import Image from 'next/image';
+import Image from 'next/image';
 import { fetchBooksByQuery } from '../lib/data';
 //キーワード検索のための関数をdataからインポート
 
@@ -23,8 +23,15 @@ export default async function KeywordTable({
                         {/*テキストと枠、背景の色、サイズ、テキストの折り返し設定(これ動いてるのかどうか不明)*/}
                         <div className='text-center'>
                             {/*帰ってきた結果から、ひらがなのタイトルと著者名だけ選択して表示*/}
+                            {/*<Image
+                                src="https://ndlsearch.ndl.go.jp/thumbnail/9784798626048.jpg"
+                                width={100}
+                                height={150}
+                                alt="{books.title_kana}の表紙"
+                            />*/}
                             <div className='text-2xl'>{books.title_kana}</div>
                             <div className='text-lg'>{books.author_kana}</div>
+                            <div className='text-sm'>{books.isbn}</div>
                         </div>
                     </div>
                 ))}
