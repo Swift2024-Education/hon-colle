@@ -41,7 +41,7 @@ const Header = () => {
               width={sizes[index].width}   // 幅を指定
               height={sizes[index].height}
             />
-            <div className="labels">{labels[index]}</div>t 
+            <div className="labels">{labels[index]}</div>
           </div>
         ))}
       </div>
