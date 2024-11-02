@@ -16,7 +16,14 @@ const Header = () => {
 
  const colors = ['#EA5415', '#73BB2B', '#E7CF33', '#E20615', '#2FA8E1', '#8E8E8E'];/*円の色を左から*/
  const icons = [home_icon,search_icon,register_icon,recommendation_icon,information_icon,setting_icon];
- const labels = ['本だな','本をさがす','本のとうろく','おすすめの本','つかいかた','せってい']
+ const labels = ['本だな','本をさがす','本のとうろく','おすすめの本','つかいかた','せってい'];
+ const links = [
+    "/categories",       // Bookshelf
+    "/search",          // Search Books
+    "/uploder",        // Register Book
+    "/recommendation",  // Recommended Books
+    "/howToUse",      // How to Use
+    "/setting"];
 
  const sizes = [
   { width: 90, height: 0 }, // home_icon
@@ -32,17 +39,20 @@ const Header = () => {
       <div className="icon-container">
         {/* 左側のアイコン */}
         {colors.slice(0, 3).map((color, index) => (
-          <div key={index} className="circle" style={{ backgroundColor: color }}>
-            <div className="small-circle" />
-            <Image 
-              src={icons[index]} 
-              alt={labels[index]} 
-              className="icons" 
-              width={sizes[index].width}   // 幅を指定
-              height={sizes[index].height}
-            />
+          <a key={index} href={links[index]}>
+            <div className="circle" style={{ backgroundColor: color }}>
+              <div className="small-circle flex items-center justify-center" >
+                <Image 
+                  src={icons[index]} 
+                  alt={labels[index]} 
+                  className="icons" 
+                  width={sizes[index].width}   // 大きさを指定
+                  height={sizes[index].height}
+                />
+                </div>
+              </div>
             <div className="labels">{labels[index]}</div>
-          </div>
+          </a>
         ))}
       </div>
 
@@ -54,17 +64,20 @@ const Header = () => {
       <div className="icon-container">
         {/* 右側のアイコン */}
         {colors.slice(3).map((color, index) => (
-          <div key={index} className="circle" style={{ backgroundColor: color }}>
-            <div className="small-circle" />
-            <Image 
-              src={icons[index + 3]} // 右側のアイコンはインデックスをずらす
-              alt={labels[index + 3]} 
-              className="icons" 
-              width={sizes[index + 3].width}   // 幅を指定
-              height={sizes[index +3].height}
-            />
+          <a key={index} href={links[index + 3]}>
+            <div className='circle' style={{ backgroundColor: color }}>
+              <div className="small-circle flex items-center justify-center" >
+              <Image 
+                src={icons[index + 3]} // 右側のアイコンはインデックスをずらす
+                alt={labels[index + 3]} 
+                className="icons" 
+                width={sizes[index + 3].width}   // 大きさを指定
+                height={sizes[index +3].height}
+              />
+              </div>
+            </div>
             <div className="labels">{labels[index + 3]}</div>
-          </div>
+          </a>
         ))}
       </div>
     </header>

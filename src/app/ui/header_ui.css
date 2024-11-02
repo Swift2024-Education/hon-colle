@@ -6,6 +6,7 @@
   align-items: center;        /* 縦方向の中央揃え */
   justify-content: center;     /* 中央揃え */
   padding: 40px;
+  
 }
 
 .icon-container {
@@ -16,31 +17,19 @@
 
 /* アイコンの円 */
 .circle {
-  width: 180px; 
-  height: 180px; 
+  width: 180px;
+  height: 180px;
+  padding: 10px;
   border-radius: 50%; /* 円形にする */
-  position: relative; /* 内側の円の絶対位置を指定するために相対位置 */
-}
-
-/*アイコン画像*/
-.icons{
-  position: absolute; /* 円に対する絶対位置 */
-  top: 50%; /* 縦方向の中央揃え */
-  left: 50%; /* 横方向の中央揃え */
-  transform: translate(-50%, -50%); /* 中心を合わせる */
 }
 
 /* 内側の円 */
 .small-circle {
   width: 160px; 
-  height: 160px; 
+  height: 160px;
   border-radius: 50%; /* 円形にする */
   border: 4px dashed #FFFFFF; /* 内側の円の波線の色と太さ */
   background-color: transparent; /* 内側の円の背景色（透明） */
-  position: absolute; /* 親要素に対する絶対位置 */
-  top: 50%; /* 縦方向の中央揃え */
-  left: 50%; /* 横方向の中央揃え */
-  transform: translate(-50%, -50%); /* 中心を合わせる */
 }
 
 .circle:hover .small-circle{
@@ -49,11 +38,10 @@
 
 .labels {
   text-align: center; 
-  margin-top: 190px;
+  margin-top: 10px;
   font-weight: 500;
-  font-size: 20px; 
-  color: #474747; 
-
+  font-size: 20px;
+  color: #474747;
 }
 
 .logo {
