@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { notojp } from "@/app/fonts";
+import Header from "./ui/header";
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +18,8 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={notojp.className}
-      >
+      >  
+       <Header />
         {children}
       </body>
     </html>
