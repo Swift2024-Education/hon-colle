@@ -63,7 +63,7 @@ const Header = () => {
               width={sizes[index + 3].width}   // 幅を指定
               height={sizes[index +3].height}
             />
-            <div className="labels">{labels[index]}</div>
+            <div className="labels">{labels[index + 3]}</div>
           </div>
         ))}
       </div>
