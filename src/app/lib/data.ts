@@ -91,8 +91,8 @@ export async function fetchBooksByCategory(
     categoryNumber: string,  // 1桁の数字（カテゴリ番号）
     currentPage: number,
 ) {
-    const lowerBound = (parseInt(categoryNumber) * 100).toString() // カテゴリ番号の下限
-    const upperBound = (parseInt(lowerBound) + 99).toString() // カテゴリ番号の上限
+    const lowerBound = (parseInt(categoryNumber) * 100).toString().padStart(3, '0') // カテゴリ番号の下限
+    const upperBound = (parseInt(lowerBound) + 99).toString().padStart(3, '0') // カテゴリ番号の上限
 
     const offset = (currentPage - 1) * ITEMS_PER_PAGE;
 
@@ -105,6 +105,9 @@ export async function fetchBooksByCategory(
                 lte: upperBound  // 上限（文字列型）
             }
         },
+        orderBy: {
+            category_number: 'desc',  // category_numberで降順に並べ替え
+        },
         select: {
             book_number: true,
             title: true,
@@ -115,6 +118,8 @@ export async function fetchBooksByCategory(
         },
     });
 
+    //const filteredBooks = books.filter((book) => book.category_number?.length === 3);
+    //return filteredBooks;
     return books;
 }
 
