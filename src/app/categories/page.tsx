@@ -5,7 +5,7 @@ interface Category{
   label: string;
   value: string;
 }
-{/*labelが表示名、valueがカテゴリを表す数字*/}
+{/*labelが表示名、valueがカテゴリを表す番号*/}
 
 
 const category: Category[] = [
@@ -19,8 +19,11 @@ const category: Category[] = [
   { label: '陰実', value: '7' },
   { label: '転スラ', value: '8' },
   { label: 'リコリコ', value: '9' },
+  { label: 'ぐらんぶる', value: 'e' },//絵本
+  { label: '滲みだす混濁の紋章不遜なる狂気の器湧き上がり否定し痺れま瞬き眠りを妨げる爬行する鉄の王女絶えず自壊する泥の人形結合せよ反発せよ地に満ち己の無力を知れ', value: '10' },//その他
 ];
 {/*各カテゴリー用配列*/}
+{/*valueを変えたらdata.tsのfetchBooksByCategoryとfetchBookscountByCategoryも変える必要あり*/}
 
 
 export default function Page() {
