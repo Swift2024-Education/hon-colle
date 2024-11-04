@@ -1,0 +1,55 @@
+/* Header.css */
+.header {
+  background-color: #D0EDF3;
+  display: flex;               /* 水平方向に配置 */
+  flex-direction: row;        /* 横並びにする */
+  align-items: center;        /* 縦方向の中央揃え */
+  justify-content: center;     /* 中央揃え */
+  padding: 40px;
+  
+}
+
+.icon-container {
+  display: flex;
+  gap: 40px; /* 円の間隔を設定 */
+  align-items: center; /* 縦方向の中央揃え */
+}
+
+/* アイコンの円 */
+.circle {
+  width: 180px;
+  height: 180px;
+  padding: 10px;
+  border-radius: 50%; /* 円形にする */
+}
+
+/* 内側の円 */
+.small-circle {
+  width: 160px; 
+  height: 160px;
+  border-radius: 50%; /* 円形にする */
+  border: 4px dashed #FFFFFF; /* 内側の円の波線の色と太さ */
+  background-color: transparent; /* 内側の円の背景色（透明） */
+}
+
+.circle:hover .small-circle{
+  border: 4px solid #FFFFFF; 
+}
+
+.labels {
+  text-align: center; 
+  margin-top: 10px;
+  font-weight: 500;
+  font-size: 20px;
+  color: #474747;
+}
+
+.logo {
+  flex: 0 0 auto; /* ロゴのサイズを固定 */
+  text-align: center; /* 中央揃え */
+  margin: 0 175px; /* ロゴの左右に余白を追加 */
+}
+
+
+
+ 
