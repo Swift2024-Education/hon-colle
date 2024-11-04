@@ -24,12 +24,12 @@ export default async function Page({
                 <p>カテゴリー判別番号 : {category_id}</p>
                 {/*後で消す*/}
                 <div className="mt-5 flex w-full justify-center">
-                <Pagination totalPages={totalPages} />
-                {/*件数に応じて1ページ目から遷移するためのもの、Next.jsのチュートリアルから流用したけどバグあり*/}
-                {/*何ページか遷移するとエラー発生、どうやらkeyがユニークでないらしい*/}
+                    <Pagination totalPages={totalPages} />
+                    {/*件数に応じて1ページ目から遷移するためのもの、Next.jsのチュートリアルから流用したけどバグあり*/}
+                    {/*何ページか遷移するとエラー発生、どうやらkeyがユニークでないらしい*/}
+                </div>
             </div>
-            </div>
-            
+
         </>
     );
 }
