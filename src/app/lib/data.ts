@@ -88,7 +88,7 @@ export async function fetchBooksByQuery(
 
 export async function fetchBooksByCategory(
     //カテゴリ番号が一致する本を取得する関数
-    categoryNumber: string,  //1桁の数字（カテゴリ番号）や'e'などカテゴリ番号を区別する
+    categoryNumber: string,  //1桁の数字（カテゴリ番号）や'e'などカテゴリを区別する
     currentPage: number,
 ) {
     const offset = (currentPage - 1) * ITEMS_PER_PAGE;
@@ -158,7 +158,7 @@ export async function fetchBookCountByCategory(categoryNumber: string){
 
     const books = await prisma.books.findMany({
         orderBy: {
-            category_number: 'desc',  //category_numberで降順に並べ替え
+            category_number: 'asc',  //category_numberで昇順に並べ替え
         },
         select: {
             book_number: true,
@@ -201,5 +201,5 @@ export async function fetchBookCountByCategory(categoryNumber: string){
     //フィルタリングされた本の件数を取得
     const count = filteredBooks.length;
     const totalPages = Math.ceil(count / ITEMS_PER_PAGE);
-    return totalPages; //ページ数を返す
+    return totalPages;
 }
