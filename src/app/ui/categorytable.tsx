@@ -25,15 +25,15 @@ export default async function categoryTable({
                             {/*帰ってきた結果から、ひらがなのタイトルと著者名だけ選択して表示*/}
                             <div className='text-2xl'>{books.title_kana}</div>
                             <div className='text-lg'>{books.author_kana}</div>
+                            <div className='text-lg'>{books.category_number}</div>
                         </div>
                     </div>
                 ))}
                 </div>
             ) : (
             <p className='border-solid border-2 bg-zinc-100 border-gray-200 text-gray-700 rounded-xl text-2xl text-center'>さがしている ほんは ありませんでした。</p>
-            )}
+            )}{/*見つからなかった時にだけ表示*/}
             </div>
-            {/*3行上は見つからなかった時にだけ表示*/}
         </>
     );
 }
