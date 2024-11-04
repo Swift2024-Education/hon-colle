@@ -1,6 +1,8 @@
 //import Image from 'next/image';
 import { fetchBooksByCategory } from '../lib/data';
 //キーワード検索のための関数をdataからインポート
+import Image from 'next/image';
+
 
 export default async function categoryTable({
     categoryNumber,
@@ -23,7 +25,15 @@ export default async function categoryTable({
                         {/*テキストと枠、背景の色、サイズ、テキストの折り返し設定(これ動いてるのかどうか不明)*/}
                         <div className='text-center'>
                             {/*帰ってきた結果から、ひらがなのタイトルと著者名だけ選択して表示*/}
-                            <div className='text-2xl'>{books.title_kana}</div>
+                            <Image
+                                src={`https://ndlsearch.ndl.go.jp/thumbnail/${books.isbn}.jpg`}
+                                width={125}
+                                height={175}
+                                alt={`${books.title_kana}の表紙の画像`}
+                                className='m-auto mt-2'
+                                //onError={() => src()}
+                            />
+                            {/*<div className='text-2xl'>{books.title_kana}</div>*/}
                             <div className='text-lg'>{books.author_kana}</div>
                             <div className='text-lg'>{books.category_number}</div>
                         </div>
