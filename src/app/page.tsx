@@ -1,14 +1,23 @@
 //import Image from "next/image";
 import Link from "next/link";
 import { BookOpenIcon } from "@heroicons/react/24/outline";
+import { fetchnews } from "./lib/data";
 
-export default function Home() {
+export default async function Home() {
+  const news = await fetchnews();
+  //const news={ news: "massage", date: "2024" }
   return (
     <>
       <div className="bg-sky-200 h-max min-h-screen">
         <h1 className='text-gray-700 text-5xl p-8 font-bold'>
           Top Page
         </h1>
+        {news ? (      
+        <div key={news.date} className='text-center text-3xl font-bold'>       
+         {news.news} ({news.date})
+        </div>):(
+          <p>おしらせが見つかりません。</p>
+        )}
         <h2 className="text-gray-700 pl-8 p-1 text-xl">
           Links to Other Pages:
         </h2>
