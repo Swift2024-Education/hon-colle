@@ -1,82 +1,75 @@
-// components/Header.js
 import React from 'react';
 import Image from 'next/image';
-import './header_ui.css'; // CSSファイルのインポート
 
-
-import home_icon from '../ui/icons/本棚アイコン.png'; // 相対パス
+import home_icon from '../ui/icons/本棚アイコン.png';
 import search_icon from '../ui/icons/検索アイコン.png';
 import register_icon from '../ui/icons/本の登録.png';
 import recommendation_icon from '../ui/icons/本の登録アイコン.png';
 import information_icon from '../ui/icons/使い方アイコン.png';
 import setting_icon from '../ui/icons/設定アイコン.png';
 
-
 const Header = () => {
-
- const colors = ['#EA5415', '#73BB2B', '#E7CF33', '#E20615', '#2FA8E1', '#8E8E8E'];/*円の色を左から*/
- const icons = [home_icon,search_icon,register_icon,recommendation_icon,information_icon,setting_icon];
- const labels = ['本だな','本をさがす','本のとうろく','おすすめの本','つかいかた','せってい'];
- const links = [
-    "/categories",       // Bookshelf
-    "/search",          // Search Books
-    "/uploder",        // Register Book
-    "/recommendation",  // Recommended Books
-    "/howToUse",      // How to Use
-    "/setting"];
-
- const sizes = [
-  { width: 90, height: 0 }, // home_icon
-  { width: 95, height: 95 }, // search_icon
-  { width: 75, height: 75 }, // register_icon
-  { width: 80, height: 80 }, // recommendation_icon
-  { width: 90, height: 90 }, // information_icon
-  { width: 100, height: 100 }, // setting_icon
-];
+  const colors = ['#EA5415', '#73BB2B', '#E7CF33', '#E20615', '#2FA8E1', '#8E8E8E'];
+  const icons = [home_icon, search_icon, register_icon, recommendation_icon, information_icon, setting_icon];
+  const labels = ['本だな', '本をさがす', '本のとうろく', 'おすすめの本', 'つかいかた', 'せってい'];
+  const links = [
+    "/categories",
+    "/search",
+    "/uploder",
+    "/recommendation",
+    "/howToUse",
+    "/setting"
+  ];
 
   return (
-    <header className="header">
-      <div className="icon-container">
-        {/* 左側のアイコン */}
+    <header className="bg-[#D0EDF3] flex flex-wrap items-center justify-center p-5 md:p-6 lg:p-8">
+      {/* 左側のアイコンコンテナ */}
+      <div className="flex flex-wrap gap-2 md:gap-4 lg:gap-6 justify-center">
         {colors.slice(0, 3).map((color, index) => (
-          <a key={index} href={links[index]}>
-            <div className="circle" style={{ backgroundColor: color }}>
-              <div className="small-circle flex items-center justify-center" >
+          <a key={index} href={links[index]} className="flex flex-col items-center">
+            <div 
+              className="w-[120px] h-[120px] md:w-[150px] md:h-[150px] lg:w-[180px] lg:h-[180px] rounded-full flex items-center justify-center" 
+              style={{ backgroundColor: color }}
+            >
+              <div className="w-[100px] h-[100px] md:w-[130px] md:h-[130px] lg:w-[160px] lg:h-[160px] rounded-full border-4 border-dashed border-white flex items-center justify-center hover:border-solid">
                 <Image 
                   src={icons[index]} 
                   alt={labels[index]} 
-                  className="icons" 
-                  width={sizes[index].width}   // 大きさを指定
-                  height={sizes[index].height}
+                  width={90}  // アイコンのサイズを調整
+                  height={90} // アイコンのサイズを調整
+                  className="object-contain"
                 />
-                </div>
               </div>
-            <div className="labels">{labels[index]}</div>
+            </div>
+            <span className="mt-2 text-sm md:text-lg lg:text-xl font-medium text-gray-700">{labels[index]}</span>
           </a>
         ))}
       </div>
 
-      {/* 中央にロゴを配置 */}
-      <div className="logo">
-        <h1>サイトのロゴ</h1>
+      {/* ロゴ */}
+      <div className="text-center mx-6 md:mx-12 lg:mx-20 text-lg md:text-2xl lg:text-3xl font-bold text-gray-800">
+        サイトのロゴ
       </div>
 
-      <div className="icon-container">
-        {/* 右側のアイコン */}
+      {/* 右側のアイコンコンテナ */}
+      <div className="flex flex-wrap gap-2 md:gap-4 lg:gap-6 justify-center">
         {colors.slice(3).map((color, index) => (
-          <a key={index} href={links[index + 3]}>
-            <div className='circle' style={{ backgroundColor: color }}>
-              <div className="small-circle flex items-center justify-center" >
-              <Image 
-                src={icons[index + 3]} // 右側のアイコンはインデックスをずらす
-                alt={labels[index + 3]} 
-                className="icons" 
-                width={sizes[index + 3].width}   // 大きさを指定
-                height={sizes[index +3].height}
-              />
+          <a key={index} href={links[index + 3]} className="flex flex-col items-center">
+            <div 
+              className="w-[120px] h-[120px] md:w-[150px] md:h-[150px] lg:w-[180px] lg:h-[180px] rounded-full flex items-center justify-center" 
+              style={{ backgroundColor: color }}
+            >
+              <div className="w-[100px] h-[100px] md:w-[130px] md:h-[130px] lg:w-[160px] lg:h-[160px] rounded-full border-4 border-dashed border-white flex items-center justify-center hover:border-solid">
+                <Image 
+                  src={icons[index + 3]} 
+                  alt={labels[index + 3]} 
+                  width={90}  // アイコンのサイズを調整
+                  height={90} // アイコンのサイズを調整
+                  className="object-contain"
+                />
               </div>
             </div>
-            <div className="labels">{labels[index + 3]}</div>
+            <span className="mt-2 text-sm md:text-lg lg:text-xl font-medium text-gray-700">{labels[index + 3]}</span>
           </a>
         ))}
       </div>
