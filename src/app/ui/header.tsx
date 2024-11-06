@@ -28,15 +28,15 @@ const Header = () => {
         {colors.slice(0, 3).map((color, index) => (
           <a key={index} href={links[index]} className="flex flex-col items-center">
             <div 
-              className="w-[120px] h-[120px] md:w-[150px] md:h-[150px] lg:w-[180px] lg:h-[180px] rounded-full flex items-center justify-center" 
+              className="w-[120px] h-[120px] rounded-full flex items-center justify-center" 
               style={{ backgroundColor: color }}
             >
-              <div className="w-[100px] h-[100px] md:w-[130px] md:h-[130px] lg:w-[160px] lg:h-[160px] rounded-full border-4 border-dashed border-white flex items-center justify-center hover:border-solid">
+              <div className="w-[100px] h-[100px] rounded-full border-4 border-dashed border-white flex items-center justify-center hover:border-solid">
                 <Image 
                   src={icons[index]} 
                   alt={labels[index]} 
-                  width={90}  // アイコンのサイズを調整
-                  height={90} // アイコンのサイズを調整
+                  width={60}  // アイコンのサイズを調整
+                  height={60} // アイコンのサイズを調整
                   className="object-contain"
                 />
               </div>
@@ -56,15 +56,15 @@ const Header = () => {
         {colors.slice(3).map((color, index) => (
           <a key={index} href={links[index + 3]} className="flex flex-col items-center">
             <div 
-              className="w-[120px] h-[120px] md:w-[150px] md:h-[150px] lg:w-[180px] lg:h-[180px] rounded-full flex items-center justify-center" 
+              className="w-[120px] h-[120px]  rounded-full flex items-center justify-center" 
               style={{ backgroundColor: color }}
             >
-              <div className="w-[100px] h-[100px] md:w-[130px] md:h-[130px] lg:w-[160px] lg:h-[160px] rounded-full border-4 border-dashed border-white flex items-center justify-center hover:border-solid">
+              <div className="w-[100px] h-[100px] rounded-full border-4 border-dashed border-white flex items-center justify-center hover:border-solid">
                 <Image 
                   src={icons[index + 3]} 
                   alt={labels[index + 3]} 
-                  width={90}  // アイコンのサイズを調整
-                  height={90} // アイコンのサイズを調整
+                  width={60}  // アイコンのサイズを調整
+                  height={60} // アイコンのサイズを調整
                   className="object-contain"
                 />
               </div>
