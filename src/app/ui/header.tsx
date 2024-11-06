@@ -28,10 +28,10 @@ const Header = () => {
         {colors.slice(0, 3).map((color, index) => (
           <a key={index} href={links[index]} className="flex flex-col items-center">
             <div 
-              className="w-[130px] h-[130px] rounded-full flex items-center justify-center" 
+              className="w-[120px] h-[120px] rounded-full flex items-center justify-center" 
               style={{ backgroundColor: color }}
             >
-              <div className="w-[110px] h-[110px] rounded-full border-4 border-dashed border-white flex items-center justify-center hover:border-solid">
+              <div className="w-[100px] h-[100px] rounded-full border-4 border-dashed border-white flex items-center justify-center hover:border-solid">
                 <Image 
                   src={icons[index]} 
                   alt={labels[index]} 
@@ -56,10 +56,10 @@ const Header = () => {
         {colors.slice(3).map((color, index) => (
           <a key={index} href={links[index + 3]} className="flex flex-col items-center">
             <div 
-              className="w-[130px] h-[130px]  rounded-full flex items-center justify-center" 
+              className="w-[120px] h-[120px]  rounded-full flex items-center justify-center" 
               style={{ backgroundColor: color }}
             >
-              <div className="w-[110px] h-[110px] rounded-full border-4 border-dashed border-white flex items-center justify-center hover:border-solid">
+              <div className="w-[100px] h-[100px] rounded-full border-4 border-dashed border-white flex items-center justify-center hover:border-solid">
                 <Image 
                   src={icons[index + 3]} 
                   alt={labels[index + 3]} 
