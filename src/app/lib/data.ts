@@ -85,3 +85,15 @@ export async function fetchBooksByQuery(
     })
     return books;
 }
+
+export async function fetchnews() {
+    const NEWS=prisma.news.findFirst({
+       
+       select:{
+        date:true,
+        news:true
+       }
+    })
+    
+    return NEWS;
+}
