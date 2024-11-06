@@ -31,7 +31,11 @@ export default function Home() {
         <ul className="text-gray-800 pl-8 p-1 text-xl">
           <li className="flex flex-row grow items-center gap-1 hover:text-blue-600 bg-neutral-200 rounded-md m-1 max-w-56 hover:bg-amber-50">
             <BookOpenIcon className="w-9"/>
-            <Link href="/search">Books Search Page</Link>
+            <Link href="/search">Search</Link>
+          </li>
+          <li className="flex flex-row grow items-center gap-1 hover:text-blue-600 bg-neutral-200 rounded-md m-1 max-w-56 hover:bg-amber-50">
+            <BookOpenIcon className="w-9"/>
+            <Link href="/categories">Categories</Link>
           </li>
           <li className="flex flex-row grow items-center gap-1 hover:text-blue-600 bg-neutral-200 rounded-md m-1 max-w-56 hover:bg-amber-50">
             <BookOpenIcon className="w-9"/>

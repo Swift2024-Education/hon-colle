@@ -38,6 +38,7 @@ export async function fetchSearchPages(query: string) {
     //検索結果の画面で1ページあたりに表示したい最大数で割った数を返す
 }
 
+
 export async function fetchBooksByQuery(
     //検索ワードを含む本の情報を取得する関数
     query: string,
@@ -83,16 +84,4 @@ export async function fetchBooksByQuery(
         //返却する情報の種類を選択
     })
     return books;
-}
-
-export async function fetchnews() {
-    const NEWS=prisma.news.findFirst({
-       
-       select:{
-        date:true,
-        news:true
-       }
-})
-    
-    return NEWS;
 }
