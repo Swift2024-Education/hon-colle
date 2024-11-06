@@ -20,8 +20,3 @@ model books {
   title_kana       String
   author_kana      String
 }
-
-model news {
-  date String @id
-  news String
-}
