@@ -15,7 +15,7 @@ export default function Page() {
                             <div className="text-gray-700 text-xl text-center mx-6">なまえ</div>
                         </div>
 
-                        <input className= "border-stone-950 rounded-xl placeholder-gray-500 border" placeholder="鈴木 悠太"></input>
+                        <input className= "pl-8 p-1 max-w-md border-stone-950 rounded-xl placeholder-gray-500 border" placeholder="鈴木 悠太"></input>
                             {/*名前を入力*/}
 
                         <div className="bg-amber-100 rounded-full w-fit ml-8">
