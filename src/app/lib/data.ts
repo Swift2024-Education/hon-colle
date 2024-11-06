@@ -203,3 +203,12 @@ export async function fetchBookCountByCategory(categoryNumber: string){
     const totalPages = Math.ceil(count / ITEMS_PER_PAGE);
     return totalPages;
 }
+
+export async function fetchnews() {
+    const NEWS=prisma.news.findFirst({   
+        orderBy: {
+            date: 'desc',
+        },
+    })
+    return NEWS
+}
