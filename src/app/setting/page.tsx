@@ -9,13 +9,13 @@ export default function Page() {
                 <div className="bg-white m-8 rounded-xl">
                     <div className="p-4">
 
-                        <h2 className="text-gray-700 pl-8 p-1 text-5xl tfont-bold text-center">プロフィールシート</h2>
+                        <h2 className="text-gray-700 pl-8 p-4 text-4xl font-bold text-center">プロフィールシート</h2>
 
                         <div className="bg-amber-100 rounded-full w-fit ml-8">
                             <div className="text-gray-700 text-xl text-center mx-6">なまえ</div>
                         </div>
 
-                        <input className= "pl-8 p-1 max-w-md border-stone-950 rounded-xl placeholder-gray-500 border" placeholder="鈴木 悠太"></input>
+                        <input className= "pl-8 p-1 max-w-md border-stone-950 rounded-xl placeholder-gray-500 border ml-16" placeholder="鈴木 悠太"></input>
                             {/*名前を入力*/}
 
                         <div className="bg-amber-100 rounded-full w-fit ml-8">
