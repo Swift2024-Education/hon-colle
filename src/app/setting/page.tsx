@@ -9,16 +9,14 @@ export default function Page() {
                 <div className="bg-white m-8 rounded-xl">
                     <div className="p-4">
 
-                        <h2 className="text-gray-700 pl-8 p-1 text-5xl tfont-bold ext-center">プロフィールシート</h2>
+                        <h2 className="text-gray-700 pl-8 p-1 text-5xl tfont-bold text-center">プロフィールシート</h2>
 
                         <div className="bg-amber-100 rounded-full w-fit ml-8">
                             <div className="text-gray-700 text-xl text-center mx-6">なまえ</div>
                         </div>
 
-                        <div className="mt-4 flex items-center justify-between gap-2 md:mt-8 text-gray-700 mx-32 my-8">
-                            たんてい<Search placeholder="なまえ を にゅうりょく" />
-                            {/*未完成，検索バーを表示、詳細な中身は/ui/search.tsx*/}
-                        </div>
+                        <input className= "border-stone-950 rounded-xl placeholder-gray-500 border" placeholder="鈴木 悠太"></input>
+                            {/*名前を入力*/}
 
                         <div className="bg-amber-100 rounded-full w-fit ml-8">
                             <div className="text-gray-700 text-xl text-center mx-6">ログイン</div>
