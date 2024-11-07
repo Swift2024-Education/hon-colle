@@ -11,6 +11,7 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        'sky-swift': '#D0EDF3',
       },
       size: {
         '128': '32rem',
