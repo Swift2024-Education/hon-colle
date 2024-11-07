@@ -25,7 +25,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="bg-[#D0EDF3] flex flex-wrap items-center justify-center p-5 md:p-6 lg:p-8">
+    <header className="bg-[#D0EDF3] flex flex-wrap items-center justify-center p-10 md:p-6 lg:p-8">
       {/* 左側のアイコンコンテナ */}
       <div className="flex flex-wrap gap-2 md:gap-4 lg:gap-6 justify-center">
         {colors.slice(0, 3).map((color, index) => (
