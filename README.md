@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<img width='450' src='https://raw.githubusercontent.com/Swift2024-Education/hon-colle/refs/heads/main/src/app/ui/logo/%E3%83%AD%E3%82%B41-1%EF%BC%88%E8%83%8C%E6%99%AF%E9%80%8F%E9%81%8E%EF%BC%89.png'>
 
-## Getting Started
+# ほんコレ hon-colle
 
-First, run the development server:
+小学校向けの読書履歴作成と学校図書館の本の検索ができるWebアプリです。
+
+React + Next.jsで作成しています。
+
+**現在のREADME.mdは開発チーム向けの内容です**
+
+## 開発前に
+
+**事前にDockerを起動させておくことを忘れずに。検索ページやお知らせ機能が動きません。**
+
+開発用サーバーの起動:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ [http://localhost:3000](http://localhost:3000) を開くと、トップページが表示されます。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## パッケージに変更があったとき
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+新規パッケージのインストールや、不要なパッケージの削除が行われたコミットをマージした際は、以下のコマンドを実行してください。
 
-## Learn More
+```bash
+npm i
+```
 
-To learn more about Next.js, take a look at the following resources:
+## データベースに変更があったとき
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+`schema.prisma`に変更があったときは、以下のコマンドを実行する必要があります。
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Dockerが稼働していないとエラーが発生します。**
 
-## Deploy on Vercel
+```bash
+npx prisma generate
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+npx prisma db push
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 各種リンク
+
+ほぼ英語のみです
+
+- [開発サーバー](http://localhost:3000)
+- [Adminer(DB管理ページ)](http://localhost:8080)
+- [GitHub リポジトリ](https://github.com/Swift2024-Education/hon-colle)
+- [Next.js Documentation](https://nextjs.org/docs)
+- [React リファレンス](https://ja.react.dev/reference/react)
+- [Tailwind CSS](https://tailwindcss.com/docs/installation)
