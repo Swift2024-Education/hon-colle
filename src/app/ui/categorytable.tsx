@@ -19,7 +19,7 @@ export default async function categoryTable({
                 <div className='grid grid-cols-3 gap-6 flex-shrink-0 justify-items-center'>
                     {/*上の行は結果を3 * 3で並べるためのTailwindCSSの記述*/}
                     {results.map((books) => (
-                    <div key={books.book_number} className='border-solid border-4 bg-zinc-100 border-gray-200 text-gray-700 rounded-xl text-ellipsis overflow-hidden size-96'>
+                    <div key={books.book_number} className='border-solid border-4 bg-zinc-100 border-gray-200 text-gray-700 rounded-[35px] text-ellipsis overflow-hidden size-96'>
                         {/*テキストと枠、背景の色、サイズ、テキストの折り返し設定(これ動いてるのかどうか不明)*/}
                         <div className='text-center'>
                             {/*帰ってきた結果から、ひらがなのタイトルと著者名だけ選択して表示*/}

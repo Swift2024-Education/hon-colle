@@ -3,10 +3,13 @@ import Image from 'next/image';
 
 import home_icon from '../ui/icons/本棚アイコン.png';
 import search_icon from '../ui/icons/検索アイコン.png';
-import register_icon from '../ui/icons/本の登録.png';
+import register_icon from '../ui/icons/登録_アイコン.png';
 import recommendation_icon from '../ui/icons/本の登録アイコン.png';
 import information_icon from '../ui/icons/使い方アイコン.png';
 import setting_icon from '../ui/icons/設定アイコン.png';
+
+import logo from '../ui/logo/ロゴ1-1（背景透過）.png'
+
 
 const Header = () => {
   const colors = ['#EA5415', '#73BB2B', '#E7CF33', '#E20615', '#2FA8E1', '#8E8E8E'];
@@ -22,7 +25,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="bg-[#D0EDF3] flex flex-wrap items-center justify-center p-5 md:p-6 lg:p-8">
+    <header className="bg-[#D0EDF3] flex flex-wrap items-center justify-center p-10 md:p-6 lg:p-8">
       {/* 左側のアイコンコンテナ */}
       <div className="flex flex-wrap gap-2 md:gap-4 lg:gap-6 justify-center">
         {colors.slice(0, 3).map((color, index) => (
@@ -31,12 +34,12 @@ const Header = () => {
               className="w-[120px] h-[120px] rounded-full flex items-center justify-center" 
               style={{ backgroundColor: color }}
             >
-              <div className="w-[100px] h-[100px] rounded-full border-4 border-dashed border-white flex items-center justify-center hover:border-solid">
+              <div className="w-[110px] h-[110px] rounded-full border-2 border-dashed border-white flex items-center justify-center hover:border-solid">
                 <Image 
                   src={icons[index]} 
                   alt={labels[index]} 
-                  width={60}  // アイコンのサイズを調整
-                  height={60} // アイコンのサイズを調整
+                  width={65}  // アイコンのサイズを調整
+                  height={65} // アイコンのサイズを調整
                   className="object-contain"
                 />
               </div>
@@ -47,8 +50,14 @@ const Header = () => {
       </div>
 
       {/* ロゴ */}
-      <div className="text-center mx-6 md:mx-12 lg:mx-20 text-lg md:text-2xl lg:text-3xl font-bold text-gray-800">
-        サイトのロゴ
+      <div className=" mx-6 md:mx-8 lg:mx-10">
+        <Image 
+          src={logo} 
+          alt="サイトのロゴ" 
+          width={270}  // 必要に応じて調整
+          height={270}  // 必要に応じて調整
+          className="object-contain"
+        />
       </div>
 
       {/* 右側のアイコンコンテナ */}
@@ -59,12 +68,12 @@ const Header = () => {
               className="w-[120px] h-[120px]  rounded-full flex items-center justify-center" 
               style={{ backgroundColor: color }}
             >
-              <div className="w-[100px] h-[100px] rounded-full border-4 border-dashed border-white flex items-center justify-center hover:border-solid">
+              <div className="w-[110px] h-[110px] rounded-full border-2 border-dashed border-white flex items-center justify-center hover:border-solid">
                 <Image 
                   src={icons[index + 3]} 
                   alt={labels[index + 3]} 
-                  width={60}  // アイコンのサイズを調整
-                  height={60} // アイコンのサイズを調整
+                  width={55}  // アイコンのサイズを調整
+                  height={55} // アイコンのサイズを調整
                   className="object-contain"
                 />
               </div>
