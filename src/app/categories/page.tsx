@@ -29,7 +29,7 @@ const category: Category[] = [
 export default function Page() {
   return (
     <>
-      <div className="bg-[#D0EDF3] h-max min-h-screen">
+      <div className="bg-sky-swift h-max min-h-screen">
         <h1 className='text-gray-700 text-3xl p-8 font-medium text-center'>カテゴリから本をさがす</h1>
 
         {/* Grid Container */}
@@ -38,14 +38,12 @@ export default function Page() {
 
           {category.map((category) => (
             <Link key={category.label} href={`/categories/${category.value}`}>
-              <div className="flex flex-row gap-3 bg-neutral-100 rounded-[35px] m-1 max-w-full w-full h-48 hover:bg-amber-50" >
-                
+              <div className="flex flex-row gap-3 bg-neutral-100 rounded-marukado m-1 max-w-full w-full h-48 hover:bg-amber-50" >
                 {/*キーはlabel、カテゴリを囲う四角いボックスがこれ*/}
-                <span className="text-2xl p-5 font-medium text-gray-700"> 
+                <span className="text-2xl p-5 font-medium text-gray-700">
                   {category.label}</span>
                 {/*各カテゴリ名*/}
               </div>
-              
             </Link>
           ))}
         </div>

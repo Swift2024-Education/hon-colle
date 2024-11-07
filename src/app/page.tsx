@@ -8,15 +8,15 @@ export default async function Home() {
   //const news={ news: "massage", date: "2024" }
   return (
     <>
-      <div className="bg-sky-200 h-max min-h-screen">
+      <div className="bg-sky-swift h-max min-h-screen">
         <h1 className='text-gray-700 text-5xl p-8 font-bold'>
           Top Page
         </h1>
-        {news ? (      
-        <div key={news.date} className='text-center text-3xl font-bold'>       
+        {news ? (
+        <div key={news.date} className='text-center text-3xl font-bold text-gray-700'>
          {news.news} ({news.date})
         </div>):(
-          <p>おしらせが見つかりません。</p>
+          <p className="text-center text-xl text-gray-700">おしらせが見つかりません。</p>
         )}
         <h2 className="text-gray-700 pl-8 p-1 text-xl">
           Links to Other Pages:
