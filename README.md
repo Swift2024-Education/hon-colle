@@ -4,7 +4,7 @@
 
 小学校向けの読書履歴作成と学校図書館の本の検索ができるWebアプリです。
 
-React + Next.jsで作成しています。
+[React](https://react.dev/) + [Next.js](https://nextjs.org/)で作成しています。
 
 **現在のREADME.mdは開発チーム向けの内容です**
 
@@ -44,8 +44,8 @@ npx prisma db push
 
 ほぼ英語のみです
 
-- [開発サーバー](http://localhost:3000)
-- [Adminer(DB管理ページ)](http://localhost:8080)
+- [開発サーバー(localhost:3000)](http://localhost:3000)
+- [Adminer(DB管理ページ, localhost:8080)](http://localhost:8080)
 - [GitHub リポジトリ](https://github.com/Swift2024-Education/hon-colle)
 - [Next.js Documentation](https://nextjs.org/docs)
 - [React リファレンス](https://ja.react.dev/reference/react)
