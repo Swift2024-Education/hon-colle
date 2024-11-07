@@ -27,7 +27,7 @@ export default async function Page(props: {
                 </div>
                 <KeywordTable query={query} currentPage={currentPage} />
                 {/*キーワード検索の結果を整形して表示するための関数、中身は/ui/table.tsx*/}
-                <div className="mt-5 flex w-full justify-center ">
+                <div className="mt-5 flex w-full justify-center pb-10">
                     <Pagination totalPages={totalPages} />
                     {/*件数に応じて1ページ目から遷移するためのもの、Next.jsのチュートリアルから流用したけどバグあり*/}
                 </div>
