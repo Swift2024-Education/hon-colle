@@ -16,6 +16,9 @@ const config: Config = {
       size: {
         '128': '32rem',
       },
+      borderRadius: {
+        marukado: '35px',
+      },
     },
   },
   plugins: [],
