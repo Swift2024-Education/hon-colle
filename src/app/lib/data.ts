@@ -204,6 +204,7 @@ export async function fetchBookCountByCategory(categoryNumber: string){
     return totalPages;
 }
 
+
 export async function fetchnews() {
     const NEWS=prisma.news.findFirst({   
         orderBy: {
@@ -212,3 +213,28 @@ export async function fetchnews() {
     })
     return NEWS
 }
+
+
+    export async function fetchBookByISBN(isbn: string) {
+        const book = await prisma.books.findMany({
+            where: {
+                isbn: {
+                    equals: BigInt(isbn), // 引数のisbnと一致する本を検索
+                },
+            },
+            select: {
+                book_number: true,
+                title: true,
+                title_kana: true,
+                author_kana: true,
+                isbn: true,
+            },
+        });
+
+        // ISBNに一致する本が見つからなければ、nullを返す
+        if (book) {
+            return book;
+        } else {
+            return null;
+        }
+    }
