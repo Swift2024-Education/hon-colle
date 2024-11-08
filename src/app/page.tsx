@@ -5,7 +5,7 @@ import { fetchnews } from "./lib/data";
 
 export default async function Home() {
   const news = await fetchnews();
-  const news={ news: "massage", date: "2024" }
+  //const news={ news: "massage", date: "2024" }
 
   {news ? (
     <div key={news.date} className='text-center text-3xl font-bold'>
