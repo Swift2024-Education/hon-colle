@@ -27,13 +27,14 @@ export default function Page() {
                             <div className="text-gray-700 text-xl text-center mx-6">なまえ</div>
                         </div>
 
-                        <input className= "pl-8 p-1 max-w-md border-stone-950 rounded-xl placeholder-gray-500 border ml-16" placeholder="結城 さくな" onChange={handleChange}></input>
+                        <input className= "px-auto p-1 max-w-md border-stone-950 rounded-xl placeholder-gray-500 border ml-16" placeholder="結城 さくな" onChange={handleChange}></input>
                             {inputText=== '' && (
-                            <p className="text-red-500 text-center italic text-base">
-                                名前を入力してください。
+                                <p className="text-red-500 text-center italic text-base">
+                                    名前を入力してください。
                                 </p>
                             )}
                             {/*名前を入力する場所*/}
+                        
                         <div className="bg-amber-100 rounded-full w-fit ml-8">
                             <div className="text-gray-700 text-xl text-center mx-6">ログイン</div>
                         </div>
@@ -47,8 +48,7 @@ export default function Page() {
                                 </div>
                             </Link>
                         </button>
-                        {/*クリックで/Searchに移動，コンソールに入力された名前を表示*/}
-                        
+                        {/*クリックで/Searchに移動，入力された名前をコンソールに表示*/}
                     </div>
                 </div>
             </div>
