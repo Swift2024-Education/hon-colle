@@ -18,7 +18,7 @@ export default async function Page({
 
     return (
         <>
-            <div className="bg-sky-200 h-max min-h-screen">
+            <div className="bg-sky-swift h-max min-h-screen">
                 <Categorytable categoryNumber={category_id} currentPage={currentPage} />
                 {/*カテゴリごとで一覧表示*/}
                 <p>カテゴリー判別番号 : {category_id}</p>
@@ -29,7 +29,6 @@ export default async function Page({
                     {/*何ページか遷移するとエラー発生、どうやらkeyがユニークでないらしい*/}
                 </div>
             </div>
-
         </>
     );
 }

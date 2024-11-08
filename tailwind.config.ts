@@ -11,9 +11,14 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        'sky-swift': '#D0EDF3',
+        'green-swift': '#73BB2B',
       },
-      size: {
-        '128': '32rem',
+      width: {
+        results: '20vw',
+      },
+      borderRadius: {
+        marukado: '35px',
       },
     },
   },
