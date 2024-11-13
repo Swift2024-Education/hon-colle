@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BookOpenIcon } from "@heroicons/react/24/outline";
+//import { BookOpenIcon } from "@heroicons/react/24/outline";
 
 interface Category{
   label: string;
