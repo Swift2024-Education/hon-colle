@@ -58,7 +58,7 @@ export default function Page() {
                                 </Link>
                             </button>
                         )}
-                        {/*名前を入力している場合，ボタンを押すとTOPページへ*/}
+                        {/*名前を入力している場合ボタンが赤くなり，押すとTOPページへ*/}
 
 
                         {inputText=== '' && (
@@ -68,7 +68,7 @@ export default function Page() {
                                 </div>
                             </button>
                         )}
-                        {/*名前を入力していない場合，ボタンを押しても何も起こらない*/}
+                        {/*名前を入力していない場合ボタンが灰色になり，押しても何も起こらない*/}
 
 
                     </div>
