@@ -15,16 +15,16 @@ datasource db {
 
 model books {
   book_number      BigInt  @id
-  title            String
+  title            String?
   author           String?
   subtitle         String?
-  publisher        String
+  publisher        String?
   category_number  String?
   volume           String?
   incoming_date    String?
   isbn             BigInt?
-  title_kana       String
-  author_kana      String
+  title_kana       String?
+  author_kana      String?
 }
 
 model news{
