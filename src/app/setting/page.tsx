@@ -22,33 +22,55 @@ export default function Page() {
                     <div className="p-4">
 
                         <h2 className="text-gray-700 pl-8 p-4 text-4xl font-bold text-center">せってい</h2>
+                        {/*ページタイトル*/}
+
 
                         <div className="bg-amber-100 rounded-full w-fit ml-8">
                             <div className="text-gray-700 text-xl text-center mx-6">なまえ</div>
                         </div>
 
+
                         <input className= "px-auto p-1 max-w-md border-stone-950 rounded-xl placeholder-gray-500 border ml-16" placeholder="結城 さくな" onChange={handleChange}></input>
-                            {inputText=== '' && (
-                                <p className="text-red-500 text-center italic text-base">
-                                    名前を入力してください。
-                                </p>
-                            )}
-                            {/*名前を入力する場所*/}
+                        {inputText=== '' && (
+                            <p className="text-red-500 text-center italic text-base">
+                                名前を入力してください。
+                            </p>
+                        )}
+                        {/*"結城さくな"の部分はいい感じのものに変更してほしい*/}
+                        {/*名前を入力する場所*/}
                         
+
                         <div className="bg-amber-100 rounded-full w-fit ml-8">
                             <div className="text-gray-700 text-xl text-center mx-6">ログイン</div>
                         </div>
 
-                        <h3 className="text-gray-700 pl-8 p-1 text-xl">googleアカウント表示予定（仮）</h3>
 
-                        <button className="bg-orange-600 rounded-full w-fit ml-8" onClick={handleClick}>
-                            <Link href="../">
-                                <div className="text-gray-700 text-xl text-center mx-6">
+                        <h3 className="text-gray-700 pl-8 p-1 text-xl">googleアカウント表示予定（仮）</h3>
+                        {/*今後変更しなきゃいけないとこ*/}
+
+
+                        {inputText!== '' && (
+                            <button className="bg-orange-600 rounded-full w-fit ml-8" onClick={handleClick}>
+                                <Link href="../">
+                                    <div className="text-gray-700 text-xl text-center mx-6">
                                     せってい を ほぞん
+                                    </div>
+                                </Link>
+                            </button>
+                        )}
+                        {/*名前を入力している場合，ボタンを押すとTOPページへ*/}
+
+
+                        {inputText=== '' && (
+                            <button className="bg-gray-400 rounded-full w-fit ml-8" onClick={handleClick}>
+                                <div className="text-gray-700 text-xl text-center mx-6">
+                                せってい を ほぞん
                                 </div>
-                            </Link>
-                        </button>
-                        {/*クリックで/Searchに移動，入力された名前をコンソールに表示*/}
+                            </button>
+                        )}
+                        {/*名前を入力していない場合，ボタンを押しても何も起こらない*/}
+
+
                     </div>
                 </div>
             </div>
