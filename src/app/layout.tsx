@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { notojp } from "@/app/fonts";
 import Header from "./ui/header";
+import Footer from "@/app/ui/footer";
 
 
 export const metadata: Metadata = {
@@ -21,6 +22,7 @@ export default function RootLayout({
       >  
        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
