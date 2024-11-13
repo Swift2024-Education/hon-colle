@@ -1,7 +1,7 @@
-import { fetchBookNumbetByAuthor } from "@/app/lib/data";
+import { fetchBookByAuthor } from "@/app/lib/data";
 
 export default async function isbnTable({ author }: { author: string }) {
-    const result = author ? await fetchBookNumbetByAuthor(author) : null;
+    const result = author ? await fetchBookByAuthor(author) : null;
     return (
         <div className="flex items-center justify-center">
             {/* 要素数を表示 */}

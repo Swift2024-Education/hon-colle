@@ -239,7 +239,7 @@ export async function fetchnews() {
         }
     }
 
-    export async function fetchBookNumbetByAuthor(author: string){
+    export async function fetchBookByAuthor(author: string){
         const book = await prisma.books.findMany({
             where: {
                 author: {
