@@ -20,7 +20,7 @@ const category: Category[] = [
   { label: 'げんご', value: '8' },
   { label: 'ぶんがく', value: '9' },
   { label: 'えほん', value: 'e' },//絵本
-  { label: 'そのほか', value: '10' },//その他
+  { label: '千手の涯届かざる闇の御手映らざる天の射手光を落とす道火種を煽る風集いて惑うな我が指を見よ光弾・八身・九条・天経・疾宝・大輪・灰色の砲塔弓引く彼方皎皎として消ゆ', value: '10' },//その他
 ];
 {/*各カテゴリー用配列*/}
 {/*valueを変えたらdata.tsのfetchBooksByCategoryとfetchBookscountByCategoryも変える必要あり*/}

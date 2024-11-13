@@ -6,4 +6,4 @@ export type searchResult = {
     isbn: number;
 };
 
-export const globalBooksArray: any[] = [];
+export var globalBooksArray: any[] = [];

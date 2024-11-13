@@ -215,11 +215,11 @@ export async function fetchnews() {
 }
 
 
-    export async function fetchBookByISBN(isbn: string) {
+    export async function fetchBookByBookNumber(number: string) {
         const book = await prisma.books.findMany({
             where: {
-                isbn: {
-                    equals: BigInt(isbn), // 引数のisbnと一致する本を検索
+                book_number: {
+                    equals: BigInt(number), // 引数のisbnと一致する本を検索
                 },
             },
             select: {
@@ -236,5 +236,27 @@ export async function fetchnews() {
             return book;
         } else {
             return null;
+        }
+    }
+
+    export async function fetchBookNumbetByAuthor(author: string){
+        const book = await prisma.books.findMany({
+            where: {
+                author: {
+                    contains: author
+                },
+            },
+            select: {
+                book_number: true,
+                title: true,
+                title_kana: true,
+                author_kana: true,
+                isbn: true,
+            },
+        });
+        if(book){
+        return book
+        } else {
+            return null
         }
     }
