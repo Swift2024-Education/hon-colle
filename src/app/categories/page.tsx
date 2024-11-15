@@ -1,54 +1,73 @@
 import Link from "next/link";
-//import { BookOpenIcon } from "@heroicons/react/24/outline";
+import { endianness } from "os";
 
-interface Category{
+interface Category {
   label: string;
   value: string;
+  subItems?: string[];
 }
-{/*labelが表示名、valueがカテゴリを表す番号*/}
-
 
 const category: Category[] = [
-  { label: 'そうき', value: '0' },
-  { label: 'てつがく', value: '1' },
-  { label: 'れきし', value: '2' },
-  { label: 'しゃかい', value: '3' },
-  { label: 'しぜんかがく', value: '4' },
-  { label: 'ぎじゅつ', value: '5' },
-  { label: 'さんぎょう', value: '6' },
-  { label: 'げいじゅつ', value: '7' },
-  { label: 'げんご', value: '8' },
-  { label: 'ぶんがく', value: '9' },
-  { label: 'えほん', value: 'e' },//絵本
-  { label: '千手の涯届かざる闇の御手映らざる天の射手光を落とす道火種を煽る風集いて惑うな我が指を見よ光弾・八身・九条・天経・疾宝・大輪・灰色の砲塔弓引く彼方皎皎として消ゆ', value: '10' },//その他
+  { label: 'そうき', value: '0' ,subItems:['シリーズ・ぜんしゅう','ひゃっかじてん']},
+  { label: 'てつがく', value: '1' ,subItems:['しゅうきょう','しんわ'] },
+  { label: 'れきし', value: '2'  ,subItems:['にほんのれきし','せかいのれきし','でんき']},
+  { label: 'まちのしくみ', value: '3'  ,subItems:['せいじ・ざいせい','みんぞくのぶんか・れきし']},
+  { label: 'しぜんのふしぎ', value: '4'  ,subItems:['いきもの','しょくぶつ']},
+  { label: 'ぎじゅつ', value: '5'  ,subItems:['のりもの','りょうり']},
+  { label: 'さんぎょう', value: '6' ,subItems:['のうぎょう','えんげい','すいさんぎょう']},
+  { label: 'げいじゅつ', value: '7'  ,subItems:['スポーツ','おりがみ']},
+  { label: 'ことば', value: '8'  ,subItems:['えいご']},
+  { label: 'ものがたり', value: '9'  ,subItems:['ものがたり']},
+  { label: 'えほん', value: 'e' ,subItems:[''] }, // 絵本
+  { label: 'そのほか', value: '10'  ,subItems:['かいだん',]}, // その他
 ];
-{/*各カテゴリー用配列*/}
-{/*valueを変えたらdata.tsのfetchBooksByCategoryとfetchBookscountByCategoryも変える必要あり*/}
 
+// カテゴリごとの枠線の色の配列
+const Colors = [
+  "#E20615", "#1C208B", "#EA5415", "#2FA8E1", "#805021",
+  "#FFE014", "#5A5655", "#73BB2B", "#910682", "#E5007F",
+  "#45B8AC", "#EFC050",
+];
 
 export default function Page() {
   return (
     <>
       <div className="bg-sky-swift h-max min-h-screen">
-        <h1 className='text-gray-700 text-3xl p-8 font-medium text-center'>カテゴリから本をさがす</h1>
+        <h1 className='text-gray-700 text-3xl p-5 font-bold text-center'>カテゴリから本をさがす</h1>
 
         {/* Grid Container */}
-        <div className="grid grid-cols-4 gap-x-4 gap-y-4 p-4">
-
-
-          {category.map((category) => (
+        <div className="grid grid-cols-4 gap-x-4 gap-y-4 p-10">
+          {category.map((category, index) => (
             <Link key={category.label} href={`/categories/${category.value}`}>
-              <div className="flex flex-row gap-3 bg-neutral-100 rounded-marukado m-1 max-w-full w-full h-48 hover:bg-amber-50" >
-                {/*キーはlabel、カテゴリを囲う四角いボックスがこれ*/}
-                <span className="text-2xl p-5 font-medium text-gray-700">
-                  {category.label}</span>
-                {/*各カテゴリ名*/}
+              {/* カテゴリを囲うボックス */}
+              <div 
+                className="flex gap-3 bg-neutral-100 rounded-marukado m-1 max-w-full w-full h-48 hover:bg-amber-50 border-4 box-border"
+                style={{ borderColor: Colors[index % Colors.length] }}
+              >
+                {/* カテゴリ番号の丸 */}
+                <div className="w-12 h-12 rounded-full m-3 text-white text-3xl font-semibold flex items-center justify-center"
+                  style={{ backgroundColor: Colors[index % Colors.length] }}
+                >
+                  {category.value}
+                </div>
+
+                {/* カテゴリ名 */}
+                <div className="flex flex-col justify-start pt-5">
+                  <span className="text-2xl font-semibold text-gray-700">{category.label}</span>
+                  {/* サブ項目 */}
+                  <div className="text-l font-light text-gray-700 mt-2">
+                    {category.subItems?.map((subItem, subIndex) => (
+                      <div key={subIndex} className="p-1 text-gray-600 mt-1">
+                        {subItem}
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </Link>
           ))}
         </div>
       </div>
-
     </>
   );
 }
