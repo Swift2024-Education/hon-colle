@@ -39,3 +39,7 @@ next-env.d.ts
 #Docker
 /data
 /docker
+
+#Cloudflare
+.wrangler
+/migrations
