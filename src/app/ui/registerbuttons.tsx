@@ -24,22 +24,23 @@ export default function RegisterButtons({ result }: { result: Book | null }) {
 
 
     // 登録ボタンの処理
-    const handleRegister = (e: React.FormEvent) => {
+    const handleRegister = async (e: React.FormEvent) => {
         e.preventDefault();
         const date = new Date();
+        const formattedDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}-${date.getHours()}-${date.getMinutes()}`;
 
         if (result) {
-            // `globalBooksArray` にまだ存在しない場合のみ追加
-            if (!globalBooksArray.some(storedBook => storedBook.book_number === result.book_number)) {
-                globalBooksArray.push(result);
-                //console.log('登録されました:', result.title);
-                console.log(`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}-${date.getHours()}-${date.getMinutes()}`);
-                {/*日付の表示*/}
+
+            const id = searchParams.get('id'); // クエリパラメータからidを取得
+
+            if (id) {
+                // `registerBookNumber` を呼び出して、DBに登録
+                await registerBookNumber(result.book_number.toString(), id, formattedDate);
+                console.log('登録されました:', result.title);
             }
 
             const params = new URLSearchParams(searchParams);
             params.set('state', 'register');
-            //params.set('state', 'register');
             replace(`${pathname}?${params.toString()}`);
         }
     };
@@ -62,6 +63,7 @@ export default function RegisterButtons({ result }: { result: Book | null }) {
         const params = new URLSearchParams(searchParams);
         params.set('number', '');
         params.set('state', 'normal');
+        params.set('id', '');
         replace(`${pathname}?${params.toString()}`);
     };
 

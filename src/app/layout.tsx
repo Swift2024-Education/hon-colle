@@ -26,7 +26,7 @@ export default function RootLayout({
         <SessionProvider>{children}</SessionProvider>
 
         {/*children*/}
-        <footer />
+        <Footer />
       </body>
     </html>
   );
