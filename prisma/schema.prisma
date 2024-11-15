@@ -33,7 +33,7 @@ model news{
   news String
 }
 
-model histroy {
+model history {
   book_number      BigInt  @id
   id               String
   date             String

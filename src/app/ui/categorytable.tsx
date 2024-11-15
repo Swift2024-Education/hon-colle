@@ -26,7 +26,7 @@ export default async function categoryTable({
                         <div className='text-center'>
                             {/*帰ってきた結果から、ひらがなのタイトルと著者名だけ選択して表示*/}
                             <Image
-                                src={`https://ndlsearch.ndl.go.jp/thumbnail/${books.isbn}.jpg`}
+                                src={`https://www.books.or.jp/img/books_icon/${books.isbn}.jpg`}
                                 width={125}
                                 height={175}
                                 alt={`${books.title_kana}の表紙の画像`}
