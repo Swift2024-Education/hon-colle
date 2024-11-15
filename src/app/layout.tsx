@@ -20,9 +20,9 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={notojp.className}>
-            
-       <Header />
-       <SessionProvider>{children}</SessionProvider>
+
+        <Header />
+        <SessionProvider>{children}</SessionProvider>
 
         {/*children*/}
       </body>
