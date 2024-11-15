@@ -1,14 +1,13 @@
 module.exports = {
   images: {
-    formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'ndlsearch.ndl.go.jp',
+        hostname: 'www.books.or.jp',
         port: '',
-        pathname: '/thumbnail/**',
+        pathname: '/img/books_icon/**',
         search: '',
-      },
+      }
     ],
   },
 }
