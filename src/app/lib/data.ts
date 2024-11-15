@@ -216,10 +216,10 @@ export async function fetchnews() {
 
 
 export async function fetchBookByBookNumber(number: string) {
-    const book = await prisma.books.findMany({
+    const book = await prisma.books.findFirst({
         where: {
             book_number: {
-                equals: BigInt(number), // 引数のisbnと一致する本を検索
+                equals: BigInt(number), // 引数の数字と一致する本を検索
             },
         },
         select: {
@@ -231,7 +231,7 @@ export async function fetchBookByBookNumber(number: string) {
         },
     });
 
-    // ISBNに一致する本が見つからなければ、nullを返す
+    // numberに一致する本が見つからなければ、nullを返す
     if (book) {
         return book;
     } else {
