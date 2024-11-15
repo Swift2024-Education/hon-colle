@@ -3,6 +3,8 @@ import Search from "@/app/ui/search";
 import { fetchSearchPages } from "@/app/lib/data";
 import KeywordTable from "@/app/ui/keywordtable";
 
+export const runtime = 'edge';
+
 export default async function Page(props: {
     searchParams?: Promise<{
         query?: string;
