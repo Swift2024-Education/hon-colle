@@ -7,25 +7,7 @@ import RegisterButtons from './registerbuttons';
 export default async function isbnTable({ number }: { number: string }) {
     const result = number ? await fetchBookByBookNumber(number) : null;
 
-//    const handleRegister = () => {
-//        // resultが見つかった場合のみglobalBooksArrayに追加
-//        if (Array.isArray(result) && result.length > 0) {
-//           // 配列内の各本の数字が既にglobalBooksArrayに存在しない場合のみ追加
-//            result.forEach(book => {
-//                if (!globalBooksArray.some(storedBook => storedBook.book_number === book.book_number)) {
-//                    {/*既に登録されているかを数字でチェック*/ }
-//                    globalBooksArray.push(book);
-//                }
-//            });
-//        }
-//    }
 
-
-
-    //    if (!result) {
-    //console.error("No book found with this ISBN");
-    //        return <div>No book found</div>;  // エラー時の表示
-    //    }
 
     return (
         <div className="flex items-center justify-center">

@@ -3,6 +3,7 @@
 import { globalBooksArray } from '@/app/lib/difinitions';
 import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import {registerBookNumber} from '@/app/lib/data';
 
 
 
@@ -25,12 +26,15 @@ export default function RegisterButtons({ result }: { result: Book | null }) {
     // 登録ボタンの処理
     const handleRegister = (e: React.FormEvent) => {
         e.preventDefault();
+        const date = new Date();
 
         if (result) {
             // `globalBooksArray` にまだ存在しない場合のみ追加
             if (!globalBooksArray.some(storedBook => storedBook.book_number === result.book_number)) {
                 globalBooksArray.push(result);
                 //console.log('登録されました:', result.title);
+                console.log(`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}-${date.getHours()}-${date.getMinutes()}`);
+                {/*日付の表示*/}
             }
 
             const params = new URLSearchParams(searchParams);

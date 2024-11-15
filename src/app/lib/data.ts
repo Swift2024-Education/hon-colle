@@ -129,8 +129,8 @@ export async function fetchBooksByCategory(
             //通常のカテゴリ番号（1桁の数字）でフィルタリング
             if (book.category_number) {
                 const isLengthValid = (categoryNumber === '0' && book.category_number.length === 2) ||
-                                      (categoryNumber !== '0' && book.category_number.length === 3);
-                                      //まずcategory_numberが2桁の数字か3桁の数字かでフィルタリング
+                    (categoryNumber !== '0' && book.category_number.length === 3);
+                //まずcategory_numberが2桁の数字か3桁の数字かでフィルタリング
                 const lowerBound = (parseInt(categoryNumber) * 100).toString();//下限
                 const upperBound = (parseInt(categoryNumber) * 100 + 99).toString();//上限
 
@@ -149,7 +149,7 @@ export async function fetchBooksByCategory(
 
 
 
-export async function fetchBookCountByCategory(categoryNumber: string){
+export async function fetchBookCountByCategory(categoryNumber: string) {
     //指定されたカテゴリ番号に基づいて本の件数を取得
     //fetchBooksByCategory関数とおおよそ同様
     const lowerBound = (parseInt(categoryNumber) * 100).toString() //カテゴリ番号の下限
@@ -191,7 +191,7 @@ export async function fetchBookCountByCategory(categoryNumber: string){
             //通常のカテゴリ番号（1桁の数字）でフィルタリング
             if (book.category_number) {
                 const isLengthValid = (categoryNumber === '0' && book.category_number.length === 2) ||
-                                      (categoryNumber !== '0' && book.category_number.length === 3);
+                    (categoryNumber !== '0' && book.category_number.length === 3);
                 return isLengthValid && book.category_number >= lowerBound && book.category_number <= upperBound;
             }
             return false;
@@ -206,7 +206,7 @@ export async function fetchBookCountByCategory(categoryNumber: string){
 
 
 export async function fetchnews() {
-    const NEWS=prisma.news.findFirst({   
+    const NEWS = prisma.news.findFirst({
         orderBy: {
             date: 'desc',
         },
@@ -215,48 +215,58 @@ export async function fetchnews() {
 }
 
 
-    export async function fetchBookByBookNumber(number: string) {
-        const book = await prisma.books.findMany({
-            where: {
-                book_number: {
-                    equals: BigInt(number), // 引数のisbnと一致する本を検索
-                },
+export async function fetchBookByBookNumber(number: string) {
+    const book = await prisma.books.findMany({
+        where: {
+            book_number: {
+                equals: BigInt(number), // 引数のisbnと一致する本を検索
             },
-            select: {
-                book_number: true,
-                title: true,
-                title_kana: true,
-                author_kana: true,
-                isbn: true,
-            },
-        });
+        },
+        select: {
+            book_number: true,
+            title: true,
+            title_kana: true,
+            author_kana: true,
+            isbn: true,
+        },
+    });
 
-        // ISBNに一致する本が見つからなければ、nullを返す
-        if (book) {
-            return book;
-        } else {
-            return null;
-        }
+    // ISBNに一致する本が見つからなければ、nullを返す
+    if (book) {
+        return book;
+    } else {
+        return null;
     }
+}
 
-    export async function fetchBookByAuthor(author: string){
-        const book = await prisma.books.findMany({
-            where: {
-                author: {
-                    contains: author
-                },
+export async function fetchBookByAuthor(author: string) {
+    const book = await prisma.books.findMany({
+        where: {
+            author: {
+                contains: author
             },
-            select: {
-                book_number: true,
-                title: true,
-                title_kana: true,
-                author_kana: true,
-                isbn: true,
-            },
-        });
-        if(book){
+        },
+        select: {
+            book_number: true,
+            title: true,
+            title_kana: true,
+            author_kana: true,
+            isbn: true,
+        },
+    });
+    if (book) {
         return book
-        } else {
-            return null
-        }
+    } else {
+        return null
     }
+}
+
+export async function registerBookNumber(book_number: string, id: string, date: string) {
+        const history = {
+            book_number: BigInt(book_number), // 最初に見つかった本の番号をセット
+            id: id,
+            date: date,
+        };
+
+        console.log('History:', history);
+}

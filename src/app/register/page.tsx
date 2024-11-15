@@ -7,11 +7,12 @@ import BooksHistory from '@/app/ui/bookshistory';
 
 
 export default async function Page(props: {
-  searchParams?: Promise<{ number?: string; state: string }>;
+  searchParams?: Promise<{ number?: string; state: string; id?: string}>;
 }) {
   const searchParams = await props.searchParams;
   const number = searchParams?.number || '';
   const state = searchParams?.state || 'normal';
+  const id = searchParams?.id || '';
 
 
   return (
