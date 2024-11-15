@@ -43,3 +43,6 @@ next-env.d.ts
 # Cloudflare
 .wrangler
 /migrations
+
+# Prisma Accelerate
+.dev.vars
