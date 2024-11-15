@@ -2,7 +2,7 @@ import Categorytable from "@/app/ui/categorytable";
 import Pagination from "@/app/ui/pagenation";
 import { fetchBookCountByCategory } from "@/app/lib/data";
 
-export const runtime = 'edge';
+//export const runtime = 'edge';
 
 export default async function Page({
     params,
