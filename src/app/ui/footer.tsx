@@ -1,32 +1,58 @@
 
 const Footer = () => {
-    const colors = ['#2FA8E1', '#E20615', '#73BB2B', '#E7CF33' , '#8E8E8E'];
-    const labels = ['本だな', 'おすすめの本', '本をさがす', '本のとうろく', 'せってい/つかい方'];
-    const links = [
-        "/categories",
-        "/recommendation",
-        "/search",
-        "/uploder",
-        "/setting"
-    ];
+    const colors = ['#2FA8E1', '#E20615', '#73BB2B', '#E7CF33', '#8E8E8E'];
+    const labels: { [key: string]: string[] } = {
+        '本だな': [],
+        'おすすめの本': [],
+        '本をさがす': ['キーワード', 'カテゴリー'],
+        '本のとうろく': [],
+        'せってい/つかい方': ['きほんせってい', 'ログイン']
+    };
+
+    const links: { [key: string]: { main: string; sub: string[] } } = {
+        '本だな': { main: '/bookshelf', sub: [] },
+        'おすすめの本': { main: '/recommendation', sub: [] },
+        '本をさがす': { main: '/search', sub: ['/search', 'categories'] },
+        '本のとうろく': { main: '/uploder', sub: [] },
+        'せってい/つかい方': { main: '/setting', sub: ['/setting', '/setting'] },
+    };
+
 
     return (
-        <footer className="bg-sky-swift flex flex-wrap items-center justify-center p-10 md:p-6 lg:p-8">
-            <div className="flex flex-wrap gap-2 md:gap-4 lg:gap-6 justify-center">
-                {colors.slice(0, 5).map((color, index) => (
-                    <a key={index} href={links[index]} className="flex flex-col items-center">
-                        <div
-                            className="w-[120px] h-[120px] rounded-full flex items-center justify-center"
-                            style={{ backgroundColor: color }}
-                        >
-                            <div className="w-[110px] h-[110px] rounded-full border-2 border-dashed border-white flex items-center justify-center hover:border-solid">
-                            </div>
+        <footer className="bg-[#ebe9d3] p-10 md:p-12 lg:p-16 min-h-[400px] flex items-center">
+            {/*min-h-[400px]でフッターの高さ*/}
+        <div className="flex justify-between w-full">
+            {/*メニューを横に均等に配置 */}
+            {Object.keys(labels).map((label, index) => (
+                <div key={index} className="flex flex-col items-center flex-1 px-4">
+                    {/* メインメニュー */}
+                    <div className="flex items-center gap-3 mb-6">
+                        <div className="w-4 h-8 rounded-md" style={{ backgroundColor: colors[index] }}></div>
+                         {/* 色付き四角 */}
+                        <a href={links[label].main} className="text-sm md:text-lg lg:text-xl font-medium text-gray-700 hover:text-blue-500 pb-1">
+                            {/* メインラベル */}
+                            {label}
+                        </a>
+                    </div>
+
+                    {/* サブメニュー */}
+                    {labels[label].length > 0 && (
+                        <div className="mt-4 flex flex-col items-center gap-3">
+                            {labels[label].map((subLabel: string, subIndex) => (
+                                <a
+                                    key={subIndex}
+                                    href={links[label].sub[subIndex] || '#'}
+                                    className="block text-sm font-medium text-gray-700 hover:text-blue-500 border-b-2 border-gray-700"
+                                >
+                                    {subLabel}
+                                </a>
+                            ))}
                         </div>
-                        <span className="mt-2 text-sm md:text-lg lg:text-xl font-medium text-gray-700">{labels[index]}</span>
-                    </a>
-                ))}
-            </div>
-        </footer>
+                    )}
+                </div>
+            ))}
+        </div>
+    </footer>
     );
 };
 
