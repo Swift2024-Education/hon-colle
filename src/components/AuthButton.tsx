@@ -32,9 +32,9 @@ const AuthButton: React.FC<AuthButtonProps> = ({ onClick, label }) => {
 };
 
 export const LogInButton = () => {
-  return <AuthButton onClick={() => signIn()} label="Log In"/>
+  return <AuthButton onClick={() => signIn()} label="ログイン"/>
 };
 
 export const LogOutButton = () => {
-  return <AuthButton onClick={() => signOut()} label="Log Out"/>;
+  return <AuthButton onClick={() => signOut()} label="ログアウト"/>;
 };
