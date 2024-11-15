@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { notojp } from "@/app/fonts";
 import Header from "./ui/header";
+import Footer from "@/app/ui/footer";
 import { SessionProvider } from "next-auth/react";
 import React from "react";
 

@@ -6,6 +6,14 @@ import { fetchnews } from "./lib/data";
 export default async function Home() {
   const news = await fetchnews();
   //const news={ news: "massage", date: "2024" }
+
+  {news ? (
+    <div key={news.date} className='text-center text-3xl font-bold'>
+     {news.news} ({news.date})
+    </div>):(
+      <p>おしらせが見つかりません。</p>
+    )}
+  {/*ここにnewsのやついれる*/}
   return (
     <>
       <div className="bg-sky-swift h-max min-h-screen">
@@ -33,6 +41,14 @@ export default async function Home() {
           <li className="flex flex-row grow items-center gap-1 hover:text-blue-600 bg-neutral-200 rounded-md m-1 max-w-56 hover:bg-amber-50">
             <BookOpenIcon className="w-9"/>
             <Link href="/uploder">Uploder Page</Link>
+          </li>
+          <li className="flex flex-row grow items-center gap-1 hover:text-blue-600 bg-neutral-200 rounded-md m-1 max-w-56 hover:bg-amber-50">
+            <BookOpenIcon className="w-9"/>
+            <Link href="/register">register</Link>
+          </li>
+          <li className="flex flex-row grow items-center gap-1 hover:text-blue-600 bg-neutral-200 rounded-md m-1 max-w-56 hover:bg-amber-50">
+            <BookOpenIcon className="w-9"/>
+            <Link href="/bookshelf">book shelf</Link>
           </li>
         </ul>
       </div>

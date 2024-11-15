@@ -32,3 +32,9 @@ model news{
   date String @id
   news String
 }
+
+model histroy {
+  book_number      BigInt  @id
+  id               String
+  date             String
+}
