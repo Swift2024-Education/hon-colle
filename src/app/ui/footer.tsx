@@ -4,7 +4,7 @@ const Footer = () => {
     const labels: { [key: string]: string[] } = {
         '本だな': [],
         'おすすめの本': [],
-        '本をさがす': ['キーワード', 'カテゴリー'],
+        '本をさがす': ['キーワードからさがす', 'カテゴリーからさがす'],
         '本のとうろく': [],
         'せってい/つかい方': ['きほんせってい', 'ログイン']
     };
@@ -19,7 +19,7 @@ const Footer = () => {
 
 
     return (
-        <footer className="bg-[#ebe9d3] p-10 md:p-12 lg:p-16 min-h-[400px] flex items-center">
+        <footer className="bg-[#FFF4DE] p-10 md:p-12 lg:p-16 min-h-[400px] flex items-center">
             {/*min-h-[400px]でフッターの高さ*/}
         <div className="flex justify-between w-full">
             {/*メニューを横に均等に配置 */}
