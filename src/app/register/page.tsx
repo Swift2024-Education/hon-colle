@@ -13,8 +13,9 @@ export default async function Page(props: {
   const searchParams = await props.searchParams;
   const number = searchParams?.number || '';
   const state = searchParams?.state || '';
-  const id = searchParams?.id || '';
+  //const id = searchParams?.id || '';
   //await deleteRecordsByUserId('sutou', state);
+  const id = 'sutou' //一旦sutouにしときました！！
 
 
 
@@ -24,7 +25,7 @@ export default async function Page(props: {
         <InputForm placeholder="数字を入力" />
         {/*入力フォーム*/}
       </div>
-      <HandleReset state={state}/>
+      <HandleReset />
       {/*機能しないリセットボタン*/}
       <div>
         数字は[{number ? number : "null"}]

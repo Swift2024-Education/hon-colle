@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 
-export default function HandleReset({ state }: { state: string }) {
+export default function HandleReset() {
     const [confirmReset, setConfirmReset] = useState(false); // 確認ボタンの状態
     const [resetDone, setResetDone] = useState(false); // リセット完了メッセージの状態
     const searchParams = useSearchParams();
