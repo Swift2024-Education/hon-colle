@@ -2,8 +2,6 @@
 
 import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { registerBookNumber } from '@/app/lib/data';
-
 
 
 type Book = {
@@ -28,15 +26,15 @@ export default function RegisterButtons({ result }: { result: Book | null }) {
 
         if (result) {
 
-            const id = searchParams.get('id'); // クエリパラメータからidを取得
+            //const id = searchParams.get('id'); // クエリパラメータからidを取得
 
-            if (id) {
+            //if (id) {
                 const params = new URLSearchParams(searchParams);
                 params.set('state', 'register');
                 replace(`${pathname}?${params.toString()}`);
 
                 //console.log('登録されました:', result.title);
-            }
+            //}
         }
     };
 
@@ -57,7 +55,7 @@ export default function RegisterButtons({ result }: { result: Book | null }) {
         const params = new URLSearchParams(searchParams);
         params.set('number', '');
         params.set('state', '');
-        params.set('id', '');
+        //params.set('id', '');
         replace(`${pathname}?${params.toString()}`);
     };
 
