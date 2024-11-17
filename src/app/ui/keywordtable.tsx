@@ -16,7 +16,7 @@ export default async function KeywordTable({
         <>
             <div className='mx-28'>
                 {results.length > 0 ? (//帰ってきた結果が0以上の時にこれを表示
-                <div className='grid grid-cols-3 grid-rows-3 gap-4 flex-shrink-0 justify-items-center content-evenly items-center'>
+                <div className='grid grid-cols-3 gap-4 flex-shrink-0 justify-items-center content-evenly items-center'>
                     {/*上の行は結果を3 * 3で並べるためのTailwindCSSの記述*/}
                     {results.map((books) => (
                     <div key={books.book_number} className='border-solid border-4 bg-zinc-100 border-gray-200 text-gray-700 rounded-marukado text-ellipsis overflow-hidden min-h-80 min-w-56 w-results'>

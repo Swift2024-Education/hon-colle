@@ -299,3 +299,59 @@ export async function deleteRecordsByUserId(user_id: string, state: string) {
         }
     }
 }
+
+export async function fetchHistoryCountByID(user_id: string) {
+    const count = await prisma.history.count({
+        where: {
+            user_id: user_id,
+        },
+    });
+    return count;
+}
+
+export async function fetchHistoryPagesByID(user_id: string) {
+    const count = await prisma.history.count({
+        where: {
+            user_id: user_id,
+        },
+    });
+    const totalPages = Math.ceil(Number(count / ITEMS_PER_PAGE));
+    return totalPages;
+}
+
+export async function fetchHistoryByID(
+    user_id: string,
+    currentPage: number,
+) {
+    const bookNumbers = await prisma.history.findMany({
+        where: {
+            user_id: user_id,
+        },
+        select: {
+            book_number: true,
+        },
+        orderBy: {
+            date: 'desc',
+        }
+    });
+
+   const bookNumberList = bookNumbers.map((history) => history.book_number);
+   console.log(bookNumberList);
+
+   const offset = (currentPage - 1) * ITEMS_PER_PAGE;
+   const books = await prisma.books.findMany({
+        skip: offset,
+        take: ITEMS_PER_PAGE,
+        where: {
+            book_number: { in: bookNumberList }
+        },
+        select: {
+            title_kana: true,
+            author_kana: true,
+            isbn: true,
+            book_number: true,
+        }
+   });
+   console.log(books);
+   return books;
+}
