@@ -16,15 +16,17 @@ const AuthButton: React.FC<AuthButtonProps> = ({ onClick, label }) => {
         padding: "10px 20px",
         fontSize: "16px",
         border: "1px solid #ccc",
-        borderRadius: "5px",
+        borderRadius: "35px",
         cursor: "pointer",
-        backgroundColor: "#f0f0f0",
+        backgroundColor: "#e5e5e5",
         transition: "background-color 0.2s",
+        color: "#374151",
+        fontWeight: "bold"
       }}
       onMouseOver={(e) =>
-        (e.currentTarget.style.backgroundColor = "#e0e0e0")
+        (e.currentTarget.style.backgroundColor = "#73BB3B")
       }
-      onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#f0f0f0")}
+      onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#e5e5e5")}
     >
       {label}
     </button>
@@ -32,9 +34,9 @@ const AuthButton: React.FC<AuthButtonProps> = ({ onClick, label }) => {
 };
 
 export const LogInButton = () => {
-  return <AuthButton onClick={() => signIn()} label="ログイン" />
+  return <AuthButton onClick={() => signIn()} label="ログインする" />
 };
 
 export const LogOutButton = () => {
-  return <AuthButton onClick={() => signOut()} label="ログアウト" />;
+  return <AuthButton onClick={() => signOut()} label="ログアウトする" />;
 };
