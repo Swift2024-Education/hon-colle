@@ -45,10 +45,6 @@ export default async function Home() {
             <BookOpenIcon className="w-9"/>
             <Link href="/register">register</Link>
           </li>
-          <li className="flex flex-row grow items-center gap-1 hover:text-blue-600 bg-neutral-200 rounded-md m-1 max-w-56 hover:bg-amber-50">
-            <BookOpenIcon className="w-9"/>
-            <Link href="/bookshelf">book shelf</Link>
-          </li>
         </ul>
       </div>
     </>

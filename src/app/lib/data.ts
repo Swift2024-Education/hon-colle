@@ -239,27 +239,6 @@ export async function fetchBookByBookNumber(number: string) {
     }
 }
 
-export async function fetchBookByAuthor(author: string) {
-    const book = await prisma.books.findMany({
-        where: {
-            author: {
-                contains: author
-            },
-        },
-        select: {
-            book_number: true,
-            title: true,
-            title_kana: true,
-            author_kana: true,
-            isbn: true,
-        },
-    });
-    if (book) {
-        return book
-    } else {
-        return null
-    }
-}
 
 //本の登録
 export async function registerBookNumber(book_number: string, user_id: string) {
