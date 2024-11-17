@@ -33,7 +33,7 @@ export default function Page() {
   return (
     <>
       <div className="bg-sky-swift h-max min-h-screen">
-        <h1 className='text-gray-700 text-3xl p-5 font-bold text-center'>カテゴリから本をさがす</h1>
+        <h1 className='text-gray-700 text-3xl p-5 font-medium text-center'>カテゴリから本をさがす</h1>
 
         {/* Grid Container */}
         <div className="grid grid-cols-4 gap-x-4 gap-y-4 p-10">
@@ -41,7 +41,7 @@ export default function Page() {
             <Link key={category.label} href={`/categories/${category.value}`}>
               {/* カテゴリを囲うボックス */}
               <div 
-                className="flex gap-3 bg-neutral-100 rounded-marukado m-1 max-w-full w-full h-48 hover:bg-amber-50 border-4 box-border"
+                className="flex gap-3 bg-white rounded-marukado m-1 max-w-full w-full h-48 hover:bg-amber-50 border-4 box-border"
                 style={{ borderColor: Colors[index % Colors.length] }}
               >
                 {/* カテゴリ番号の丸 */}

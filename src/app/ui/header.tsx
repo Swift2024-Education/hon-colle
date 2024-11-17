@@ -17,9 +17,9 @@ const Header = () => {
   const icons = [home_icon, recommendation_icon, search_icon, register_icon, setting_icon];
   const labels = ['本だな', 'おすすめの本', '本をさがす', '本のとうろく', 'せってい/つかいかた'];
   const links = [
-    "/categories",
+    "/",
     "/recomendation",
-    "/search",
+    "/searchSelect",
     "/uploader",
     "/setting",
     "/houToUse"
