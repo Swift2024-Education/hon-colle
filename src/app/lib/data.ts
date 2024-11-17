@@ -261,12 +261,41 @@ export async function fetchBookByAuthor(author: string) {
     }
 }
 
-export async function registerBookNumber(book_number: string, id: string, date: string) {
-        const history = {
-            book_number: BigInt(book_number), // 最初に見つかった本の番号をセット
-            id: id,
-            date: date,
-        };
+export async function registerBookNumber(book_number: string, user_id: string, date: string) {
+    try {
+        if (book_number && user_id && date) {
+            const History = await prisma.history.create({
+                data: {
+                    book_number: BigInt(book_number),
+                    user_id: user_id,
+                    date: date,
+                },
+            });
+            console.log('History:', History);
+        } else {
+            console.log('Invalid input: One or more values are null or undefined.');
+        }
+    } catch (error) {
+        console.error('Error registering book number:', error);
+    }
+}
 
-        console.log('History:', history);
+export async function deleteRecordsByUserId(user_id: string, state: string) {
+    if (state == 'reset') {
+        try {
+            if (user_id) {
+                const deletedRecords = await prisma.history.deleteMany({
+                    where: {
+                        user_id: user_id,
+                    },
+                });
+
+                console.log(`${deletedRecords.count} record(s) deleted for user_id: ${user_id}`);
+            } else {
+                console.log('Invalid input: user_id is null or undefined.');
+            }
+        } catch (error) {
+            console.error('Error deleting records:', error);
+        }
+    }
 }

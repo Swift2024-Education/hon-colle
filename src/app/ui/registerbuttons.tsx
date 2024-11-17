@@ -1,18 +1,17 @@
 'use client';
 
-import { globalBooksArray } from '@/app/lib/difinitions';
 import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import {registerBookNumber} from '@/app/lib/data';
+import { registerBookNumber } from '@/app/lib/data';
 
 
 
 type Book = {
     book_number: bigint;
-    title: string;
+    title: string | null;
     isbn: bigint | null;
-    title_kana: string;
-    author_kana: string;
+    title_kana: string | null;
+    author_kana: string | null;
 };
 
 export default function RegisterButtons({ result }: { result: Book | null }) {
@@ -20,28 +19,24 @@ export default function RegisterButtons({ result }: { result: Book | null }) {
     const pathname = usePathname();
     const { replace } = useRouter();
     const [message, setMessage] = useState('');
-    const [currentStatus, setCurrentStatus] = useState('normal');  // 状態管理用
+    const [currentStatus, setCurrentStatus] = useState('');  // 状態管理用
 
 
     // 登録ボタンの処理
     const handleRegister = async (e: React.FormEvent) => {
         e.preventDefault();
-        const date = new Date();
-        const formattedDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}-${date.getHours()}-${date.getMinutes()}`;
 
         if (result) {
 
             const id = searchParams.get('id'); // クエリパラメータからidを取得
 
             if (id) {
-                // `registerBookNumber` を呼び出して、DBに登録
-                await registerBookNumber(result.book_number.toString(), id, formattedDate);
-                console.log('登録されました:', result.title);
-            }
+                const params = new URLSearchParams(searchParams);
+                params.set('state', 'register');
+                replace(`${pathname}?${params.toString()}`);
 
-            const params = new URLSearchParams(searchParams);
-            params.set('state', 'register');
-            replace(`${pathname}?${params.toString()}`);
+                //console.log('登録されました:', result.title);
+            }
         }
     };
 
@@ -49,11 +44,10 @@ export default function RegisterButtons({ result }: { result: Book | null }) {
     const handleCancel = (e: React.FormEvent) => {
         e.preventDefault();
 
-        //console.log('キャンセルしました');
         const params = new URLSearchParams(searchParams);
         params.set('state', 'cancel');
-        //params.set('state', 'cancel');
         replace(`${pathname}?${params.toString()}`);
+        console.log('キャンセルしました');
     };
 
     // メッセージをクリアして state を normal にリセット
@@ -62,7 +56,7 @@ export default function RegisterButtons({ result }: { result: Book | null }) {
 
         const params = new URLSearchParams(searchParams);
         params.set('number', '');
-        params.set('state', 'normal');
+        params.set('state', '');
         params.set('id', '');
         replace(`${pathname}?${params.toString()}`);
     };
@@ -72,13 +66,13 @@ export default function RegisterButtons({ result }: { result: Book | null }) {
         const state = searchParams.get('state');
         if (state === 'register') {
             setMessage('この本を登録しました');
-            setCurrentStatus('register');
+            //setCurrentStatus('register');
         } else if (state === 'cancel') {
             setMessage('この本の登録をキャンセルしました');
-            setCurrentStatus('cancel');
+            //setCurrentStatus('cancel');
         } else {
             setMessage('');
-            setCurrentStatus('normal');
+            //setCurrentStatus('');
         }
     }, [searchParams]);
 
@@ -104,7 +98,6 @@ export default function RegisterButtons({ result }: { result: Book | null }) {
                     </button>
                 </div>
             )}
-
         </div>
     );
 }

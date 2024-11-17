@@ -16,7 +16,7 @@ export default function InputForm({ placeholder }: { placeholder: string }) {
 
     const params = new URLSearchParams(searchParams);
     params.set('number', inputValueBookNumber); //queryにパラメータセット
-    params.set('state', 'normal');
+    params.set('state', '');
     params.set('id', inputValueId);
     replace(`${pathname}?${params.toString()}`);
     setInputValueBookNumber('');
@@ -51,9 +51,6 @@ export default function InputForm({ placeholder }: { placeholder: string }) {
           送信
         </button>
       </form>
-
-
-
     </div>
   );
 }

@@ -1,8 +1,9 @@
 import InputForm from '@/app/ui/inputform';
 import BookNumberTable from '@/app/ui/booknumbertable';
 import HandleReset from '@/app/ui/handlereset';
-import { globalBooksArray } from '@/app/lib/difinitions';
-import BooksHistory from '@/app/ui/bookshistory';
+import RegisterBooks from '@/app/ui/registerbooks';
+import { deleteRecordsByUserId } from '@/app/lib/data';
+
 
 
 
@@ -11,8 +12,10 @@ export default async function Page(props: {
 }) {
   const searchParams = await props.searchParams;
   const number = searchParams?.number || '';
-  const state = searchParams?.state || 'normal';
+  const state = searchParams?.state || '';
   const id = searchParams?.id || '';
+  //await deleteRecordsByUserId('sutou', state);
+
 
 
   return (
@@ -21,18 +24,16 @@ export default async function Page(props: {
         <InputForm placeholder="数字を入力" />
         {/*入力フォーム*/}
       </div>
-      <HandleReset />
+      <HandleReset state={state}/>
       {/*機能しないリセットボタン*/}
       <div>
         数字は[{number ? number : "null"}]
+        idは[{id ? id : "id"}]
         {/*後で消す*/}
+        <RegisterBooks bookNumber={number} id={id} state={state}/>
       </div>
       <div>
-        <BookNumberTable number={number} />
-        {/*本の取得と表示*/}
-      </div>
-      <div>
-        <BooksHistory />
+        <BookNumberTable number={number} id={id}/>
         {/*本の取得と表示*/}
       </div>
     </div>
