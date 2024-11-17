@@ -13,7 +13,6 @@ export default async function Home() {
     </div>):(
       <p>おしらせが見つかりません。</p>
     )}
-  {/*ここにnewsのやついれる*/}
   return (
     <>
       <div className="bg-sky-swift h-max min-h-screen">
