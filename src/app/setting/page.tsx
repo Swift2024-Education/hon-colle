@@ -19,13 +19,13 @@ export default function Page() {
     };
 
     const { data: session, status } = useSession();
-    console.log(session?.idToken); // ID トークンを sessionに格納できている
+    //console.log(session?.idToken); // ID トークンを sessionに格納できている
 
 
     return (
-        <div className="bg-sky-200 h-max min-h-screen flex">
-            <div className="bg-amber-300 min-h-48 h-fit my-20 mx-auto rounded-xl">
-                <div className="bg-white m-8 rounded-xl">
+        <div className="bg-sky-swift h-max min-h-fut flex">
+            <div className="bg-amber-300 min-h-48 h-fit min-w-80 w-[60vw] my-20 mx-auto rounded-xl">
+                <div className="bg-white m-8 rounded-xl justify-items-center">
                     <div className="p-4">
 
                         <h2 className="text-gray-700 pl-8 p-4 text-4xl font-bold text-center">せってい</h2>
@@ -53,22 +53,22 @@ export default function Page() {
                                 {!session && (
                                     <div>
                                         <LogInButton />
-                                        <p>ログインしてください</p>
+                                        <p className="text-gray-700 m-2 text-lg font-base">ほんコレのきのうをつかうには、ログインしてください。</p>
                                     </div>
                                 )}
                                 {session && (
                                     <div>
                                         <LogOutButton />
-                                        <p>{session.user?.email}</p>
+                                        <p className="text-gray-700 m-2 text-lg font-base">{session.user?.name} としてログインちゅう。</p>
 
                                     </div>
                                 )}
                             </div>
                         </div>
 
-                        <button className="bg-orange-600 rounded-full w-fit ml-8" onClick={handleClick}>
+                        <button className="bg-orange-600 rounded-full w-fit ml-20" onClick={handleClick}>
                             <Link href="../">
-                                <div className="text-gray-700 text-xl text-center mx-6">
+                                <div className="text-white text-xl text-center mx-6">
                                     せってい を ほぞん
                                 </div>
                             </Link>
