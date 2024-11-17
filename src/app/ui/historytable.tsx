@@ -34,6 +34,7 @@ export default async function HistoryTable({
                             {/*<div className='bg-slate-500 m-8 w-36 h-48'/>*/}
                             <div className='text-2xl'>{books.title_kana}</div>
                             <div className='text-lg'>{books.author_kana}</div>
+                            <div className='text-lg'>{books.book_number}</div>
                         </div>
                     </div>
                 ))}

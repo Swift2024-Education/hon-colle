@@ -7,13 +7,13 @@ type RegisterBooksProps = {
 };
 
 const RegisterBooks = async ({ bookNumber, id, state }: RegisterBooksProps) => {
-    const date = new Date();
-    const formattedDate = `${date.getFullYear()}${date.getMonth() + 1}${date.getDate()}`;
+    //const date = new Date();
+    //const formattedDate = `${date.getFullYear()}${date.getMonth() + 1}${date.getDate()}${date.getHours()}${date.getMinutes()}${date.getSeconds()}`;
     //const message = ''
 
     try {
         if (state == 'register') {
-            await registerBookNumber(bookNumber, id, formattedDate);
+            await registerBookNumber(bookNumber, id);
             console.log('登録しました')
             //let message = '登録しました'
         }

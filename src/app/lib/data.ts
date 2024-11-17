@@ -261,14 +261,15 @@ export async function fetchBookByAuthor(author: string) {
     }
 }
 
-export async function registerBookNumber(book_number: string, user_id: string, date: string) {
+//本の登録
+export async function registerBookNumber(book_number: string, user_id: string) {
     try {
-        if (book_number && user_id && date) {
+        if (book_number && user_id) {
             const History = await prisma.history.create({
                 data: {
                     book_number: BigInt(book_number),
                     user_id: user_id,
-                    date: date,
+                    date: new Date().toISOString(),
                 },
             });
             console.log('History:', History);
@@ -280,6 +281,7 @@ export async function registerBookNumber(book_number: string, user_id: string, d
     }
 }
 
+//user_idが一致するレコードを削除
 export async function deleteRecordsByUserId(user_id: string, state: string) {
     if (state == 'reset') {
         try {
@@ -301,12 +303,16 @@ export async function deleteRecordsByUserId(user_id: string, state: string) {
 }
 
 export async function fetchHistoryCountByID(user_id: string) {
-    const count = await prisma.history.count({
+    //book_number毎にグループを作って配列として取得
+    //book_numberの重複があってもカウントされない
+    const uniqueBooks = await prisma.history.groupBy({
+        by: ['book_number'],
         where: {
             user_id: user_id,
         },
     });
-    return count;
+
+    return uniqueBooks.length;
 }
 
 export async function fetchHistoryPagesByID(user_id: string) {
@@ -323,35 +329,40 @@ export async function fetchHistoryByID(
     user_id: string,
     currentPage: number,
 ) {
-    const bookNumbers = await prisma.history.findMany({
+    const historyRecords = await prisma.history.findMany({
         where: {
             user_id: user_id,
         },
         select: {
             book_number: true,
+            date: true,
         },
         orderBy: {
             date: 'desc',
         }
     });
 
-   const bookNumberList = bookNumbers.map((history) => history.book_number);
-   console.log(bookNumberList);
+    const bookNumberList = historyRecords.map((record) => record.book_number);
 
-   const offset = (currentPage - 1) * ITEMS_PER_PAGE;
-   const books = await prisma.books.findMany({
+    const offset = (currentPage - 1) * ITEMS_PER_PAGE;
+    const books = await prisma.books.findMany({
         skip: offset,
         take: ITEMS_PER_PAGE,
         where: {
-            book_number: { in: bookNumberList }
+            book_number: { in: bookNumberList },
         },
         select: {
             title_kana: true,
             author_kana: true,
             isbn: true,
             book_number: true,
-        }
-   });
-   console.log(books);
-   return books;
+        },
+    });
+
+    //'books'を'bookNumberList'の順序に並び替える
+    const sortedBooks = bookNumberList.map((number) =>
+        books.find((book) => book.book_number === number)
+    ).filter((book) => book !== undefined); //'null'や'undefined'を除外
+
+    return sortedBooks;
 }
