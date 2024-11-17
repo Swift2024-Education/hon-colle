@@ -47,11 +47,10 @@ export default function InputForm({ placeholder }: { placeholder: string }) {
             onChange={(e) => setInputValueId(e.target.value)}
             className="block w-100 rounded-xl border-solid border-4 border-gray-200 py-2 pl-3 text-lg placeholder-gray-600"
           />
-        </div>
+        </div>*/}
         <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
           送信
         </button>
-        */}
       </form>
     </div>
   );
