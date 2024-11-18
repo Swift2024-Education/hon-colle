@@ -4,6 +4,11 @@ import { fetchHistoryPagesByID } from "../lib/data";
 import HistoryTable from "../ui/historytable";
 import { auth } from "../../../auth"
 import { fetchHistoryCountByID } from '../lib/data';
+import Image from "next/image";
+
+//子どもたち
+import boy_smile from '../ui/childrensImages/boy_smile.png';
+import girl_smile from '../ui/childrensImages/girl_smile.png';
 
 export default async function Page(props: {
     searchParams?: Promise<{
@@ -27,14 +32,37 @@ export default async function Page(props: {
 
     return (
         <>
-            <div className='bg-sky-swift min-h-fit'>
-                <DisplayName />
+            <div className='bg-sky-swift h-max min-h-screen '>
+
+                {/* おしらせボックス */} 
+                <div className=" flex items-center justify-center ">
+                     <div className="w-[1200px] h-[70px] p-2 shadow-lg rounded-marukado bg-white">
+                        <div className="flex items-center justify-start">
+                            <div className="w-[230px] h-[55px] flex items-center justify-center rounded-marukado bg-[#E84F27]">
+                                
+                                <span className="text-white text-3xl font-medium ">おしらせ</span>
+                              
+                            </div>
+                        </div>
+                     </div>
+                </div>
+
+                 {/* 画像と冊数のコンテナ */}
+              <div className="flex justify-center items-center space-x-10 mt-8 mb-0">
+                <div className="flex-shrink-0">
+                <Image
+                  src={girl_smile}
+                  alt="smilesgirl"
+                className="h-[350px] w-auto object-contain"
+                />
+            </div>
+             
                 {/*以下登録冊数表示*/}
-                <div className="flex justify-center items-center mt-6">
-                    <div className="border-4 border-gray-300 rounded-xl p-10 bg-white shadow-lg text-center w-96 mb-10">
+                <div className="flex justify-center items-center ">
+                    <div className="rounded-marukado p-10 bg-white shadow-lg text-center w-96 mb-10">
                         <p className="text-xl font-semibold text-gray-700 leading-relaxed space-y-6">
                             <span className="block">
-                                <span className="text-blue-500">{id}</span>
+                                <span className="">{id}</span>
                                 <span className="ml-2"> は</span>
                             </span>
                             <span className="block">
@@ -47,6 +75,15 @@ export default async function Page(props: {
                         </p>
                     </div>
                 </div>
+                <div className="flex-shrink-3">
+                <Image
+                  src={boy_smile}
+                  alt="smilesgirl"
+                className="h-[350px] w-auto object-contain"
+                />
+            </div>
+             </div> 
+            
                 {/*ここまで登録冊数表示*/}
                 <HistoryTable id={id} currentPage={currentPage} />
                 <div className="mt-5 flex w-full justify-center pb-10">
