@@ -14,12 +14,11 @@ export default async function KeywordTable({
 
     return(
         <>
-            <div className='mx-28'>
                 {results.length > 0 ? (//帰ってきた結果が0以上の時にこれを表示
-                <div className='grid grid-cols-3 grid-rows-3 gap-4 flex-shrink-0 justify-items-center content-evenly items-center'>
+                <div className='w-full max-w-[1200px] h-auto mx-auto grid grid-cols-3 grid-rows-3 gap-4 justify-items-center'>
                     {/*上の行は結果を3 * 3で並べるためのTailwindCSSの記述*/}
                     {results.map((books) => (
-                    <div key={books.book_number} className='border-solid border-4 bg-zinc-100 border-gray-200 text-gray-700 rounded-marukado text-ellipsis overflow-hidden min-h-80 min-w-56 w-results'>
+                    <div key={books.book_number} className='bg-white text-gray-700 rounded-marukado text-ellipsis overflow-hidden shadow-lg  min-h-20 min-w-80 w-results'>
                         {/*テキストと枠、背景の色、サイズ、テキストの折り返し設定(これ動いてるのかどうか不明)*/}
                         <div className='text-center items-center justify-center'>
                             {/*帰ってきた結果から、ひらがなのタイトルと著者名だけ選択して表示*/}
@@ -41,8 +40,6 @@ export default async function KeywordTable({
             ) : (
             <p className='border-solid border-2 bg-zinc-100 border-gray-200 text-gray-700 rounded-marukado text-2xl text-center'>さがしている ほんは ありませんでした。</p>
             )}
-            </div>
-            {/*3行上は見つからなかった時にだけ表示*/}
         </>
     );
 }
