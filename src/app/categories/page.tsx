@@ -33,7 +33,7 @@ export default function Page() {
   return (
     <>
       <div className="bg-sky-swift h-max min-h-screen">
-        <h1 className='text-gray-700 text-3xl p-5 font-medium text-center'>カテゴリから本をさがす</h1>
+        <h1 className='text-gray-700 text-5xl p-5 font-medium text-center'>カテゴリから本をさがす</h1>
 
         {/* Grid Container */}
         <div className="grid grid-cols-4 gap-x-4 gap-y-4 p-10">

@@ -15,7 +15,7 @@ export default function Page() {
   return (
     <>
       <div className="bg-sky-swift h-max min-h-screen flex flex-col items-center">
-        <h1 className="text-gray-700 text-3xl p-5 font-medium text-center">
+        <h1 className="text-gray-700 text-5xl p-5 font-medium text-center">
           本をさがす
         </h1>
         <div className="grid grid-cols-2 gap-10 pt-10 items-center">
