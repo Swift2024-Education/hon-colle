@@ -16,10 +16,8 @@ export default async function Home() {
   return (
     <>
       <div className="bg-sky-swift h-max min-h-screen">
-        <h1 className='text-gray-700 text-5xl p-8 font-bold'>
-          Top Page
-        </h1>
-        {news ? (
+       
+        {news ? (      
         <div key={news.date} className='text-center text-3xl font-bold text-gray-700'>
          {news.news} ({news.date})
         </div>):(
