@@ -1,9 +1,13 @@
 import { fetchBookByBookNumber } from '@/app/lib/data';
 //import Image from 'next/image';
-import BooksHistory from '@/app/ui/bookshistory';
 import RegisterButtons from './registerbuttons';
 
-export default async function isbnTable({ number }: { number: string }) {
+type BookNumberTableProps = {
+    number: string;
+    id: string;
+};
+
+const bookNumberTable = async ({ number, id }: BookNumberTableProps) => {
     const result = number ? await fetchBookByBookNumber(number) : null;
 
 
@@ -17,7 +21,8 @@ export default async function isbnTable({ number }: { number: string }) {
                         <div className="h-60 w-full border-solid border-4 bg-zinc-100 border-gray-200 text-gray-700 rounded-xl overflow-hidden p-4">
                             <div className="text-center">
                                 <div className="text-lg">{result.title}</div>
-                                <div className="text-lg">{result.book_number}</div> {/* bigintを文字列に変換 */}
+                                <div className="text-lg">{result.book_number}</div>
+                                {id}
                             </div>
                         </div>
                         {/* RegisterButtons を配置 */}
@@ -28,5 +33,7 @@ export default async function isbnTable({ number }: { number: string }) {
                 )}
             </div>
         </div>
+
     );
 }
+export default bookNumberTable

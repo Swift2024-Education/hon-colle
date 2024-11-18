@@ -5,5 +5,3 @@ export type searchResult = {
     author_kana: string;
     isbn: number;
 };
-
-export var globalBooksArray: any[] = [];

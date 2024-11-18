@@ -261,12 +261,108 @@ export async function fetchBookByAuthor(author: string) {
     }
 }
 
-export async function registerBookNumber(book_number: string, id: string, date: string) {
-        const history = {
-            book_number: BigInt(book_number), // 最初に見つかった本の番号をセット
-            id: id,
-            date: date,
-        };
+//本の登録
+export async function registerBookNumber(book_number: string, user_id: string) {
+    try {
+        if (book_number && user_id) {
+            const History = await prisma.history.create({
+                data: {
+                    book_number: BigInt(book_number),
+                    user_id: user_id,
+                    date: new Date().toISOString(),
+                },
+            });
+            console.log('History:', History);
+        } else {
+            console.log('Invalid input: One or more values are null or undefined.');
+        }
+    } catch (error) {
+        console.error('Error registering book number:', error);
+    }
+}
 
-        console.log('History:', history);
+//user_idが一致するレコードを削除
+export async function deleteRecordsByUserId(user_id: string, state: string) {
+    if (state == 'reset') {
+        try {
+            if (user_id) {
+                const deletedRecords = await prisma.history.deleteMany({
+                    where: {
+                        user_id: user_id,
+                    },
+                });
+
+                console.log(`${deletedRecords.count} record(s) deleted for user_id: ${user_id}`);
+            } else {
+                console.log('Invalid input: user_id is null or undefined.');
+            }
+        } catch (error) {
+            console.error('Error deleting records:', error);
+        }
+    }
+}
+
+export async function fetchHistoryCountByID(user_id: string) {
+    //book_number毎にグループを作って配列として取得
+    //book_numberの重複があってもカウントされない
+    const uniqueBooks = await prisma.history.groupBy({
+        by: ['book_number'],
+        where: {
+            user_id: user_id,
+        },
+    });
+
+    return uniqueBooks.length;
+}
+
+export async function fetchHistoryPagesByID(user_id: string) {
+    const count = await prisma.history.count({
+        where: {
+            user_id: user_id,
+        },
+    });
+    const totalPages = Math.ceil(Number(count / ITEMS_PER_PAGE));
+    return totalPages;
+}
+
+export async function fetchHistoryByID(
+    user_id: string,
+    currentPage: number,
+) {
+    const historyRecords = await prisma.history.findMany({
+        where: {
+            user_id: user_id,
+        },
+        select: {
+            book_number: true,
+            date: true,
+        },
+        orderBy: {
+            date: 'desc',
+        }
+    });
+
+    const bookNumberList = historyRecords.map((record) => record.book_number);
+
+    const offset = (currentPage - 1) * ITEMS_PER_PAGE;
+    const books = await prisma.books.findMany({
+        skip: offset,
+        take: ITEMS_PER_PAGE,
+        where: {
+            book_number: { in: bookNumberList },
+        },
+        select: {
+            title_kana: true,
+            author_kana: true,
+            isbn: true,
+            book_number: true,
+        },
+    });
+
+    //'books'を'bookNumberList'の順序に並び替える
+    const sortedBooks = bookNumberList.map((number) =>
+        books.find((book) => book.book_number === number)
+    ).filter((book) => book !== undefined); //'null'や'undefined'を除外
+
+    return sortedBooks;
 }

@@ -34,7 +34,8 @@ model news{
 }
 
 model history {
-  book_number      BigInt  @id
-  id               String
-  date             String
+  id               BigInt @id @default(autoincrement())
+  book_number      BigInt
+  user_id          String
+  date             DateTime
 }
