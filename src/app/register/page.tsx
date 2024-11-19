@@ -37,12 +37,12 @@ export default async function Page(props: {
         数字は[{number ? number : "null"}]
         idは[{id ? id : "id"}]
         {/*後で消す*/}
-        <RegisterBooks bookNumber={number} id={id} state={state}/>
       </div>
       <div>
         <BookNumberTable number={number} id={id}/>
         {/*本の取得と表示*/}
       </div>
+      <RegisterBooks bookNumber={number} id={id} state={state}/>
     </div>
   );
 };
