@@ -36,7 +36,7 @@ export default function HandleReset() {
         <div>
             {!confirmReset && !resetDone && (
                 // 初回のリセットボタン
-                <button onClick={handleReset} className="bg-red-500 text-white px-4 py-2 rounded mb-4">
+                <button onClick={handleReset} className="bg-red-500 text-white px-4 py-2 rounded mb-4 mt-2">
                     リセット
                 </button>
             )}

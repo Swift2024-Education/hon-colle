@@ -19,7 +19,7 @@ export default async function Header() {
   const labels = ['本だな', 'おすすめの本', '本をさがす', '本のとうろく', 'せってい/つかいかた'];
   const links = [
     "/history",
-    "/recomendation",
+    "/recommendation",
     "/searchSelect",
     "/register",
     "/setting",
