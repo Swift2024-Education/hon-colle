@@ -341,7 +341,21 @@ export async function fetchHistoryByID(
     //'books'を'bookNumberList'の順序に並び替える
     const sortedBooks = bookNumberList.map((number) =>
         books.find((book) => book.book_number === number)
-    ).filter((book) => book !== undefined); //'null'や'undefined'を除外
+    ).filter((book) => book !== undefined); //nullとundefinedを除外
 
     return sortedBooks;
+}
+
+export async function checkRegisterdBook(
+    number: string,
+    user_id: string,
+) {
+    const existingRecord = await prisma.history.findFirst({
+        where: {
+            user_id: user_id,
+            book_number: BigInt(number),
+        },
+    });
+    //レコードが存在する場合はtrue存在しない場合はfalseを返す
+    return existingRecord !== null;
 }
