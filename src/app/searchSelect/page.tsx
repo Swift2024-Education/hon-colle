@@ -22,7 +22,7 @@ export default function Page() {
           {/* リンク1 */}
           <Link href={links[0]}>
             <div
-              className="w-[200px] h-[250px] md:w-[300px] md:h-[350px] lg:w-[500px] lg:h-[500px] pt-10 bg-white text-gray-700 flex flex-col items-center rounded-marukado shadow-lg border-8 box-border hover:bg-amber-50"
+              className="w-[200px] h-[250px] md:w-[300px] md:h-[350px] lg:w-[500px] lg:h-[500px] pt-10 bg-white text-gray-700 flex flex-col items-center rounded-marukado shadow-lg hover:bg-amber-50"
               style={{ borderColor: "#EA5415" }}
             >
               <div className="text-4xl font-bold">カテゴリから探す</div>
@@ -42,7 +42,7 @@ export default function Page() {
           {/* リンク2 */}
           <Link href={links[1]}>
             <div
-              className="w-[200px] h-[250px] md:w-[300px] md:h-[350px] lg:w-[500px] lg:h-[500px] pt-10 bg-white text-gray-700 flex flex-col items-center rounded-marukado shadow-lg border-8 box-border hover:bg-amber-50"
+              className="w-[200px] h-[250px] md:w-[300px] md:h-[350px] lg:w-[500px] lg:h-[500px] pt-10 bg-white text-gray-700 flex flex-col items-center rounded-marukado shadow-lg hover:bg-amber-50"
               style={{ borderColor: "#2FA8E1" }}
             >
               <div className="text-4xl font-bold">キーワードからさがす</div>

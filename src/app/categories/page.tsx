@@ -41,7 +41,7 @@ export default function Page() {
             <Link key={category.label} href={`/categories/${category.value}`}>
               {/* カテゴリを囲うボックス */}
               <div 
-                className="flex gap-3 bg-white rounded-marukado m-1 max-w-full w-full h-48 hover:bg-amber-50 border-4 box-border"
+                className="flex gap-3 bg-white rounded-marukado m-1 max-w-full shadow-xl w-full h-48 hover:bg-amber-50 "
                 style={{ borderColor: Colors[index % Colors.length] }}
               >
                 {/* カテゴリ番号の丸 */}
