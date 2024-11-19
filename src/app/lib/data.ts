@@ -1,6 +1,7 @@
 import prisma from "../lib/prisma";
 
 const ITEMS_PER_PAGE = 9;//1ページに表示したい検索結果の最大数
+const ITEMS_PER_PAGE_FOR_HISTORY = 18;//上と同じ履歴ページ用
 export async function fetchSearchPages(query: string) {
     //検索ワードを含む本の件数を取得する件数
     const count = await prisma.books.count({
@@ -300,7 +301,7 @@ export async function fetchHistoryPagesByID(user_id: string) {
             user_id: user_id,
         },
     });
-    const totalPages = Math.ceil(Number(count / ITEMS_PER_PAGE));
+    const totalPages = Math.ceil(Number(count / ITEMS_PER_PAGE_FOR_HISTORY));
     return totalPages;
 }
 
@@ -323,10 +324,10 @@ export async function fetchHistoryByID(
 
     const bookNumberList = historyRecords.map((record) => record.book_number);
 
-    const offset = (currentPage - 1) * ITEMS_PER_PAGE;
+    const offset = (currentPage - 1) * ITEMS_PER_PAGE_FOR_HISTORY;
     const books = await prisma.books.findMany({
         skip: offset,
-        take: ITEMS_PER_PAGE,
+        take: ITEMS_PER_PAGE_FOR_HISTORY,
         where: {
             book_number: { in: bookNumberList },
         },
