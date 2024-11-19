@@ -50,7 +50,7 @@ export default async function Page(props: {
                                 <div key={news.date} className='text-3xl font-bold text-gray-700 pl-[30px]'>
                                     {news.news} ({news.date})
                                 </div>):(
-                                <p className="text-3xl text-gray-700 pl-[10vw]">おしらせが見つかりません。</p>
+                                <p className="text-3xl text-gray-700 pl-[20px]">おしらせが見つかりません。</p>
                             )}
                         </div>
                      </div>
