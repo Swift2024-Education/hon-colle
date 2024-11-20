@@ -36,10 +36,13 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-#Docker
+# Docker
 /data
 /docker
 
-#Cloudflare
+# Cloudflare
 .wrangler
 /migrations
+
+# Prisma Accelerate
+.dev.vars

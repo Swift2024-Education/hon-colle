@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { notojp } from "@/app/fonts";
 import Header from "./ui/header";
+import Footer from "@/app/ui/footer";
+import { SessionProvider } from "next-auth/react";
+import React from "react";
 
 
 export const metadata: Metadata = {
@@ -17,10 +20,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={notojp.className}
-      >  
-       <Header />
-        {children}
+        className={notojp.className}>
+
+        <Header />
+        <SessionProvider>{children}</SessionProvider>
+
+        {/*children*/}
+        <Footer />
       </body>
     </html>
   );

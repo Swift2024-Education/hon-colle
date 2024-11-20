@@ -3,6 +3,8 @@ import Search from "@/app/ui/search";
 import { fetchSearchPages } from "@/app/lib/data";
 import KeywordTable from "@/app/ui/keywordtable";
 
+//export const runtime = 'edge';
+
 export default async function Page(props: {
     searchParams?: Promise<{
         query?: string;
@@ -17,10 +19,8 @@ export default async function Page(props: {
     return(
         <>
             <div className=" bg-sky-swift h-max min-h-screen">
-                <h1 className="text-center text-5xl text-extrabold p-5 bg-gradient-to-r from-pink-500 to-violet-700 bg-clip-text text-transparent">
-                    本を けんさく
-                    {/*お遊びでテキストをグラデーションにしてみた*/}
-                </h1>
+                <h1 className="text-center text-5xl text-extrabold text-gray-700 p-5 ">
+                    本を けんさく </h1>
                 <div className="mt-4 flex items-center justify-between gap-2 md:mt-8 text-gray-700 mx-32 my-8">
                     <Search placeholder="ここに にゅうりょく して けんさく" />
                     {/*検索バーを表示、詳細な中身は/ui/search.tsx*/}
