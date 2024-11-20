@@ -1,4 +1,4 @@
-<img width='450' src='https://raw.githubusercontent.com/Swift2024-Education/hon-colle/refs/heads/main/src/app/ui/logo/%E3%83%AD%E3%82%B41-1%EF%BC%88%E8%83%8C%E6%99%AF%E9%80%8F%E9%81%8E%EF%BC%89.png'>
+<img width='450' src='https://raw.githubusercontent.com/Swift2024-Education/hon-colle/refs/heads/main/src/app/ui/logo/%E3%83%AD%E3%82%B4.png'>
 
 # ほんコレ hon-colle
 

@@ -53,7 +53,7 @@ export default async function HistoryTable({
                     )}
                 </div>
             ) : (
-            <p className='bg-orange-100 text-gray-700 rounded-marukado text-2xl text-center'>まだ よんだ 本が ありません。</p>
+            <p className='bg-orange-100 text-gray-700 rounded-marukado text-2xl text-center mx-32'>まだ よんだ 本が ありません。</p>
             )}
             {/*3行上は見つからなかった時にだけ表示*/}
         </>
