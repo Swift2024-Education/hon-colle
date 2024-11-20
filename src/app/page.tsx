@@ -1,50 +1,113 @@
-//import Image from "next/image";
-import Link from "next/link";
-import { BookOpenIcon } from "@heroicons/react/24/outline";
+//import Pagination from "../ui/pagenation";
+//import DisplayName from "../ui/displayName"
+import { fetchHistoryByID } from "./lib/data";
+import HistoryTable from "./ui/historytable";
+import { auth } from "./../../auth"
+import { fetchHistoryCountByID } from './lib/data';
+import Image from "next/image";
 import { fetchnews } from "./lib/data";
+import Link from "next/link";
 
-export default async function Home() {
-  const news = await fetchnews();
-  //const news={ news: "massage", date: "2024" }
+//子どもたち
+import boy_smile from './ui/childrensImages/boy_smile.png';
+import girl_smile from './ui/childrensImages/girl_smile.png';
 
-  {news ? (
-    <div key={news.date} className='text-center text-3xl font-bold'>
-     {news.news} ({news.date})
-    </div>):(
-      <p>おしらせが見つかりません。</p>
-    )}
-  return (
-    <>
-      <div className="bg-sky-swift h-max min-h-screen">
-       
-        {news ? (      
-        <div key={news.date} className='text-center text-3xl font-bold text-gray-700'>
-         {news.news} ({news.date})
-        </div>):(
-          <p className="text-center text-xl text-gray-700">おしらせが見つかりません。</p>
-        )}
-        <h2 className="text-gray-700 pl-8 p-1 text-xl">
-          Links to Other Pages:
-        </h2>
-        <ul className="text-gray-800 pl-8 p-1 text-xl">
-          <li className="flex flex-row grow items-center gap-1 hover:text-blue-600 bg-neutral-200 rounded-md m-1 max-w-56 hover:bg-amber-50">
-            <BookOpenIcon className="w-9"/>
-            <Link href="/search">Search</Link>
-          </li>
-          <li className="flex flex-row grow items-center gap-1 hover:text-blue-600 bg-neutral-200 rounded-md m-1 max-w-56 hover:bg-amber-50">
-            <BookOpenIcon className="w-9"/>
-            <Link href="/categories">Categories</Link>
-          </li>
-          <li className="flex flex-row grow items-center gap-1 hover:text-blue-600 bg-neutral-200 rounded-md m-1 max-w-56 hover:bg-amber-50">
-            <BookOpenIcon className="w-9"/>
-            <Link href="/uploder">Uploder Page</Link>
-          </li>
-          <li className="flex flex-row grow items-center gap-1 hover:text-blue-600 bg-neutral-200 rounded-md m-1 max-w-56 hover:bg-amber-50">
-            <BookOpenIcon className="w-9"/>
-            <Link href="/register">register</Link>
-          </li>
-        </ul>
-      </div>
-    </>
-  );
+export default async function Page() {
+    const currentPage = 1;
+    const data = await auth();
+    let email = ''
+    let name = ''
+    if (data != null) {
+        email = data.user?.email || '';
+        name = data.user?.name || '';
+    }
+    let id = ''
+    if (email != null && email != undefined) {
+        id = email;
+    }
+    let user_name = '';
+    if (name != null && name != undefined) {
+        user_name = name;
+    }
+
+    const count = fetchHistoryCountByID(id)
+
+    const news = await fetchnews();
+
+    return (
+        <>
+            <div className='bg-sky-swift h-max min-h-screen '>
+
+                {/* おしらせボックス */}
+                <div className=" flex items-center justify-center ">
+                     <div className="w-[1200px] h-fit p-2 shadow-lg rounded-marukado bg-white">
+                        <div className="flex items-center justify-start">
+                            <div className="w-[230px] h-[55px] flex items-center justify-center rounded-marukado bg-[#E84F27]">
+                                
+                                <span className="text-white text-3xl font-medium">おしらせ</span>
+
+                            </div>
+                            {news ? (
+                                <div key={news.date} className='text-3xl font-bold text-gray-700 pl-[30px]'>
+                                    {news.news} ({news.date})
+                                </div>):(
+                                <p className="text-3xl text-gray-700 pl-[20px]">おしらせが見つかりません。</p>
+                            )}
+                        </div>
+                     </div>
+                </div>
+
+                 {/* 画像と冊数のコンテナ */}
+              <div className="flex justify-center items-center space-x-10 mt-8 mb-0">
+                <div className="flex-shrink-0">
+                <Image
+                  src={girl_smile}
+                  alt="smilesgirl"
+                className="h-[350px] w-auto object-contain"
+                />
+            
+            </div>
+                {/*以下登録冊数表示*/}
+                <div className="flex justify-center items-center ">
+                    <div className="rounded-marukado p-10 bg-white shadow-lg text-center w-96 mb-10">
+                        <p className="text-xl font-semibold text-gray-700 leading-relaxed space-y-6">
+                            <span className="block">
+                                <span className="">{user_name}</span>
+                                <span className="ml-2"> は</span>
+                            </span>
+                            <span className="block">
+                                <span className="text-orange-500 text-7xl font-extrabold">{count}</span>
+                                <span className="ml-2 text-xl"> さつ</span>
+                            </span>
+                            <span className="block">
+                                よんだよ！
+                            </span>
+                        </p>
+                    </div>
+                </div>
+                <div className="flex-shrink-3">
+                <Image
+                  src={boy_smile}
+                  alt="smilesgirl"
+                className="h-[350px] w-auto object-contain"
+                />
+            </div>
+
+            </div>
+                {/*ここまで登録冊数表示*/}
+                <HistoryTable id={id} currentPage={currentPage} />
+                <div className="mt-5 flex w-full justify-center pb-10">
+                    <Link href="history">
+                            <div className="h-14 w-fit px-8 bg-[#E84F27] rounded-marukado flex items-center justify-center">
+                                <div className="border-2 border-transparent hover:border-white hover:border-dashed rounded-marukado">
+                                  <div className="text-white text-center text-3xl m-px">
+                                    もっとみる
+                                  </div>
+                                </div>
+                            </div>
+                    </Link>
+                </div>
+            </div>
+        </>
+    )
 }
