@@ -1,7 +1,8 @@
 import prisma from "../lib/prisma";
 
-const ITEMS_PER_PAGE = 9;//1ページに表示したい検索結果の最大数
-const ITEMS_PER_PAGE_FOR_HISTORY = 18;//上と同じ履歴ページ用
+const ITEMS_PER_PAGE = 9;//1ページに表示したい検索結果の最大数\
+const ITEMS_PER_PAGE_FOR_HISTORY = 18; //本棚の最大数
+
 export async function fetchSearchPages(query: string) {
     //検索ワードを含む本の件数を取得する件数
     const count = await prisma.books.count({
