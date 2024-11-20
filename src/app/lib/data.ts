@@ -302,8 +302,7 @@ export async function fetchHistoryPagesByID(user_id: string) {
             user_id: user_id,
         },
     });
-    const totalPages = Math.ceil(Number(count / ITEMS_PER_PAGE_FOR_HISTORY
-    ));
+    const totalPages = Math.ceil(Number(count / ITEMS_PER_PAGE_FOR_HISTORY));
     return totalPages;
 }
 
