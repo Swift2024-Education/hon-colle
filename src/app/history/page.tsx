@@ -20,12 +20,18 @@ export default async function Page(props: {
     const currentPage = Number(searchParams?.page) || 1;
     const data = await auth();
     let email = ''
+    let name = ''
     if (data != null) {
         email = data.user?.email || '';
+        name = data.user?.name || '';
     }
     let id = ''
     if (email != null && email != undefined) {
         id = email;
+    }
+    let user_name = '';
+    if (name != null && name != undefined) {
+        user_name = name;
     }
 
     const totalPages = await fetchHistoryPagesByID(id);
@@ -71,7 +77,7 @@ export default async function Page(props: {
                     <div className="rounded-marukado p-10 bg-white shadow-lg text-center w-96 mb-10">
                         <p className="text-xl font-semibold text-gray-700 leading-relaxed space-y-6">
                             <span className="block">
-                                <span className="">{id}</span>
+                                <span className="">{user_name}</span>
                                 <span className="ml-2"> は</span>
                             </span>
                             <span className="block">
