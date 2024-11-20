@@ -31,6 +31,14 @@ export default function Page() {
     //console.log(session?.idToken); // ID トークンを sessionに格納できている
 
 
+    const StringMatchChecker = () => {
+        const [input, setInput] = useState(""); // 入力された文字列
+        const targetStrings = ["うんこ","うんち"]; // NGワードの文字列
+        const containsAnyTarget = targetStrings.some((target) =>
+            inputText.includes(target)
+          );//
+    }
+
     return (
         <div className="bg-sky-swift h-max min-h-screen flex">
             <div className="bg-amber-300 h-[90vh] w-[80vw] my-20 mx-auto rounded-xl flex items-center justify-center">
@@ -71,7 +79,11 @@ export default function Page() {
                                     <p className="text-red-500 text-center italic text-base mt-2">
                                         名前を入力してください。
                                     </p>
-                                ) : (
+                                ) : inputText.includes(inputText) ? (
+                                    <p className="text-red-500 text-center italic text-base mt-2">
+                                        この名前はつかえないよ
+                                    </p>
+                                ): (
                                     <p className="mt-8 invisible"> </p> //名前を入力してください分のスペースを確保
                                 )}
                             </div>
