@@ -16,7 +16,8 @@ export default async function HistoryTable({
     //関数を使って本をキーワード検索
 
 
-
+  // 6列用の空白を計算
+  const emptySlots = (6 - (results.length % 6)) % 6 ;
 
     return(
         <>
@@ -25,8 +26,8 @@ export default async function HistoryTable({
                 <div className='grid grid-cols-6 gap-y-4 justify-items-center content-evenly  bg-[#E5C089] p-[1.5vw] w-full '>
                     {/*上の行は結果を3 * 3で並べるためのTailwindCSSの記述*/}
                     {results.map((books) => (
-                    <div key={books.book_number} className='bg-[#FFECCF] p-8 h-80 w-full items-center '>
-                        <div className='text-center items-justify-center'>
+                    <div key={books.book_number} className='bg-[#FFECCF] p-8 h-80 w-full items-end grid'>
+                        <div className='flex items-center '>
                             <Image
                                 src={`https://www.books.or.jp/img/books_icon/${books.isbn}.jpg`}
                                 layout='responsive'
@@ -40,6 +41,16 @@ export default async function HistoryTable({
                         </div>
                     </div>
                 ))}
+                 {/* 空白セルを追加 */}
+                 {emptySlots > 0 && (
+                        // 余った空白を最終行に配置
+                        Array.from({ length: emptySlots }).map((_, index) => (
+                            <div
+                                key={`empty-${index}`}
+                                className="bg-[#FFECCF] p-8 h-80 w-full"
+                            />
+                        ))
+                    )}
                 </div>
             ) : (
             <p className='bg-orange-100 text-gray-700 rounded-marukado text-2xl text-center'>まだ よんだ 本が ありません。</p>
