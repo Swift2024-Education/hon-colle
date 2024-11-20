@@ -24,7 +24,7 @@ export default async function HistoryTable({
 
                 {results.length > 0 ? (//帰ってきた結果が0以上の時にこれを表示
                 <div className='grid grid-cols-6 gap-y-4 justify-items-center content-evenly  bg-[#E5C089] p-[1.5vw] w-full '>
-                    {/*上の行は結果を3 * 3で並べるためのTailwindCSSの記述*/}
+                    {/*上の行は結果を6 * 3で並べるためのTailwindCSSの記述*/}
                     {results.map((books) => (
                     <div key={books.book_number} className='bg-[#FFECCF] p-8 h-80 w-full items-end grid'>
                         <div className='flex items-center '>
