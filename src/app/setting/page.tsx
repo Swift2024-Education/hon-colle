@@ -109,7 +109,7 @@ export default function Page() {
                     <div className="flex justify-center mt-auto mb-8">
                         <button onClick={handleSubmit} className="bg-orange-600 rounded-full px-6 py-2 w-[18vw] h-[7vh]">
                             <div className="w-full h-full rounded-full border-2 border-transparent flex items-center justify-center hover:border-white hover:border-dashed">
-                                <Link href="../">
+                                <Link href="../history">
                                     <div className="text-white text-xl text-center">
                                         せってい を ほぞん
                                     </div>
