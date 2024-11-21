@@ -361,3 +361,37 @@ export async function checkRegisterdBook(
     //レコードが存在する場合はtrue存在しない場合はfalseを返す
     return existingRecord !== null;
 }
+
+export async function fetchUserName(
+    user_id: string,
+) {
+    const user_name = await prisma.user.findUnique({
+        where: {
+            id: user_id,
+        },
+        select: {
+            name: true,
+        }
+    })
+    //Userテーブルから、idと一致するユーザーの名前を返却
+    return user_name;
+}
+
+export async function changeUserName(
+    user_id: string,
+    user_name: string,
+) {
+    try {
+        const changeName = await prisma.user.update({
+            where: {
+                id: user_id,
+            },
+            data: {
+                name: user_name,
+            }
+        })
+        console.log('Username change successful, ID: %s', user_id);
+    } catch (error) {
+        console.log('Failed to Update UserName, ID: %s', user_id);
+    }
+}
