@@ -17,22 +17,14 @@ import girl_smile from './ui/childrensImages/girl_smile.webp';
 export default async function Page() {
     const currentPage = 1;
     const data = await auth();
-    let email = ''
-    let name = ''
+    let user_id = ''
+    let user_name = ''
     if (data != null) {
-        email = data.user?.email || '';
-        name = data.user?.name || '';
-    }
-    let id = ''
-    if (email != null && email != undefined) {
-        id = email;
-    }
-    let user_name = '';
-    if (name != null && name != undefined) {
-        user_name = name;
+        user_id = data.user?.id || '';
+        user_name = data.user?.name || 'UnknownUser'
     }
 
-    const count = fetchHistoryCountByID(id)
+    const count = fetchHistoryCountByID(user_id)
 
     const news = await fetchnews();
 
@@ -45,9 +37,7 @@ export default async function Page() {
                      <div className="w-[1200px] h-fit p-2 shadow-lg rounded-marukado bg-white">
                         <div className="flex items-center justify-start">
                             <div className="w-[230px] h-[55px] flex items-center justify-center rounded-marukado bg-[#E84F27]">
-                                
                                 <span className="text-white text-3xl font-medium">おしらせ</span>
-
                             </div>
                             {news ? (
                                 <div key={news.date} className='text-3xl font-bold text-gray-700 pl-[30px]'>
@@ -74,7 +64,11 @@ export default async function Page() {
                     <div className="rounded-marukado p-10 bg-white shadow-lg text-center w-96 mb-10">
                         <p className="text-xl font-semibold text-gray-700 leading-relaxed space-y-6">
                             <span className="block">
-                                <span className="">{user_name}</span>
+                                {user_name ? (
+                                    <span>{user_name}</span>
+                                ):(
+                                    <span>UnknownUser</span>
+                                )}
                                 <span className="ml-2"> は</span>
                             </span>
                             <span className="block">
@@ -97,7 +91,7 @@ export default async function Page() {
 
             </div>
                 {/*ここまで登録冊数表示*/}
-                <HistoryTable id={id} currentPage={currentPage} />
+                <HistoryTable id={user_id} currentPage={currentPage} />
                 <div className="mt-5 flex w-full justify-center pb-10">
                     <Link href="history">
                             <div className="h-14 w-fit px-8 bg-[#E84F27] rounded-marukado flex items-center justify-center">

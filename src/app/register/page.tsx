@@ -15,14 +15,9 @@ export default async function Page(props: {
   //await deleteRecordsByUserId('sutou', state);
 
   const data = await auth();
-  let email = ''
-  if (data != null) {
-    email = data.user?.email || 'UnknownUser';
-  }
-
   let id = ''
-  if (email != null && email != undefined) {
-    id = email;
+  if (data != null) {
+    id = data.user?.id || 'UnknownUser'
   }
 
   return (
