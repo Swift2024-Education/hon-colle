@@ -15,6 +15,7 @@ export default function Page() {
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setInputText(e.target.value); // 入力のたびに状態を更新
+        
     };
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -23,21 +24,8 @@ export default function Page() {
         console.log(inputText); // 入力された内容を表示
     };
 
-    const handleClick = () => {
-        console.log(inputText);
-    };
-
     const { data: session, status } = useSession();
     //console.log(session?.idToken); // ID トークンを sessionに格納できている
-
-
-    const StringMatchChecker = () => {
-        const [inputText, setInputText] = useState(""); // 入力された文字列
-        const targetStrings = ["うんこ","うんち"]; // NGワードのリスト
-        const containsAnyTarget = targetStrings.some((target) =>
-            inputText.includes(target)
-          );//
-    }
 
     return (
         <div className="bg-sky-swift h-max min-h-screen flex">
@@ -79,11 +67,7 @@ export default function Page() {
                                     <p className="text-red-500 text-center italic text-base mt-2">
                                         名前を入力してください。
                                     </p>
-                                ) : inputText.includes(inputText) ? (
-                                    <p className="text-red-500 text-center italic text-base mt-2">
-                                        この名前はつかえないよ
-                                    </p>
-                                ): (
+                                ):(
                                     <p className="mt-8 invisible"> </p> //名前を入力してください分のスペースを確保
                                 )}
                             </div>
