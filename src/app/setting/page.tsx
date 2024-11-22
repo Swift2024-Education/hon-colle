@@ -6,7 +6,7 @@ import { LogInButton, LogOutButton } from "@/components/AuthButton";
 import { useSession } from "next-auth/react";
 import { useState, ChangeEvent } from 'react'
 import Image from "next/image";
-import boy_smile from '@/app/ui/childrensImages/boy_smile.png';
+import boy_smile from '@/app/ui/childrensImages/boy_smile.webp';
 
 export default function Page() {
 
