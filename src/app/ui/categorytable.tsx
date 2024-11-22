@@ -49,7 +49,7 @@ export default async function categoryTable({
                 ))}
                 </div>
             ) : (
-            <p className='border-solid border-2 bg-zinc-100 border-gray-200 text-gray-700 rounded-marukado text-2xl text-center'>さがしている ほんは ありませんでした。</p>
+            <p className='border-solid border-2 bg-zinc-100 border-gray-200 text-gray-700 rounded-marukado text-2xl text-center mx-32'>さがしている ほんは ありませんでした。</p>
             )}{/*見つからなかった時にだけ表示*/}
             </div>
         </>

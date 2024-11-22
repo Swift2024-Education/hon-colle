@@ -21,7 +21,7 @@ export default async function Page({
             <div className="bg-sky-swift h-max min-h-screen">
                 <Categorytable categoryNumber={category_id} currentPage={currentPage} />
                 {/*カテゴリごとで一覧表示*/}
-                <p>カテゴリー判別番号 : {category_id}</p>
+                {/*<p>カテゴリー判別番号 : {category_id}</p>*/}
                 {/*後で消す*/}
                 <div className="mt-5 flex w-full justify-center">
                     <Pagination totalPages={totalPages} />

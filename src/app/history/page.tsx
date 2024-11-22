@@ -11,6 +11,8 @@ import { fetchnews } from "../lib/data";
 import boy_smile from '../ui/childrensImages/boy_smile.png';
 import girl_smile from '../ui/childrensImages/girl_smile.png';
 
+//export const runtime = 'edge';
+
 export default async function Page(props: {
     searchParams?: Promise<{
         page?: string;
