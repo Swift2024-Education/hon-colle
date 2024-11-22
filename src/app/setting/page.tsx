@@ -32,8 +32,8 @@ export default function Page() {
 
 
     const StringMatchChecker = () => {
-        const [input, setInput] = useState(""); // 入力された文字列
-        const targetStrings = ["うんこ","うんち"]; // NGワードの文字列
+        const [inputText, setInputText] = useState(""); // 入力された文字列
+        const targetStrings = ["うんこ","うんち"]; // NGワードのリスト
         const containsAnyTarget = targetStrings.some((target) =>
             inputText.includes(target)
           );//
