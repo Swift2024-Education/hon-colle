@@ -13,6 +13,8 @@ export default function Page() {
     const [inputText, setInputText] = useState('');
     const [submittedText, setSubmittedText] = useState('');
 
+    const targetStrings = ["あ", "うんち"]; // 判定対象の文字列リスト
+
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setInputText(e.target.value); // 入力のたびに状態を更新
         
@@ -26,6 +28,10 @@ export default function Page() {
 
     const { data: session, status } = useSession();
     //console.log(session?.idToken); // ID トークンを sessionに格納できている
+
+    const containsAnyTarget = targetStrings.some((target) =>
+        inputText.includes(target)
+    );
 
     return (
         <div className="bg-sky-swift h-max min-h-screen flex">
@@ -67,6 +73,10 @@ export default function Page() {
                                     <p className="text-red-500 text-center italic text-base mt-2">
                                         名前を入力してください。
                                     </p>
+                                ):containsAnyTarget ?(
+                                    <p className="text-red-500 text-center italic text-base mt-2">
+                                        この名前はつかえません。
+                                    </p>
                                 ):(
                                     <p className="mt-8 invisible"> </p> //名前を入力してください分のスペースを確保
                                 )}
@@ -103,15 +113,25 @@ export default function Page() {
 
 
                     <div className="flex justify-center mt-auto mb-8">
-                        <button onClick={handleSubmit} className="bg-orange-600 rounded-full px-6 py-2 w-[18vw] h-[7vh]">
-                            <div className="w-full h-full rounded-full border-2 border-transparent flex items-center justify-center hover:border-white hover:border-dashed">
-                                <Link href="../">
+                        {inputText === "" ?(
+                            <button onClick={handleSubmit} className="bg-orange-600 rounded-full px-6 py-2 w-[18vw] h-[7vh]">
+                                <div className="w-full h-full rounded-full border-2 border-transparent flex items-center justify-center hover:border-white hover:border-dashed">
                                     <div className="text-white text-xl text-center">
                                         せってい を ほぞん
                                     </div>
-                                </Link>
-                            </div>
-                        </button>
+                                </div>
+                            </button>
+                        ):(
+                            <button onClick={handleSubmit} className="bg-orange-600 rounded-full px-6 py-2 w-[18vw] h-[7vh]">
+                                <div className="w-full h-full rounded-full border-2 border-transparent flex items-center justify-center hover:border-white hover:border-dashed">
+                                    <Link href="../">
+                                        <div className="text-white text-xl text-center">
+                                            せってい を ほぞん
+                                        </div>
+                                    </Link>
+                                </div>
+                            </button>
+                        )}
                     </div>
                 </div>
             </div>
