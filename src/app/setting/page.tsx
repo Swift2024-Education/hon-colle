@@ -2,16 +2,29 @@ import { LogInButton, LogOutButton } from "@/components/AuthButton";
 import { auth } from "../../../auth";
 import Image from "next/image";
 import boy_smile from '@/app/ui/childrensImages/boy_smile.webp';
-import InputForm_user_name from "../ui/inputForm_user_name";
 
-export default async function Page() {
-    const session = await auth();
-    let user_id = '';
-    let user_name = '';
-    if (session != null) {
-        user_id = session.user?.id || '';
-        user_name = session.user?.name || 'UnknownUser'
-    }
+export default function Page() {
+
+    const [inputText, setInputText] = useState('');
+    const [submittedText, setSubmittedText] = useState('');
+
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setInputText(e.target.value); // 入力のたびに状態を更新
+    };
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        setSubmittedText(inputText); // 入力内容を送信後に更新
+        console.log(inputText); // 入力された内容を表示
+    };
+
+    const handleClick = () => {
+        console.log(inputText);
+    };
+
+    const { data: session, status } = useSession();
+    //console.log(session?.idToken); // ID トークンを sessionに格納できている
+
 
     return (
         <div className="bg-sky-swift h-max min-h-screen flex">
