@@ -17,7 +17,7 @@ export default async function Page(props: {
   const data = await auth();
   let id = ''
   if (data != null) {
-    id = data.user?.id || 'UnknownUser'
+    id = data.user?.email || 'UnknownUser'
   }
 
   return (

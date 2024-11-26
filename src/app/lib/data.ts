@@ -1,3 +1,5 @@
+'use server';
+
 import prisma from "../lib/prisma";
 
 const ITEMS_PER_PAGE = 9;//1ページに表示したい検索結果の最大数\

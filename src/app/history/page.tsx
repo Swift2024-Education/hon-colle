@@ -23,7 +23,7 @@ export default async function Page(props: {
     let user_id = ''
     let user_name = ''
     if (data != null) {
-        user_id = data.user?.id || '';
+        user_id = data.user?.email || '';
         user_name = data.user?.name || 'UnknownUser';
     }
 
