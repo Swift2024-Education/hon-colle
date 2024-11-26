@@ -83,7 +83,7 @@ export default function Page() {
                                 </div>
 
                                 <div className="text-center mt-2">
-                                    {status === "loading" && <p>Loading...</p>}
+                                    {status === "loading" && <p className="text-gray-700">Loading...</p>}
                                     {!session && (
                                         <div>
                                             <p className="text-gray-700 text-lg font-base">ほんコレのきのうをつかうには、ログインしてください。</p>
