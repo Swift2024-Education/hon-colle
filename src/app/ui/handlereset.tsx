@@ -17,7 +17,7 @@ export default function HandleReset() {
         if (confirmReset) {
             const params = new URLSearchParams(searchParams);
             params.set('state', 'reset');
-            replace(`${pathname}?${params.toString()}`);
+            replace(`${pathname}?${params.toString()}`, { scroll: false });
             setConfirmReset(false); // 確認状態をリセット
             setResetDone(true); // リセット完了状態にする
         } else {
@@ -28,7 +28,7 @@ export default function HandleReset() {
     const handleOk = () => {
         const params = new URLSearchParams(searchParams);
         params.set('state', ''); // state を null に設定
-        replace(`${pathname}?${params.toString()}`);
+        replace(`${pathname}?${params.toString()}`, { scroll: false });
         setResetDone(false); // 完了状態をリセット
     };
 
