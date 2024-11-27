@@ -37,7 +37,7 @@ export default function Page() {
         <div className="bg-sky-swift h-max min-h-screen flex">
             <div className="bg-amber-300 h-[90vh] w-[80vw] my-20 mx-auto rounded-xl flex items-center justify-center">
                 <div className="bg-white w-[90%] h-[90%] rounded-xl flex flex-col">
-                    <h2 className="text-gray-700 p-4 text-4xl font-bold text-center">せってぃっひゃっひゃっひゃっひゃ</h2>
+                    <h2 className="text-gray-700 p-4 text-4xl font-bold text-center">せってい</h2>
 
                     <div className="flex justify-center items-center h-max min-h-fut my-20 mx-auto">
                         {/*左側*/}
@@ -62,18 +62,18 @@ export default function Page() {
                                 <div className="w-[60%] mt-2">
                                     <input
                                         className="p-2 w-full max-w-2xl border-b-2 border-stone-950 focus:outline-none placeholder-gray-500"
-                                        placeholder="グリムジョー・ジャガー・ジャック"
+                                        placeholder="さとう かずま"
                                         value={inputText}
                                         onChange={handleChange}
                                     />
                                 </div>
 
 
-                                {inputText === '' ? (
-                                    <p className="text-red-500 text-center italic text-base mt-2">
+                                {inputText === '' ? (//名前が入力されていない時
+                                    <p className="text-red-500 text-center italic text-base mt-2"> 
                                         名前を入力してください。
                                     </p>
-                                ):containsAnyTarget ?(
+                                ):containsAnyTarget ?(//NGワードが入力されている時
                                     <p className="text-red-500 text-center italic text-base mt-2">
                                         この名前はつかえません。
                                     </p>
@@ -113,7 +113,7 @@ export default function Page() {
 
 
                     <div className="flex justify-center mt-auto mb-8">
-                        {inputText === "" ?(
+                        {inputText === "" ?(//名前が入力されていない時
                             <button onClick={handleSubmit} className="bg-orange-600 rounded-full px-6 py-2 w-[18vw] h-[7vh]">
                                 <div className="w-full h-full rounded-full border-2 border-transparent flex items-center justify-center hover:border-white hover:border-dashed">
                                     <div className="text-white text-xl text-center">
@@ -121,7 +121,7 @@ export default function Page() {
                                     </div>
                                 </div>
                             </button>
-                        ): containsAnyTarget ?(
+                        ): containsAnyTarget ?(//NGワードが入力されている時
                             <button onClick={handleSubmit} className="bg-orange-600 rounded-full px-6 py-2 w-[18vw] h-[7vh]">
                                 <div className="w-full h-full rounded-full border-2 border-transparent flex items-center justify-center hover:border-white hover:border-dashed">
                                     <div className="text-white text-xl text-center">
