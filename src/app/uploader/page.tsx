@@ -3,6 +3,8 @@ import React from 'react';
 import { useState } from 'react';
 import { useZxing } from 'react-zxing';
 
+export const runtime = 'edge';
+
 export default function Page (){
     const [result, setResult] = useState("");
     const { ref } = useZxing({

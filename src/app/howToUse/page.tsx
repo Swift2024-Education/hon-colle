@@ -1,5 +1,7 @@
 import React from 'react';
 
+export const runtime = 'edge';
+
 const howToUse = () => {
     return (
       <div className='bg-sky-swift h-max min-h-screen'>
