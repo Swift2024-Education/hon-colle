@@ -14,34 +14,37 @@ const bookNumberTable = async ({ number, id }: BookNumberTableProps) => {
 
 
     return (
-        <div className="flex items-center justify-center">
-            <div className="flex gap-6 justify-items-center">
-                {result ? (
+        <div className="flex items-center justify-center bg-black ">
+          <div className="flex flex-col items-center">
+
+          <div className="h-80 w-56 border-4 border-gray-200 bg-zinc-100 text-gray-700 rounded-lg overflow-hidden p-4 shadow-md">
+          {/*上*/}
+                <div className="flex-1 text-center">
+                  {result ? (
                     checkResult ? (
-                        //登録済みの場合
-                        <div className="text-center text-red-500">
-                            この本はすでに登録されています。
-                        </div>
+                      <div className="text-red-500">この本はすでに登録されています。</div>
                     ) : (
-                        //未登録の場合の本の情報表示
-                        <div className="flex flex-col items-center h-80 w-40">
-                            <div className="h-60 w-full border-solid border-4 bg-zinc-100 border-gray-200 text-gray-700 rounded-xl overflow-hidden p-4">
-                                <div className="text-center">
-                                    <div className="text-lg">{result.title}</div>
-                                    <div className="text-lg">{result.book_number}</div>
-                                    {id}
-                                </div>
-                            </div>
-                            {/*RegisterButtonsを配置*/}
-                            <RegisterButtons result={result} />
-                        </div>
+                      <div className="text-center">
+                        <div className="text-lg font-semibold">{result.title}</div>
+                        <div className="text-sm text-gray-500">{result.book_number}</div>
+                        <div className="text-sm mt-2">{id}</div>
+                      </div>
                     )
-                ) : (
-                    //本が見つからない場合
-                    <div className="text-center text-gray-500">本が見つかりません。</div>
-                )}
+                  ) : (
+                    <div className="text-gray-500">本が見つかりません。</div>
+                  )}
+              </div>
             </div>
+
+            {/*下*/}
+            {result && !checkResult && (
+              <div className="">
+                <RegisterButtons result={result} />
+              </div>
+            )}
+
+          </div>
         </div>
-    );
+      );
 }
 export default bookNumberTable
