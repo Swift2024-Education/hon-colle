@@ -30,7 +30,7 @@ export default async function Page(props: {
 
   return (
     <div className="bg-sky-swift h-max min-h-screen">
-      <h2 className="text-gray-700 p-4 text-4xl font-bold text-center">登録画面</h2>
+      <h2 className="text-gray-700 p-4 text-4xl font-bold text-center">とうろくがめん</h2>
 
       <div className="flex justify-between mt-8">
         {/*左側*/}
@@ -47,7 +47,7 @@ export default async function Page(props: {
           {/*入力フォーム等*/}
           <div className="w-full flex flex-col items-center absolute top-0 mt-24">
             <div className="mb-4 w-full">
-              <InputForm placeholder="数字を入力" />
+              <InputForm placeholder="すうじをにゅうりょく" />
             </div>
             {/*
             <div className="mb-4 w-full">
@@ -64,13 +64,13 @@ export default async function Page(props: {
             <RegisterBooks bookNumber={number} id={id} state={state} />
           </div>
 
-          {/*「ほんだなに戻る」ボタン*/}
+          {/*「ほんだなにもどる」ボタン*/}
           <div className="mt-auto w-full flex items-center justify-center absolute bottom-0 mb-24 bg-black">
             <button className="bg-orange-600 rounded-full px-6 py-2 w-[18vw] h-[7vh]">
               <div className="w-full h-full rounded-full border-2 border-transparent flex items-center justify-center hover:border-white hover:border-dashed">
                 <Link href="/history">
                   <div className="w-full h-full flex items-center justify-center text-white text-xl text-center">
-                    ほんだなに戻る
+                    本だなにもどる
                   </div>
                 </Link>
               </div>
