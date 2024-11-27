@@ -255,7 +255,7 @@ export async function registerBookNumber(book_number: string, user_id: string) {
                     date: new Date().toISOString(),
                 },
             });
-            console.log('History:', History);
+            //console.log('History:', History);
         } else {
             console.log('Invalid input: One or more values are null or undefined.');
         }
