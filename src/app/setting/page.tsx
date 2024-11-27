@@ -11,7 +11,6 @@ import boy_smile from '@/app/ui/childrensImages/boy_smile.webp';
 export default function Page() {
 
     const [inputText, setInputText] = useState('');
-    const [submittedText, setSubmittedText] = useState('');
 
     const targetStrings = ["うんこ", "うんち"]; // 判定対象の文字列リスト
 
@@ -22,7 +21,6 @@ export default function Page() {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        setSubmittedText(inputText); // 入力内容を送信後に更新
         console.log(inputText); // 入力された内容を表示
     };
 

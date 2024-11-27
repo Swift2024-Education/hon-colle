@@ -34,7 +34,7 @@ export default async function Page(props: {
         <div className="w-[45%] flex flex-col items-center justify-between ml-16 h-full relative bg-gray-50">
           {/*左の画像*/}
           <div className="mb-4 w-full">
-            <img
+            <Image
               src='image'
               alt="your image"
               className="w-full h-[800px] object-fill"
