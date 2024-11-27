@@ -2,7 +2,7 @@
 
 # ほんコレ hon-colle
 
-小学校向けの読書履歴作成と学校図書館の本の検索ができるWebアプリです。
+学校図書館の本の検索と読書の記録ができる 小学生のためのWebアプリ。
 
 [React](https://react.dev/) + [Next.js](https://nextjs.org/)で作成しています。
 
