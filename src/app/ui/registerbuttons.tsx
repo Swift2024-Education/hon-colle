@@ -31,7 +31,7 @@ export default function RegisterButtons({ result }: { result: Book | null }) {
             //if (id) {
                 const params = new URLSearchParams(searchParams);
                 params.set('state', 'register');
-                replace(`${pathname}?${params.toString()}`);
+                replace(`${pathname}?${params.toString()}`, { scroll: false });
 
                 //console.log('登録されました:', result.title);
             //}
@@ -44,7 +44,7 @@ export default function RegisterButtons({ result }: { result: Book | null }) {
 
         const params = new URLSearchParams(searchParams);
         params.set('state', 'cancel');
-        replace(`${pathname}?${params.toString()}`);
+        replace(`${pathname}?${params.toString()}`, { scroll: false });
         console.log('キャンセルしました');
     };
 
@@ -56,7 +56,7 @@ export default function RegisterButtons({ result }: { result: Book | null }) {
         params.set('number', '');
         params.set('state', '');
         //params.set('id', '');
-        replace(`${pathname}?${params.toString()}`);
+        replace(`${pathname}?${params.toString()}`, { scroll: false });
     };
 
     // クエリパラメータの状態に基づきメッセージを更新

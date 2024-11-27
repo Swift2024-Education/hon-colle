@@ -3,8 +3,8 @@ import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 
-import boy_smile from '../ui/childrensImages/boy_smile.png';
-import girl_smile from '../ui/childrensImages/girl_smile.png';
+import boy_smile from '../ui/childrensImages/boy_smile.webp';
+import girl_smile from '../ui/childrensImages/girl_smile.webp';
 
 const links = [
   "/categories",
