@@ -10,9 +10,9 @@ const Footer = () => {
     };
 
     const links: { [key: string]: { main: string; sub: string[] } } = {
-        '本だな': { main: "/bookshelf", sub: [] },
+        '本だな': { main: "/history", sub: [] },
         'おすすめの本': { main: "/recommendation", sub: [] },
-        '本をさがす': { main: "/search", sub: ["/search", "/categories"] },
+        '本をさがす': { main: "/searchSelect", sub: ["/search", "/categories"] },
         '本のとうろく': { main: "/register", sub: [] },
         'せってい/つかい方': { main: "/setting", sub: ["/setting", "/setting"] },
     };
