@@ -46,7 +46,7 @@ export default async function KeywordTable({
                     ))}
                 </div>
             ) : (
-                <p className=" bg-white text-gray-700 rounded-marukado text-2xl text-center">
+                <p className=" bg-white text-gray-700 rounded-marukado text-2xl text-center mx-32">
                     さがしている ほんは ありませんでした。
                 </p>
             )}
