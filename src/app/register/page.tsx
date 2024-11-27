@@ -83,7 +83,7 @@ export default async function Page(props: {
         {/*右側*/}
         <div className="relative w-[50%] flex flex-col items-center">
           {/*上部分*/}
-          <div className="absolute flex items-center justify-center w-80 h-64 bg-white rounded-lg mt-10 z-10">
+          <div className="absolute flex items-center justify-center w-80 h-64 bg-white rounded-marukado mt-10 z-10">
               <p className="text-center text-lg font-bold text-gray-700">
                 本をとりかえしてくれたんだね！<br />
                 ありがとう！<br />
