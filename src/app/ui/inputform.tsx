@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 import { z } from 'zod';
+
 
 
 //zodスキーマで10桁の数字を定義
@@ -18,6 +19,14 @@ export default function InputForm({ placeholder }: { placeholder: string }) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
+
+  useEffect(() => {
+    const savedScrollPosition = sessionStorage.getItem('scrollPosition');
+    if (savedScrollPosition) {
+      window.scrollTo(0, Number(savedScrollPosition)); // スクロール位置を復元
+      sessionStorage.removeItem('scrollPosition'); // 復元後は削除
+    }
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -35,13 +44,16 @@ export default function InputForm({ placeholder }: { placeholder: string }) {
       return;
     }
 
+    sessionStorage.setItem('scrollPosition', String(window.scrollY));
+
     //エラーがない場合にパラメータを設定
     setErrorMessage(''); //エラーメッセージクリア
     const params = new URLSearchParams(searchParams);
     params.set('number', inputValueBookNumber); //queryにパラメータセット
     //params.set('state', '');
     //params.set('id', inputValueId);
-    replace(`${pathname}?${params.toString()}`);
+    replace(`${pathname}?${params.toString()}`, { scroll: false });
+
     setInputValueBookNumber('');
     //setInputValueId('');
   };
@@ -49,7 +61,7 @@ export default function InputForm({ placeholder }: { placeholder: string }) {
 
 
   return (
-    <div>
+    <div className="flex items-center justify-center bg-black">
       <form onSubmit={handleSubmit} className="flex flex-col items-start">
         <div className="flex items-center gap-4">
           <input
@@ -73,8 +85,10 @@ export default function InputForm({ placeholder }: { placeholder: string }) {
             送信
           </button>
         </div>
-        {errorMessage && (
+        {errorMessage ? (
             <span className="text-red-500 text-sm">{errorMessage}</span>
+        ):(
+          <div className="mb-5"></div>
         )}
       </form>
     </div>
