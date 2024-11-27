@@ -2,14 +2,14 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import home_icon from '../ui/icons/home_icon.png';
-import search_icon from '../ui/icons/search_icon.png';
-import register_icon from '../ui/icons/uploder_icon.png';
-import recommendation_icon from '../ui/icons/recomendation_icon.png';
+import home_icon from '../ui/icons/home_icon.webp';
+import search_icon from '../ui/icons/search_icon.webp';
+import register_icon from '../ui/icons/uploder_icon.webp';
+import recommendation_icon from '../ui/icons/recomendation_icon.webp';
 //import information_icon from '../ui/icons/使い方アイコン.png';
-import setting_icon from '../ui/icons/setting_icon.png';
+import setting_icon from '../ui/icons/setting_icon.webp';
 
-import logo from '../ui/logo/ロゴ.png'
+import logo from '../ui/logo/ロゴ.webp'
 
 import { auth } from '../../../auth';
 

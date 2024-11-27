@@ -1,15 +1,13 @@
 import Pagination from "../ui/pagenation";
-//import DisplayName from "../ui/displayName"
 import { fetchHistoryPagesByID } from "../lib/data";
 import HistoryTable from "../ui/historytable";
 import { auth } from "../../../auth"
 import { fetchHistoryCountByID } from '../lib/data';
 import Image from "next/image";
-import { fetchnews } from "../lib/data";
 
 //子どもたち
-import boy_smile from '../ui/childrensImages/boy_smile.png';
-import girl_smile from '../ui/childrensImages/girl_smile.png';
+import boy_smile from '../ui/childrensImages/boy_smile.webp';
+import girl_smile from '../ui/childrensImages/girl_smile.webp';
 
 //export const runtime = 'edge';
 
@@ -20,52 +18,23 @@ export default async function Page(props: {
 }) {
     const searchParams = await props.searchParams;
     const currentPage = Number(searchParams?.page) || 1;
+
     const data = await auth();
-    let email = ''
-    let name = ''
+    let user_id = ''
+    let user_name = ''
     if (data != null) {
-        email = data.user?.email || '';
-        name = data.user?.name || '';
-    }
-    let id = ''
-    if (email != null && email != undefined) {
-        id = email;
-    }
-    let user_name = '';
-    if (name != null && name != undefined) {
-        user_name = name;
+        user_id = data.user?.email || '';
+        user_name = data.user?.name || 'UnknownUser';
     }
 
-    const totalPages = await fetchHistoryPagesByID(id);
-    const count = fetchHistoryCountByID(id)
-
-    const news = await fetchnews();
+    const totalPages = await fetchHistoryPagesByID(user_id);
+    const count = fetchHistoryCountByID(user_id);
 
     return (
         <>
-            <div className='bg-sky-swift h-max min-h-screen '>
-
-                {/* おしらせボックス */} 
-                <div className=" flex items-center justify-center ">
-                     <div className="w-[1200px] h-fit p-2 shadow-lg rounded-marukado bg-white">
-                        <div className="flex items-center justify-start">
-                            <div className="w-[230px] h-[55px] flex items-center justify-center rounded-marukado bg-[#E84F27]">
-                                
-                                <span className="text-white text-3xl font-medium">おしらせ</span>
-
-                            </div>
-                            {news ? (
-                                <div key={news.date} className='text-3xl font-bold text-gray-700 pl-[30px]'>
-                                    {news.news} ({news.date})
-                                </div>):(
-                                <p className="text-3xl text-gray-700 pl-[20px]">おしらせが見つかりません。</p>
-                            )}
-                        </div>
-                     </div>
-                </div>
-
+            <div className='bg-sky-swift h-max min-h-screen'>
                  {/* 画像と冊数のコンテナ */}
-              <div className="flex justify-center items-center space-x-10 mt-8 mb-0">
+              <div className="flex justify-center items-center space-x-10 pt-8 mb-0">
                 <div className="flex-shrink-0">
                 <Image
                   src={girl_smile}
@@ -79,7 +48,11 @@ export default async function Page(props: {
                     <div className="rounded-marukado p-10 bg-white shadow-lg text-center w-96 mb-10">
                         <p className="text-xl font-semibold text-gray-700 leading-relaxed space-y-6">
                             <span className="block">
-                                <span className="">{user_name}</span>
+                                {user_name ? (
+                                    <span>{user_name}</span>
+                                ):(
+                                    <span>UnknownUser</span>
+                                )}
                                 <span className="ml-2"> は</span>
                             </span>
                             <span className="block">
@@ -102,7 +75,7 @@ export default async function Page(props: {
 
             </div>
                 {/*ここまで登録冊数表示*/}
-                <HistoryTable id={id} currentPage={currentPage} />
+                <HistoryTable id={user_id} currentPage={currentPage} />
                 <div className="mt-5 flex w-full justify-center pb-10">
                     <Pagination totalPages={totalPages} />
                     {/*件数に応じて1ページ目から遷移するためのもの、Next.jsのチュートリアルから流用したけどバグあり*/}

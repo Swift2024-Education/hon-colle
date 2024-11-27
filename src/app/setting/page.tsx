@@ -6,7 +6,7 @@ import { LogInButton, LogOutButton } from "@/components/AuthButton";
 import { useSession } from "next-auth/react";
 import { useState, ChangeEvent } from 'react'
 import Image from "next/image";
-import boy_smile from '@/app/ui/childrensImages/boy_smile.png';
+import boy_smile from '@/app/ui/childrensImages/boy_smile.webp';
 
 export default function Page() {
 
@@ -83,7 +83,7 @@ export default function Page() {
                                 </div>
 
                                 <div className="text-center mt-2">
-                                    {status === "loading" && <p>Loading...</p>}
+                                    {status === "loading" && <p className="text-gray-700">Loading...</p>}
                                     {!session && (
                                         <div>
                                             <p className="text-gray-700 text-lg font-base">ほんコレのきのうをつかうには、ログインしてください。</p>

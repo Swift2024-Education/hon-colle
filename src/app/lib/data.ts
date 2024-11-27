@@ -1,3 +1,5 @@
+'use server';
+
 import prisma from "../lib/prisma";
 
 const ITEMS_PER_PAGE = 9;//1ページに表示したい検索結果の最大数\
@@ -360,4 +362,19 @@ export async function checkRegisterdBook(
     });
     //レコードが存在する場合はtrue存在しない場合はfalseを返す
     return existingRecord !== null;
+}
+
+export async function fetchUserName(
+    user_id: string,
+) {
+    const user_name = await prisma.user.findUnique({
+        where: {
+            id: user_id,
+        },
+        select: {
+            name: true,
+        },
+    });
+    //Userテーブルから、idと一致するユーザーの名前を返却
+    return user_name;
 }
