@@ -2,16 +2,13 @@ import React from 'react';
 import Link from 'next/link';
 import InputForm from '@/app/ui/inputform';
 import BookNumberTable from '@/app/ui/booknumbertable';
-import HandleReset from '@/app/ui/handlereset';
+//import HandleReset from '@/app/ui/handlereset';
 import RegisterBooks from '@/app/ui/registerbooks';
-import { deleteRecordsByUserId } from '@/app/lib/data';
+//import { deleteRecordsByUserId } from '@/app/lib/data';
 import { auth } from '../../../auth';
 import Image from "next/image";
 import boy_smile from '@/app/ui/childrensImages/boy_smile.png';//右の画像（後に変える）
-import test from '@/app/ui/test.png';//左の画像（後に変える）
-
-
-
+//import test from '@/app/ui/test.png';//左の画像（後に変える）
 
 export default async function Page(props: {
   searchParams?: Promise<{ number?: string; state: string; id?: string }>;

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { endianness } from "os";
+//import { endianness } from "os";
 
 interface Category {
   label: string;

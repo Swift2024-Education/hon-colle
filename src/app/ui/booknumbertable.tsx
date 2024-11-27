@@ -9,7 +9,7 @@ type BookNumberTableProps = {
 };
 
 const bookNumberTable = async ({ number, id }: BookNumberTableProps) => {
-    let result = number ? await fetchBookByBookNumber(number) : null;
+    const result = number ? await fetchBookByBookNumber(number) : null;
     const checkResult = await checkRegisterdBook(number, id)//trueなら登録済み
 
 
