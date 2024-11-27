@@ -6,15 +6,18 @@ import { LogInButton, LogOutButton } from "@/components/AuthButton";
 import { useSession } from "next-auth/react";
 import { useState, ChangeEvent } from 'react'
 import Image from "next/image";
-import boy_smile from '@/app/ui/childrensImages/boy_smile.png';
+import boy_smile from '@/app/ui/childrensImages/boy_smile.webp';
 
 export default function Page() {
 
     const [inputText, setInputText] = useState('');
     const [submittedText, setSubmittedText] = useState('');
 
+    const targetStrings = ["うんこ", "うんち"]; // 判定対象の文字列リスト
+
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setInputText(e.target.value); // 入力のたびに状態を更新
+        
     };
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -23,19 +26,18 @@ export default function Page() {
         console.log(inputText); // 入力された内容を表示
     };
 
-    const handleClick = () => {
-        console.log(inputText);
-    };
-
     const { data: session, status } = useSession();
     //console.log(session?.idToken); // ID トークンを sessionに格納できている
 
+    const containsAnyTarget = targetStrings.some((target) =>
+        inputText.includes(target)
+    );
 
     return (
         <div className="bg-sky-swift h-max min-h-screen flex">
             <div className="bg-amber-300 h-[90vh] w-[80vw] my-20 mx-auto rounded-xl flex items-center justify-center">
                 <div className="bg-white w-[90%] h-[90%] rounded-xl flex flex-col">
-                    <h2 className="text-gray-700 p-4 text-4xl font-bold text-center">せってぃっひゃっひゃっひゃっひゃ</h2>
+                    <h2 className="text-gray-700 p-4 text-4xl font-bold text-center">せってい</h2>
 
                     <div className="flex justify-center items-center h-max min-h-fut my-20 mx-auto">
                         {/*左側*/}
@@ -60,18 +62,22 @@ export default function Page() {
                                 <div className="w-[60%] mt-2">
                                     <input
                                         className="p-2 w-full max-w-2xl border-b-2 border-stone-950 focus:outline-none placeholder-gray-500"
-                                        placeholder="グリムジョー・ジャガー・ジャック"
+                                        placeholder="さとう かずま"
                                         value={inputText}
                                         onChange={handleChange}
                                     />
                                 </div>
 
 
-                                {inputText === '' ? (
-                                    <p className="text-red-500 text-center italic text-base mt-2">
+                                {inputText === '' ? (//名前が入力されていない時
+                                    <p className="text-red-500 text-center italic text-base mt-2"> 
                                         名前を入力してください。
                                     </p>
-                                ) : (
+                                ):containsAnyTarget ?(//NGワードが入力されている時
+                                    <p className="text-red-500 text-center italic text-base mt-2">
+                                        この名前はつかえません。
+                                    </p>
+                                ):(
                                     <p className="mt-8 invisible"> </p> //名前を入力してください分のスペースを確保
                                 )}
                             </div>
@@ -83,7 +89,7 @@ export default function Page() {
                                 </div>
 
                                 <div className="text-center mt-2">
-                                    {status === "loading" && <p>Loading...</p>}
+                                    {status === "loading" && <p className="text-gray-700">Loading...</p>}
                                     {!session && (
                                         <div>
                                             <p className="text-gray-700 text-lg font-base">ほんコレのきのうをつかうには、ログインしてください。</p>
@@ -107,15 +113,33 @@ export default function Page() {
 
 
                     <div className="flex justify-center mt-auto mb-8">
-                        <button onClick={handleSubmit} className="bg-orange-600 rounded-full px-6 py-2 w-[18vw] h-[7vh]">
-                            <div className="w-full h-full rounded-full border-2 border-transparent flex items-center justify-center hover:border-white hover:border-dashed">
-                                <Link href="../">
+                        {inputText === "" ?(//名前が入力されていない時
+                            <button onClick={handleSubmit} className="bg-orange-600 rounded-full px-6 py-2 w-[18vw] h-[7vh]">
+                                <div className="w-full h-full rounded-full border-2 border-transparent flex items-center justify-center hover:border-white hover:border-dashed">
                                     <div className="text-white text-xl text-center">
                                         せってい を ほぞん
                                     </div>
-                                </Link>
-                            </div>
-                        </button>
+                                </div>
+                            </button>
+                        ): containsAnyTarget ?(//NGワードが入力されている時
+                            <button onClick={handleSubmit} className="bg-orange-600 rounded-full px-6 py-2 w-[18vw] h-[7vh]">
+                                <div className="w-full h-full rounded-full border-2 border-transparent flex items-center justify-center hover:border-white hover:border-dashed">
+                                    <div className="text-white text-xl text-center">
+                                        せってい を ほぞん
+                                    </div>
+                                </div>
+                            </button>
+                        ):(
+                            <button onClick={handleSubmit} className="bg-orange-600 rounded-full px-6 py-2 w-[18vw] h-[7vh]">
+                                <div className="w-full h-full rounded-full border-2 border-transparent flex items-center justify-center hover:border-white hover:border-dashed">
+                                    <Link href="../">
+                                        <div className="text-white text-xl text-center">
+                                            せってい を ほぞん
+                                        </div>
+                                    </Link>
+                                </div>
+                            </button>
+                        )}
                     </div>
                 </div>
             </div>
