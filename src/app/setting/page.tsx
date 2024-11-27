@@ -13,7 +13,7 @@ export default function Page() {
     const [inputText, setInputText] = useState('');
     const [submittedText, setSubmittedText] = useState('');
 
-    const targetStrings = ["あ", "うんち"]; // 判定対象の文字列リスト
+    const targetStrings = ["うんこ", "うんち"]; // 判定対象の文字列リスト
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setInputText(e.target.value); // 入力のたびに状態を更新
@@ -114,6 +114,14 @@ export default function Page() {
 
                     <div className="flex justify-center mt-auto mb-8">
                         {inputText === "" ?(
+                            <button onClick={handleSubmit} className="bg-orange-600 rounded-full px-6 py-2 w-[18vw] h-[7vh]">
+                                <div className="w-full h-full rounded-full border-2 border-transparent flex items-center justify-center hover:border-white hover:border-dashed">
+                                    <div className="text-white text-xl text-center">
+                                        せってい を ほぞん
+                                    </div>
+                                </div>
+                            </button>
+                        ): containsAnyTarget ?(
                             <button onClick={handleSubmit} className="bg-orange-600 rounded-full px-6 py-2 w-[18vw] h-[7vh]">
                                 <div className="w-full h-full rounded-full border-2 border-transparent flex items-center justify-center hover:border-white hover:border-dashed">
                                     <div className="text-white text-xl text-center">
