@@ -18,7 +18,6 @@ export default function Page() {
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setInputText(e.target.value); // 入力のたびに状態を更新
-        
     };
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -35,11 +34,11 @@ export default function Page() {
 
     return (
         <div className="bg-sky-swift h-max min-h-screen flex">
-            <div className="bg-amber-300 h-[90vh] w-[80vw] my-20 mx-auto rounded-xl flex items-center justify-center">
-                <div className="bg-white w-[90%] h-[90%] rounded-xl flex flex-col">
+            <div className="bg-amber-300 h-fit w-[80vw] my-20 mx-auto rounded-xl flex items-center justify-center">
+                <div className="bg-white w-[90%] h-[90%] rounded-xl flex flex-col m-10">
                     <h2 className="text-gray-700 p-4 text-4xl font-bold text-center">せってい</h2>
 
-                    <div className="flex justify-center items-center h-max min-h-fut my-20 mx-auto">
+                    <div className="flex justify-center items-center h-max min-h-fut my-8 mx-auto">
                         {/*左側*/}
                         <div className="w-1/3 flex justify-center ml-16">
                             <div className="relative w-full h-full border-4 border-gray-500 rounded-lg overflow-hidden">
@@ -114,16 +113,16 @@ export default function Page() {
 
                     <div className="flex justify-center mt-auto mb-8">
                         {inputText === "" ?(//名前が入力されていない時
-                            <button onClick={handleSubmit} className="bg-orange-600 rounded-full px-6 py-2 w-[18vw] h-[7vh]">
-                                <div className="w-full h-full rounded-full border-2 border-transparent flex items-center justify-center hover:border-white hover:border-dashed">
+                            <button onClick={handleSubmit} className="bg-neutral-300 rounded-full px-6 py-2 w-[18vw] h-[7vh]">
+                                <div className="w-full h-full rounded-full border-2 border-transparent flex items-center justify-center">
                                     <div className="text-white text-xl text-center">
                                         せってい を ほぞん
                                     </div>
                                 </div>
                             </button>
                         ): containsAnyTarget ?(//NGワードが入力されている時
-                            <button onClick={handleSubmit} className="bg-orange-600 rounded-full px-6 py-2 w-[18vw] h-[7vh]">
-                                <div className="w-full h-full rounded-full border-2 border-transparent flex items-center justify-center hover:border-white hover:border-dashed">
+                            <button onClick={handleSubmit} className="bg-neutral-300 rounded-full px-6 py-2 w-[18vw] h-[7vh]">
+                                <div className="w-full h-full rounded-full border-2 border-transparent flex items-center justify-center">
                                     <div className="text-white text-xl text-center">
                                         せってい を ほぞん
                                     </div>
