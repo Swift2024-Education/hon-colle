@@ -5,7 +5,6 @@ import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 import { z } from 'zod';
 
 
-
 //zodスキーマで10桁の数字を定義
 const bookNumberSchema = z.string().refine((val) => /^\d{10}$/.test(val), {
   message: '10桁の数字を入力してください。',
@@ -15,18 +14,11 @@ const bookNumberSchema = z.string().refine((val) => /^\d{10}$/.test(val), {
 export default function InputForm({ placeholder }: { placeholder: string }) {
   const [inputValueBookNumber, setInputValueBookNumber] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  //const [inputValueId, setInputValueId] = useState('');
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
+  const state = searchParams.get('state');
 
-  useEffect(() => {
-    const savedScrollPosition = sessionStorage.getItem('scrollPosition');
-    if (savedScrollPosition) {
-      window.scrollTo(0, Number(savedScrollPosition)); // スクロール位置を復元
-      sessionStorage.removeItem('scrollPosition'); // 復元後は削除
-    }
-  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -44,7 +36,6 @@ export default function InputForm({ placeholder }: { placeholder: string }) {
       return;
     }
 
-    sessionStorage.setItem('scrollPosition', String(window.scrollY));
 
     //エラーがない場合にパラメータを設定
     setErrorMessage(''); //エラーメッセージクリア
@@ -55,32 +46,49 @@ export default function InputForm({ placeholder }: { placeholder: string }) {
     replace(`${pathname}?${params.toString()}`, { scroll: false });
 
     setInputValueBookNumber('');
-    //setInputValueId('');
+  };
+
+  //本が登録済みのとき用
+  const registeredButtonOk = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const params = new URLSearchParams(searchParams);
+    params.set('number', '');
+    params.set('state', '');
+    replace(`${pathname}?${params.toString()}`, { scroll: false });
   };
 
 
 
   return (
     <div className="flex items-center justify-center">
-      <form onSubmit={handleSubmit} className="flex flex-col items-start">
-        <div className="flex items-center gap-4">
-          <input
-            type="text"
-            placeholder={placeholder}
-            value={inputValueBookNumber}
-            onChange={(e) => setInputValueBookNumber(e.target.value)}
-            className="block w-100 rounded-xl border-solid border-4 border-gray-200 py-2 pl-3 text-lg placeholder-gray-600 text-gray-700"
-          />
-          <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
-            送信
+      {state === 'registered' ? (
+        <div className="text-center mb-8">
+          <button onClick={registeredButtonOk} className="bg-blue-500 text-white px-4 py-2 rounded">
+            数字をうちなおす
           </button>
         </div>
-        {errorMessage ? (
+      ) : (
+        <form onSubmit={handleSubmit} className="flex flex-col items-start">
+          <div className="flex items-center gap-4">
+            <input
+              type="text"
+              placeholder={placeholder}
+              value={inputValueBookNumber}
+              onChange={(e) => setInputValueBookNumber(e.target.value)}
+              className="block w-100 rounded-xl border-solid border-4 border-gray-200 py-2 pl-3 text-lg placeholder-gray-600 text-gray-700"
+            />
+            <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
+              送信
+            </button>
+          </div>
+          {errorMessage ? (
             <span className="text-red-500 text-sm">{errorMessage}</span>
-        ):(
-          <div className="mb-5"></div>
-        )}
-      </form>
+          ) : (
+            <div className="mb-5"></div>
+          )}
+        </form>
+      )}
     </div>
   );
 }
