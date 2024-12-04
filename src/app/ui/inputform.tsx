@@ -69,7 +69,7 @@ export default function InputForm({ placeholder }: { placeholder: string }) {
             placeholder={placeholder}
             value={inputValueBookNumber}
             onChange={(e) => setInputValueBookNumber(e.target.value)}
-            className="block w-100 rounded-xl border-solid border-4 border-gray-200 py-2 pl-3 text-lg placeholder-gray-600"
+            className="block w-100 rounded-xl border-solid border-4 border-gray-200 py-2 pl-3 text-lg placeholder-gray-600 text-gray-700"
           />
           <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
             送信
