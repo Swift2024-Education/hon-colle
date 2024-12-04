@@ -6,7 +6,7 @@ const Footer = () => {
         'おすすめの本': [],
         '本をさがす': ['キーワードからさがす', 'カテゴリーからさがす'],
         '本のとうろく': [],
-        'せってい/つかい方': ['きほんせってい', 'ログイン']
+        'せってい': ['きほんせってい', 'ログイン']
     };
 
     const links: { [key: string]: { main: string; sub: string[] } } = {
@@ -14,7 +14,7 @@ const Footer = () => {
         'おすすめの本': { main: "/recommendation", sub: [] },
         '本をさがす': { main: "/searchSelect", sub: ["/search", "/categories"] },
         '本のとうろく': { main: "/register", sub: [] },
-        'せってい/つかい方': { main: "/setting", sub: ["/setting", "/setting"] },
+        'せってい': { main: "/setting", sub: ["/setting", "/setting"] },
     };
 
 

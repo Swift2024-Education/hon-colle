@@ -255,7 +255,7 @@ export async function registerBookNumber(book_number: string, user_id: string) {
                     date: new Date().toISOString(),
                 },
             });
-            //console.log('History:', History);
+            console.log('History:', History);
         } else {
             console.log('Invalid input: One or more values are null or undefined.');
         }
@@ -362,19 +362,4 @@ export async function checkRegisterdBook(
     });
     //レコードが存在する場合はtrue存在しない場合はfalseを返す
     return existingRecord !== null;
-}
-
-export async function fetchUserName(
-    user_id: string,
-) {
-    const user_name = await prisma.user.findUnique({
-        where: {
-            id: user_id,
-        },
-        select: {
-            name: true,
-        },
-    });
-    //Userテーブルから、idと一致するユーザーの名前を返却
-    return user_name;
 }
