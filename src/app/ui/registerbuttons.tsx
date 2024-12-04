@@ -17,7 +17,7 @@ export default function RegisterButtons({ result }: { result: Book | null }) {
     const pathname = usePathname();
     const { replace } = useRouter();
     const [message, setMessage] = useState('');
-    const [currentStatus, setCurrentStatus] = useState('');  // 状態管理用
+    //const [currentStatus, setCurrentStatus] = useState('');  // 状態管理用
 
 
     // 登録ボタンの処理

@@ -2,16 +2,13 @@ import React from 'react';
 import Link from 'next/link';
 import InputForm from '@/app/ui/inputform';
 import BookNumberTable from '@/app/ui/booknumbertable';
-import HandleReset from '@/app/ui/handlereset';
+//import HandleReset from '@/app/ui/handlereset';
 import RegisterBooks from '@/app/ui/registerbooks';
-import { deleteRecordsByUserId } from '@/app/lib/data';
+//import { deleteRecordsByUserId } from '@/app/lib/data';
 import { auth } from '../../../auth';
 import Image from "next/image";
 import boy_smile from '@/app/ui/childrensImages/boy_smile.png';//右の画像（後に変える）
 import binder from '@/app/ui/binder.png';//左の画像（後に変える）
-
-
-
 
 export default async function Page(props: {
   searchParams?: Promise<{ number?: string; state: string; id?: string }>;
@@ -30,7 +27,7 @@ export default async function Page(props: {
 
   return (
     <div className="bg-sky-swift h-max min-h-screen">
-      <h2 className="text-gray-700 p-4 text-4xl font-bold text-center">登録画面</h2>
+      <h2 className="text-gray-700 p-4 text-4xl font-bold text-center">よんだ本のとうろく</h2>
 
       <div className="flex justify-between mt-8">
         {/*左側*/}
