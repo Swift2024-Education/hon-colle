@@ -47,7 +47,7 @@ export default async function Page(props: {
           {/*入力フォーム等*/}
           <div className="w-full flex flex-col items-center absolute top-0 mt-28">
             <div className="w-full mt-2">
-              <InputForm placeholder="数字を入力" />
+              <InputForm placeholder="すうじをにゅうりょく" />
             </div>
             {/*
             <div className="mb-4 w-full">
