@@ -3,7 +3,7 @@ import { fetchHistoryByID } from '../lib/data';
 //キーワード検索のための関数をdataからインポート
 
 //条件分岐に必要
-import clsx from 'clsx';
+//import clsx from 'clsx';
 
 export default async function HistoryTable({
     id,

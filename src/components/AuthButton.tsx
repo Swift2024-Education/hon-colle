@@ -15,18 +15,18 @@ const AuthButton: React.FC<AuthButtonProps> = ({ onClick, label }) => {
       style={{
         padding: "10px 20px",
         fontSize: "16px",
-        border: "1px solid #ccc",
+        border: "none",
         borderRadius: "35px",
         cursor: "pointer",
-        backgroundColor: "#e5e5e5",
+        backgroundColor: "#ea580c",
         transition: "background-color 0.2s",
-        color: "#374151",
-        fontWeight: "bold"
+        color: "#FFFFFF",
+        fontWeight: 500
       }}
       onMouseOver={(e) =>
-        (e.currentTarget.style.backgroundColor = "#73BB3B")
+        (e.currentTarget.style.backgroundColor = "#73BB3B", e.currentTarget.style.color = "#374151")
       }
-      onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#e5e5e5")}
+      onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#ea580c", e.currentTarget.style.color = "#FFFFFF")}
     >
       {label}
     </button>

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import type { JWT } from "next-auth/jwt";
 
 // Session を拡張

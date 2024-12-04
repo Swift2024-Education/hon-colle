@@ -2,6 +2,7 @@ import type { NextAuthConfig } from "next-auth";
 import Google from "next-auth/providers/google";
 
 export const authConfig: NextAuthConfig = {
+  secret: process.env.AUTH_SECRET,
   providers: [
     Google,
   ], // 後ほどここにGoogle プロバイダを追加していきます

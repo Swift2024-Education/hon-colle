@@ -1,6 +1,3 @@
-//import Pagination from "../ui/pagenation";
-//import DisplayName from "../ui/displayName"
-import { fetchHistoryByID } from "./lib/data";
 import HistoryTable from "./ui/historytable";
 import { auth } from "./../../auth"
 import { fetchHistoryCountByID } from './lib/data';
