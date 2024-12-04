@@ -16,7 +16,7 @@ import { auth } from '../../../auth';
 export default async function Header() {
   const colors = ['#2FA8E1', '#E20615', '#73BB2B', '#E7CF33', '#8E8E8E'];
   const icons = [home_icon, recommendation_icon, search_icon, register_icon, setting_icon];
-  const labels = ['本だな', 'おすすめの本', '本をさがす', '本のとうろく', 'せってい/つかいかた'];
+  const labels = ['本だな', 'おすすめの本', '本をさがす', '本のとうろく', 'せってい'];
   const links = [
     "/history",
     "/recommendation",

@@ -27,8 +27,7 @@ export default async function Page(props: {
 
   return (
     <div className="bg-sky-swift h-max min-h-screen">
-      <h2 className="text-gray-700 p-4 text-4xl font-bold text-center">よんだ本のとうろく</h2>
-
+      <h2 className="text-gray-700 p-4 text-4xl font-bold text-center">とうろくがめん</h2>
       <div className="flex justify-between mt-8">
         {/*左側*/}
         <div className="w-[45%] flex flex-col items-center justify-between ml-16 h-full relative ">
@@ -44,7 +43,7 @@ export default async function Page(props: {
           {/*入力フォーム等*/}
           <div className="w-full flex flex-col items-center absolute top-0 mt-28">
             <div className="w-full mt-2">
-              <InputForm placeholder="数字を入力" />
+              <InputForm placeholder="すうじをにゅうりょく" />
             </div>
             {/*
             <div className="mb-4 w-full">
