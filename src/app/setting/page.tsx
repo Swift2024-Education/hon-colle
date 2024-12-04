@@ -8,7 +8,7 @@ import { useState, ChangeEvent } from 'react'
 import Image from "next/image";
 import boy_smile from '@/app/ui/childrensImages/boy_smile.webp';
 
-export const runtime = 'edge';
+//export const runtime = 'edge';
 
 export default function Page() {
 

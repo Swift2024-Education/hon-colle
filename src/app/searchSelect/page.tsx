@@ -11,7 +11,7 @@ const links = [
   "/search",
 ];
 
-export const runtime = 'edge';
+//export const runtime = 'edge';
 
 export default function Page() {
   return (

@@ -9,7 +9,7 @@ import Link from "next/link";
 import boy_smile from './ui/childrensImages/boy_smile.webp';
 import girl_smile from './ui/childrensImages/girl_smile.webp';
 
-export const runtime = 'edge';
+//export const runtime = 'edge';
 
 export default async function Page() {
     const currentPage = 1;

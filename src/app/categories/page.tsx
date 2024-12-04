@@ -1,7 +1,7 @@
 import Link from "next/link";
 //import { endianness } from "os";
 
-export const runtime = 'edge';
+//export const runtime = 'edge';
 
 interface Category {
   label: string;
