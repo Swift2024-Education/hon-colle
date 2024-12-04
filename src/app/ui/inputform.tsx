@@ -61,7 +61,7 @@ export default function InputForm({ placeholder }: { placeholder: string }) {
 
 
   return (
-    <div className="flex items-center justify-center bg-black">
+    <div className="flex items-center justify-center">
       <form onSubmit={handleSubmit} className="flex flex-col items-start">
         <div className="flex items-center gap-4">
           <input
@@ -69,18 +69,8 @@ export default function InputForm({ placeholder }: { placeholder: string }) {
             placeholder={placeholder}
             value={inputValueBookNumber}
             onChange={(e) => setInputValueBookNumber(e.target.value)}
-            className="block w-100 rounded-xl border-solid border-4 border-gray-200 py-2 pl-3 text-lg placeholder-gray-600"
+            className="block w-100 rounded-xl border-solid border-4 border-gray-200 py-2 pl-3 text-lg placeholder-gray-600 text-gray-700"
           />
-          {/*
-        <div className="flex items-center gap-4">
-          <input
-            type="text"
-            placeholder="idを入力"
-            value={inputValueId}
-            onChange={(e) => setInputValueId(e.target.value)}
-            className="block w-100 rounded-xl border-solid border-4 border-gray-200 py-2 pl-3 text-lg placeholder-gray-600"
-          />
-        </div>*/}
           <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
             送信
           </button>
