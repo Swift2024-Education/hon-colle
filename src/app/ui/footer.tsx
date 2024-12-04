@@ -14,7 +14,7 @@ const Footer = () => {
         'おすすめの本': { main: "/recommendation", sub: [] },
         '本をさがす': { main: "/searchSelect", sub: ["/search", "/categories"] },
         '本のとうろく': { main: "/register", sub: [] },
-        'せってい/つかい方': { main: "/setting", sub: ["/setting", "/setting"] },
+        'せってい': { main: "/setting", sub: ["/setting", "/setting"] },
     };
 
 
