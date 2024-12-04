@@ -27,7 +27,7 @@ export default async function Page(props: {
 
   return (
     <div className="bg-sky-swift h-max min-h-screen">
-      <h2 className="text-gray-700 p-4 text-4xl font-bold text-center">登録画面</h2>
+      <h2 className="text-gray-700 p-4 text-4xl font-bold text-center">よんだ本のとうろく</h2>
 
       <div className="flex justify-between mt-8">
         {/*左側*/}
