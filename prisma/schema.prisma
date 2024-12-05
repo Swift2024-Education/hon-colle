@@ -26,6 +26,8 @@ model books {
   isbn             BigInt?
   title_kana       String?
   author_kana      String?
+
+  @@index([book_number,title, author, title_kana, author_kana])
 }
 
 model news{
@@ -38,4 +40,6 @@ model history {
   book_number      BigInt
   user_id          String
   date             DateTime
+
+  @@index([user_id])
 }
