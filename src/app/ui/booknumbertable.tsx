@@ -39,7 +39,7 @@ const bookNumberTable = async ({ number, id }: BookNumberTableProps) => {
                     <div className="relative w-[125px] h-[200px]">
                       <Image
                         src={`https://www.books.or.jp/img/books_icon/${result.isbn}.jpg`}
-                        alt={`${result.title_kana}の表紙の画像`}
+                        alt={`${result.title}の表紙の画像`}
                         width={125}
                         height={175
                         }
@@ -49,11 +49,11 @@ const bookNumberTable = async ({ number, id }: BookNumberTableProps) => {
                     </div>
                     {/* タイトルの配置 */}
                     <div className="flex-grow flex items-center justify-center mt-3 text-2xl font-medium text-center">
-                      {result.title_kana}
+                      {result.title}
                     </div>
                     {/* 著者名の配置 */}
                     <div className="mt-2 text-lg text-center">
-                      {result.author_kana}
+                      {result.author}
                     </div>
                   </div>
                 )

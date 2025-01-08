@@ -81,8 +81,7 @@ export async function fetchBooksByQuery(
         select: {
             book_number: true,
             title: true,
-            title_kana: true,
-            author_kana: true,
+            author: true,
             isbn: true,
         },
         //返却する情報の種類を選択
@@ -92,7 +91,7 @@ export async function fetchBooksByQuery(
 
 export async function fetchBooksByCategory(
     //カテゴリ番号が一致する本を取得する関数
-    categoryNumber: string,  //1桁の数字（カテゴリ番号）や'e'などカテゴリを区別する
+    categoryNumber: string,  //1桁の数字（カテゴリ番号）や'E'などカテゴリを区別する
     currentPage: number,
 ) {
     const offset = (currentPage - 1) * ITEMS_PER_PAGE;
@@ -105,8 +104,7 @@ export async function fetchBooksByCategory(
         select: {
             book_number: true,
             title: true,
-            title_kana: true,
-            author_kana: true,
+            author: true,
             category_number: true,
             isbn: true,
         },
@@ -114,7 +112,7 @@ export async function fetchBooksByCategory(
 
     //取得した全ての本をフィルタリング
     const filteredBooks = allBooks.filter((book) => {
-        if (categoryNumber === 'e') {
+        if (categoryNumber === 'E') {
             //categoryNumberが'e'の場合、category_numberが'E'から始まる本を取得
             return book.category_number?.startsWith('E');
         }
@@ -167,8 +165,7 @@ export async function fetchBookCountByCategory(categoryNumber: string) {
         select: {
             book_number: true,
             title: true,
-            title_kana: true,
-            author_kana: true,
+            author: true,
             category_number: true,
             isbn: true,
         },
@@ -230,7 +227,7 @@ export async function fetchBookByBookNumber(number: string) {
             book_number: true,
             title: true,
             title_kana: true,
-            author_kana: true,
+            author: true,
             isbn: true,
         },
     });

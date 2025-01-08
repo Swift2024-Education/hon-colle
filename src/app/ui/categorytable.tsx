@@ -28,7 +28,7 @@ export default async function categoryTable({
                             <div className="relative w-[125px] h-[200px]">
                                     <Image
                                         src={`https://www.books.or.jp/img/books_icon/${books.isbn}.jpg`}
-                                        alt={`${books.title_kana}の表紙の画像`}
+                                        alt={`${books.title}の表紙の画像`}
                                         width={125}
                                         height={175
                                         }
@@ -38,11 +38,11 @@ export default async function categoryTable({
                                 </div>
                             {/* タイトルの配置 */}
                             <div className="flex-grow flex items-center justify-center mt-3 text-2xl font-medium text-center">
-                                    {books.title_kana}
+                                    {books.title}
                                 </div>
                                 {/* 著者名の配置 */}
                                 <div className="mt-2 text-lg text-center">
-                                    {books.author_kana}
+                                    {books.author}
                                 </div>
                         </div>
                     </div>

@@ -20,7 +20,7 @@ const category: Category[] = [
   { label: '芸術', value: '7'  ,subItems:['スポーツ','おりがみ']},
   { label: '言語', value: '8'  ,subItems:['えいご']},
   { label: '文学', value: '9'  ,subItems:['ものがたり']},
-  { label: '絵本', value: 'e' ,subItems:[''] }, // 絵本
+  { label: '絵本', value: 'E' ,subItems:[''] }, // 絵本
   { label: 'そのほか', value: '10'  ,subItems:['かいだん',]}, // その他
 ];
 
