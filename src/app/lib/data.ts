@@ -81,8 +81,7 @@ export async function fetchBooksByQuery(
         select: {
             book_number: true,
             title: true,
-            title_kana: true,
-            author_kana: true,
+            author: true,
             isbn: true,
         },
         //返却する情報の種類を選択
@@ -105,8 +104,7 @@ export async function fetchBooksByCategory(
         select: {
             book_number: true,
             title: true,
-            title_kana: true,
-            author_kana: true,
+            author: true,
             category_number: true,
             isbn: true,
         },
@@ -167,8 +165,7 @@ export async function fetchBookCountByCategory(categoryNumber: string) {
         select: {
             book_number: true,
             title: true,
-            title_kana: true,
-            author_kana: true,
+            author: true,
             category_number: true,
             isbn: true,
         },
@@ -230,7 +227,7 @@ export async function fetchBookByBookNumber(number: string) {
             book_number: true,
             title: true,
             title_kana: true,
-            author_kana: true,
+            author: true,
             isbn: true,
         },
     });
