@@ -43,7 +43,7 @@ export default async function Page(props: {
           {/*入力フォーム等*/}
           <div className="w-full flex flex-col items-center absolute top-0 mt-28">
             <div className="w-full mt-2">
-              <InputForm placeholder="すうじをにゅうりょく" />
+              <InputForm placeholder="学校バーコードの下にある10ケタの数字を入力しよう！" />
             </div>
             {/*
             <div className="mb-4 w-full">

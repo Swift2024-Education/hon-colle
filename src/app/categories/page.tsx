@@ -21,7 +21,7 @@ const category: Category[] = [
   { label: '言語', value: '8'  ,subItems:['えいご']},
   { label: '文学', value: '9'  ,subItems:['ものがたり']},
   { label: '絵本', value: 'E' ,subItems:[''] }, // 絵本
-  { label: 'そのほか', value: '10'  ,subItems:['かいだん',]}, // その他
+  //{ label: 'そのほか', value: '10'  ,subItems:['かいだん',]}, // その他
 ];
 
 // カテゴリごとの枠線の色の配列
