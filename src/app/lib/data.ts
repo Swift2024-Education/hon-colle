@@ -91,7 +91,7 @@ export async function fetchBooksByQuery(
 
 export async function fetchBooksByCategory(
     //カテゴリ番号が一致する本を取得する関数
-    categoryNumber: string,  //1桁の数字（カテゴリ番号）や'e'などカテゴリを区別する
+    categoryNumber: string,  //1桁の数字（カテゴリ番号）や'E'などカテゴリを区別する
     currentPage: number,
 ) {
     const offset = (currentPage - 1) * ITEMS_PER_PAGE;
@@ -112,7 +112,7 @@ export async function fetchBooksByCategory(
 
     //取得した全ての本をフィルタリング
     const filteredBooks = allBooks.filter((book) => {
-        if (categoryNumber === 'e') {
+        if (categoryNumber === 'E') {
             //categoryNumberが'e'の場合、category_numberが'E'から始まる本を取得
             return book.category_number?.startsWith('E');
         }
