@@ -9,7 +9,7 @@ type Book = {
     title: string | null;
     isbn: bigint | null;
     title_kana: string | null;
-    author_kana: string | null;
+    author: string | null;
 };
 
 export default function RegisterButtons({ result }: { result: Book | null }) {
