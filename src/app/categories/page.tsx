@@ -10,17 +10,17 @@ interface Category {
 }
 
 const category: Category[] = [
-  { label: 'そうき', value: '0' ,subItems:['シリーズ・ぜんしゅう','ひゃっかじてん']},
-  { label: 'てつがく', value: '1' ,subItems:['しゅうきょう','しんわ'] },
-  { label: 'れきし', value: '2'  ,subItems:['にほんのれきし','せかいのれきし','でんき']},
-  { label: 'まちのしくみ', value: '3'  ,subItems:['せいじ・ざいせい','みんぞくのぶんか・れきし']},
-  { label: 'しぜんのふしぎ', value: '4'  ,subItems:['いきもの','しょくぶつ']},
-  { label: 'ぎじゅつ', value: '5'  ,subItems:['のりもの','りょうり']},
-  { label: 'さんぎょう', value: '6' ,subItems:['のうぎょう','えんげい','すいさんぎょう']},
-  { label: 'げいじゅつ', value: '7'  ,subItems:['スポーツ','おりがみ']},
-  { label: 'ことば', value: '8'  ,subItems:['えいご']},
-  { label: 'ものがたり', value: '9'  ,subItems:['ものがたり']},
-  { label: 'えほん', value: 'E' ,subItems:[''] }, // 絵本
+  { label: '総記', value: '0' ,subItems:['シリーズ・ぜんしゅう','ひゃっかじてん']},
+  { label: '哲学', value: '1' ,subItems:['しゅうきょう','しんわ'] },
+  { label: '歴史', value: '2'  ,subItems:['にほんのれきし','せかいのれきし','でんき']},
+  { label: '社会科学', value: '3'  ,subItems:['せいじ・ざいせい','みんぞくのぶんか・れきし']},
+  { label: '自然科学', value: '4'  ,subItems:['いきもの','しょくぶつ']},
+  { label: '技術', value: '5'  ,subItems:['のりもの','りょうり']},
+  { label: '産業', value: '6' ,subItems:['のうぎょう','えんげい','すいさんぎょう']},
+  { label: '芸術', value: '7'  ,subItems:['スポーツ','おりがみ']},
+  { label: '言語', value: '8'  ,subItems:['えいご']},
+  { label: '文学', value: '9'  ,subItems:['ものがたり']},
+  { label: '絵本', value: 'E' ,subItems:[''] }, // 絵本
   { label: 'そのほか', value: '10'  ,subItems:['かいだん',]}, // その他
 ];
 
